@@ -2,3003 +2,1278 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>AffiliateHub - Dashboard</title>
 
 <style>
 
-/* =========================================================
-   AFFILIATEHUB PREMIUM 3D DASHBOARD
-   BLUE + PURPLE GLASS / 3D SYSTEM
-========================================================= */
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    -webkit-tap-highlight-color:transparent;
 }
 
 :root{
-    --bg:#eef3ff;
-    --white:#ffffff;
-    --navy:#101a42;
-    --navy2:#17245a;
-    --blue:#3975ff;
-    --blue2:#1768ff;
-    --purple:#7956ff;
-    --cyan:#25c9ff;
-    --green:#16b887;
-    --orange:#ff9f24;
-    --pink:#ef63a5;
-    --text:#17213f;
-    --muted:#8b94ac;
-
-    --shadow:
-        0 15px 40px rgba(38,58,120,.13);
-
-    --deep-shadow:
-        0 25px 60px rgba(28,45,105,.22);
+    --bg:#070b14;
+    --card:#101725;
+    --card2:#131d2d;
+    --text:#f5f7fb;
+    --muted:#8d99ad;
+    --primary:#4f8cff;
+    --primary2:#7c5cff;
+    --green:#22c987;
+    --border:rgba(255,255,255,.08);
 }
 
-
-/* =========================================================
-   BODY
-========================================================= */
-
 body{
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    font-family:Arial,Helvetica,sans-serif;
     background:
-
-        radial-gradient(
-            circle at 5% 5%,
-            rgba(73,105,255,.18),
-            transparent 25%
-        ),
-
-        radial-gradient(
-            circle at 95% 15%,
-            rgba(163,92,255,.16),
-            transparent 28%
-        ),
-
-        radial-gradient(
-            circle at 50% 90%,
-            rgba(37,201,255,.08),
-            transparent 30%
-        ),
-
+        radial-gradient(circle at 10% 10%,rgba(79,140,255,.14),transparent 28%),
+        radial-gradient(circle at 90% 20%,rgba(124,92,255,.12),transparent 28%),
         var(--bg);
-
     color:var(--text);
-
     min-height:100vh;
-
     overflow-x:hidden;
 }
 
+/* =========================
+   BACKGROUND
+========================= */
 
-/* =========================================================
-   3D BACKGROUND
-========================================================= */
-
-.background-orb{
-
+.bg-orb{
     position:fixed;
-
     border-radius:50%;
-
+    filter:blur(70px);
     pointer-events:none;
-
-    filter:blur(2px);
-
     z-index:-1;
-
-    animation:
-        orbFloat
-        8s
-        ease-in-out
-        infinite;
 }
 
-.orb-one{
-
-    width:120px;
-    height:120px;
-
-    top:15%;
-    left:-45px;
-
-    background:
-        radial-gradient(
-            circle at 30% 30%,
-            rgba(110,140,255,.35),
-            rgba(70,90,255,.03)
-        );
+.orb1{
+    width:220px;
+    height:220px;
+    background:rgba(79,140,255,.12);
+    top:-70px;
+    left:-80px;
 }
 
-.orb-two{
-
-    width:160px;
-    height:160px;
-
-    top:55%;
-    right:-80px;
-
-    background:
-        radial-gradient(
-            circle at 40% 40%,
-            rgba(174,112,255,.25),
-            rgba(100,70,255,.02)
-        );
-
-    animation-delay:-3s;
+.orb2{
+    width:250px;
+    height:250px;
+    background:rgba(124,92,255,.10);
+    right:-100px;
+    top:35%;
 }
 
-@keyframes orbFloat{
-
-    0%,100%{
-        transform:
-            translate3d(0,0,0)
-            scale(1);
-    }
-
-    50%{
-        transform:
-            translate3d(0,-25px,0)
-            scale(1.08);
-    }
-}
-
-
-/* =========================================================
-   MAIN APP
-========================================================= */
-
-.app{
-
-    width:100%;
-
-    max-width:480px;
-
-    margin:auto;
-
-    min-height:100vh;
-
-    padding-bottom:100px;
-
-    position:relative;
-}
-
-
-/* =========================================================
-   TOP HEADER
-========================================================= */
-
-.topbar{
-
-    height:82px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    padding:12px 18px;
-}
-
-
-.icon-btn{
-
-    width:44px;
-    height:44px;
-
-    border:0;
-
-    border-radius:15px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.95),
-            rgba(239,244,255,.75)
-        );
-
-    box-shadow:
-        0 10px 25px rgba(39,63,130,.12),
-        inset 0 1px rgba(255,255,255,.9);
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    font-size:19px;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-    position:relative;
-
-    overflow:hidden;
-}
-
-.icon-btn:before{
-
-    content:"";
-
-    position:absolute;
-
-    width:45px;
-    height:100px;
-
-    background:
-        rgba(255,255,255,.5);
-
-    transform:
-        rotate(35deg)
-        translateX(-70px);
-
-    transition:.5s;
-}
-
-.icon-btn:hover:before{
-
-    transform:
-        rotate(35deg)
-        translateX(70px);
-}
-
-.icon-btn:active{
-
-    transform:
-        scale(.88)
-        translateY(2px);
-}
-
-
-/* =========================================================
-   3D LOGO
-========================================================= */
-
-.logo{
-
-    width:58px;
-    height:58px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    position:relative;
-
-    perspective:700px;
-}
-
-.logo-glow{
-
-    position:absolute;
-
-    width:52px;
-    height:52px;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(70,103,255,.24),
-            transparent 68%
-        );
-
-    filter:blur(3px);
-
-    animation:
-        logoGlow 3s ease-in-out infinite;
-}
-
-@keyframes logoGlow{
-
-    0%,100%{
-        transform:scale(.9);
-        opacity:.6;
-    }
-
-    50%{
-        transform:scale(1.2);
-        opacity:1;
-    }
-}
-
-.logo-shape{
-
-    width:34px;
-    height:45px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #ff6b48,
-            #ef2b20
-        );
-
-    clip-path:
-        polygon(
-            50% 0%,
-            88% 22%,
-            88% 72%,
-            50% 100%,
-            12% 78%,
-            12% 28%
-        );
-
-    transform:
-        rotateY(-20deg)
-        rotateX(10deg);
-
-    filter:
-        drop-shadow(
-            7px 9px 6px
-            rgba(220,38,25,.30)
-        );
-
-    animation:
-        logoFloat
-        3s
-        ease-in-out
-        infinite;
-}
-
-.logo-shape:after{
-
-    content:"";
-
-    position:absolute;
-
-    width:12px;
-    height:20px;
-
-    background:#fff;
-
-    left:11px;
-    top:12px;
-
-    clip-path:
-        polygon(
-            50% 0,
-            100% 30%,
-            100% 70%,
-            50% 100%,
-            0 70%,
-            0 30%
-        );
-
-    opacity:.92;
-}
-
-@keyframes logoFloat{
-
-    0%,100%{
-
-        transform:
-            translateY(0)
-            rotateY(-20deg)
-            rotateX(10deg);
-    }
-
-    50%{
-
-        transform:
-            translateY(-7px)
-            rotateY(18deg)
-            rotateX(-6deg);
-    }
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero{
-
-    margin:5px 12px 16px;
-
-    min-height:185px;
-
-    border-radius:27px;
-
-    overflow:hidden;
-
-    position:relative;
-
-    background:
-
-        radial-gradient(
-            circle at 80% 18%,
-            rgba(255,255,255,.30),
-            transparent 18%
-        ),
-
-        radial-gradient(
-            circle at 20% 90%,
-            rgba(35,201,255,.15),
-            transparent 28%
-        ),
-
-        linear-gradient(
-            135deg,
-            #6850ef,
-            #8a50ed 38%,
-            #d05cae 72%,
-            #f27fae
-        );
-
-    box-shadow:
-
-        0 20px 45px
-        rgba(91,68,190,.25),
-
-        inset 0 1px
-        rgba(255,255,255,.35);
-
-    transform:
-        translateZ(0);
-
-    isolation:isolate;
-}
-
-.hero:before{
-
-    content:"";
-
-    position:absolute;
-
-    width:190px;
-    height:190px;
-
-    border-radius:50%;
-
-    right:-75px;
-    top:-60px;
-
-    background:
-        rgba(255,255,255,.10);
-
-    box-shadow:
-        inset 0 0 30px
-        rgba(255,255,255,.08);
-}
-
-.hero:after{
-
-    content:"";
-
-    position:absolute;
-
+.orb3{
     width:180px;
     height:180px;
-
-    border-radius:50%;
-
-    left:-90px;
-    bottom:-115px;
-
-    background:
-        rgba(255,255,255,.09);
+    background:rgba(34,201,135,.06);
+    left:30%;
+    bottom:-80px;
 }
 
-.hero-content{
-
-    position:relative;
-
-    z-index:5;
-
-    padding:26px 20px;
-
-    width:70%;
-}
-
-.hero-small{
-
-    color:#fff;
-
-    font-size:10px;
-
-    font-weight:900;
-
-    letter-spacing:1.3px;
-
-    text-transform:uppercase;
-
-    opacity:.88;
-}
-
-.hero h1{
-
-    color:#fff;
-
-    font-size:28px;
-
-    line-height:1.03;
-
-    margin-top:7px;
-
-    text-shadow:
-        0 5px 15px
-        rgba(57,28,120,.18);
-}
-
-.hero p{
-
-    color:
-        rgba(255,255,255,.92);
-
-    font-size:11px;
-
-    margin-top:10px;
-
-    line-height:1.4;
-}
-
-.hero-button{
-
-    margin-top:13px;
-
-    border:0;
-
-    border-radius:11px;
-
-    padding:10px 14px;
-
-    background:#fff;
-
-    color:#754eea;
-
-    font-weight:900;
-
-    font-size:10px;
-
-    box-shadow:
-
-        0 10px 20px
-        rgba(0,0,0,.14),
-
-        inset 0 1px
-        rgba(255,255,255,.9);
-
-    cursor:pointer;
-
-    transition:.25s;
-}
-
-.hero-button:active{
-
-    transform:
-        scale(.94)
-        translateY(2px);
-}
-
-
-/* =========================================================
-   HERO 3D PEOPLE
-========================================================= */
-
-.hero-shape{
-
-    position:absolute;
-
-    right:7px;
-
-    bottom:-3px;
-
-    width:150px;
-    height:155px;
-
-    transform:
-        perspective(700px)
-        rotateY(-12deg);
-
-    transform-style:preserve-3d;
-}
-
-.person{
-
-    position:absolute;
-
-    bottom:0;
-
-    border-radius:
-        60px
-        60px
-        15px
-        15px;
-
-    box-shadow:
-        10px 5px 25px
-        rgba(0,0,0,.13);
-
-    transform-style:preserve-3d;
-}
-
-.person.one{
-
-    width:57px;
-    height:122px;
-
-    right:65px;
-
-    background:
-        linear-gradient(
-            160deg,
-            #14b2c4,
-            #075b75
-        );
-
-    transform:
-        translateZ(20px);
-}
-
-.person.two{
-
-    width:49px;
-    height:107px;
-
-    right:14px;
-
-    background:
-        linear-gradient(
-            160deg,
-            #f2a6bf,
-            #cc4c80
-        );
-
-    transform:
-        translateZ(8px);
-}
-
-.person.three{
-
-    width:45px;
-    height:97px;
-
-    right:100px;
-
-    background:
-        linear-gradient(
-            160deg,
-            #38c4ab,
-            #087e79
-        );
-
-    transform:
-        translateZ(30px);
-}
-
-.head{
-
-    position:absolute;
-
-    width:36px;
-    height:36px;
-
-    border-radius:50%;
-
-    background:
-        linear-gradient(
-            145deg,
-            #dca27d,
-            #b87556
-        );
-
-    top:-30px;
-
-    left:10px;
-
-    box-shadow:
-        4px 5px 10px
-        rgba(0,0,0,.12);
-}
-
-
-/* =========================================================
-   QUICK ACTIONS
-========================================================= */
-
-.actions{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:10px;
-
-    padding:0 12px;
-}
-
-.action{
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.96),
-            rgba(246,249,255,.82)
-        );
-
-    border-radius:19px;
-
-    padding:13px 4px 11px;
-
-    text-align:center;
-
-    box-shadow:
-
-        0 12px 30px
-        rgba(39,60,120,.12),
-
-        inset 0 1px
-        rgba(255,255,255,.9);
-
-    cursor:pointer;
-
-    transition:.25s;
-
-    transform:
-        translateZ(0);
-}
-
-.action:hover{
-
-    transform:
-        translateY(-4px);
-}
-
-.action:active{
-
-    transform:
-        translateY(3px)
-        scale(.95);
-}
-
-.action-icon{
-
-    width:37px;
-    height:37px;
-
-    margin:auto;
-
-    border-radius:12px;
-
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    width:100%;
+    padding:18px 20px;
     display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid var(--border);
+    background:rgba(7,11,20,.72);
+    backdrop-filter:blur(18px);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
 
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+/* clean futuristic logo */
+
+.logo{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    display:flex;
     align-items:center;
     justify-content:center;
-
-    color:#fff;
-
-    font-size:17px;
-
+    background:linear-gradient(135deg,var(--primary),var(--primary2));
     box-shadow:
-
-        0 8px 16px
-        rgba(0,0,0,.13),
-
-        inset 0 1px
-        rgba(255,255,255,.35);
+        0 8px 25px rgba(79,140,255,.25);
+    font-weight:900;
+    font-size:18px;
+    color:white;
 }
 
-.recharge{
-
-    background:
-        linear-gradient(
-            145deg,
-            #ffb641,
-            #f27812
-        );
-}
-
-.withdraw{
-
-    background:
-        linear-gradient(
-            145deg,
-            #2ed4a4,
-            #07986e
-        );
-}
-
-.invite{
-
-    background:
-        linear-gradient(
-            145deg,
-            #a07aff,
-            #6240df
-        );
-}
-
-.support{
-
-    background:
-        linear-gradient(
-            145deg,
-            #3bb9f3,
-            #2369dc
-        );
-}
-
-.action span{
-
-    display:block;
-
-    font-size:9px;
-
+.brand{
+    font-size:18px;
     font-weight:800;
-
-    margin-top:7px;
+    letter-spacing:.3px;
 }
 
+.brand span{
+    color:#6fa0ff;
+}
 
-/* =========================================================
-   NOTICE
-========================================================= */
-
-.notice{
-
-    margin:18px 12px 14px;
-
-    height:41px;
-
-    border-radius:15px;
-
-    background:
-        rgba(255,255,255,.90);
-
-    box-shadow:
-        0 10px 30px
-        rgba(39,60,120,.10),
-
-        inset 0 1px
-        rgba(255,255,255,.9);
-
+.header-right{
     display:flex;
-
     align-items:center;
-
-    overflow:hidden;
+    gap:12px;
 }
 
-.notice-icon{
-
-    width:42px;
-
-    text-align:center;
-
-    font-size:17px;
-
-    flex-shrink:0;
+.notification{
+    width:40px;
+    height:40px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(255,255,255,.035);
+    font-size:18px;
 }
 
-.notice-text{
-
-    white-space:nowrap;
-
-    font-size:11px;
-
-    font-weight:700;
-
-    animation:
-        scrollText
-        13s
-        linear
-        infinite;
+.profile{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#4f8cff,#7c5cff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
 }
 
-@keyframes scrollText{
+/* =========================
+   CONTAINER
+========================= */
 
-    from{
-        transform:translateX(100%);
-    }
-
-    to{
-        transform:translateX(-130%);
-    }
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:25px 18px 100px;
 }
 
+/* =========================
+   WELCOME
+========================= */
 
-/* =========================================================
+.welcome{
+    margin-bottom:20px;
+}
+
+.welcome small{
+    color:var(--muted);
+    font-size:13px;
+}
+
+.welcome h1{
+    margin-top:5px;
+    font-size:27px;
+}
+
+.welcome h1 span{
+    color:#6fa0ff;
+}
+
+/* =========================
    BALANCE CARD
-========================================================= */
+========================= */
 
 .balance-card{
-
-    margin:0 12px;
-
-    min-height:225px;
-
-    border-radius:27px;
-
     position:relative;
-
     overflow:hidden;
-
-    padding:22px 18px;
-
-    color:#fff;
-
+    border-radius:24px;
+    padding:25px;
     background:
-
-        radial-gradient(
-            circle at 85% 15%,
-            rgba(255,255,255,.16),
-            transparent 20%
-        ),
-
-        radial-gradient(
-            circle at 15% 90%,
-            rgba(65,130,255,.13),
-            transparent 25%
-        ),
-
-        linear-gradient(
-            145deg,
-            #111f50,
-            #263675 48%,
-            #131f4a
-        );
-
-    box-shadow:
-
-        0 25px 50px
-        rgba(24,39,92,.28),
-
-        inset 0 1px
-        rgba(255,255,255,.15);
-
-    transform-style:preserve-3d;
-
-    transition:
-        transform
-        .35s
-        ease;
+        linear-gradient(135deg,
+        rgba(79,140,255,.20),
+        rgba(124,92,255,.14)),
+        var(--card);
+    border:1px solid rgba(110,150,255,.18);
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
 }
 
 .balance-card:before{
-
     content:"";
-
     position:absolute;
-
-    width:210px;
-    height:210px;
-
+    width:180px;
+    height:180px;
     border-radius:50%;
-
-    right:-100px;
-    bottom:-115px;
-
-    border:
-        35px solid
-        rgba(255,255,255,.035);
-
-    transform:
-        translateZ(10px);
+    background:rgba(255,255,255,.04);
+    right:-70px;
+    top:-70px;
 }
 
-.balance-card:after{
-
-    content:"";
-
-    position:absolute;
-
-    width:80px;
-    height:200px;
-
-    left:-90px;
-    top:-40px;
-
-    background:
-        rgba(255,255,255,.06);
-
-    transform:
-        rotate(25deg);
-
-    animation:
-        balanceShine
-        5s
-        ease-in-out
-        infinite;
+.balance-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-@keyframes balanceShine{
-
-    0%,100%{
-        left:-100px;
-    }
-
-    50%{
-        left:450px;
-    }
-}
-
-.phone{
-
-    font-size:11px;
-
-    letter-spacing:1px;
-
-    opacity:.85;
-}
-
-.score{
-
-    position:absolute;
-
-    right:15px;
-    top:17px;
-
-    border-radius:20px;
-
-    padding:7px 11px;
-
-    background:
-        rgba(255,255,255,.10);
-
-    border:
-        1px solid
-        rgba(255,255,255,.12);
-
-    font-size:10px;
-
-    font-weight:bold;
-
-    backdrop-filter:blur(10px);
-}
-
-.balance-title{
-
-    margin-top:28px;
-
-    font-size:10px;
-
-    letter-spacing:1px;
-
-    opacity:.65;
+.balance-label{
+    color:#b5c0d3;
+    font-size:13px;
 }
 
 .balance{
-
-    font-size:34px;
-
-    font-weight:900;
-
-    margin-top:5px;
-
-    letter-spacing:.5px;
-
-    text-shadow:
-        0 6px 15px
-        rgba(0,0,0,.18);
-
-    transform:
-        translateZ(18px);
+    margin-top:10px;
+    font-size:37px;
+    font-weight:800;
+    letter-spacing:-1px;
 }
 
+.balance-sub{
+    margin-top:8px;
+    color:#9ba8bd;
+    font-size:12px;
+}
+
+.balance-actions{
+    margin-top:22px;
+    display:flex;
+    gap:10px;
+}
+
+.btn{
+    border:none;
+    padding:12px 20px;
+    border-radius:12px;
+    font-weight:700;
+    cursor:pointer;
+    font-size:13px;
+}
+
+.btn-primary{
+    color:white;
+    background:linear-gradient(135deg,var(--primary),var(--primary2));
+}
+
+.btn-secondary{
+    color:#dce5f5;
+    background:rgba(255,255,255,.06);
+    border:1px solid var(--border);
+}
+
+/* =========================
+   STATS
+========================= */
+
 .stats{
-
-    position:absolute;
-
-    left:16px;
-    right:16px;
-    bottom:15px;
-
-    background:
-        rgba(255,255,255,.09);
-
-    border-radius:17px;
-
-    padding:11px 12px;
-
-    backdrop-filter:
-        blur(12px);
-
-    border:
-        1px solid
-        rgba(255,255,255,.07);
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:13px;
+    margin-top:16px;
 }
 
 .stat{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    font-size:10px;
-
-    margin:7px 0;
+    padding:18px;
+    border-radius:18px;
+    background:var(--card);
+    border:1px solid var(--border);
 }
 
-.stat span:first-child{
-
-    opacity:.65;
+.stat-icon{
+    font-size:20px;
 }
 
-.stat span:last-child{
+.stat-title{
+    color:var(--muted);
+    font-size:11px;
+    margin-top:12px;
+}
 
+.stat-value{
+    font-size:20px;
     font-weight:800;
+    margin-top:5px;
 }
 
+/* =========================
+   SECTION
+========================= */
 
-/* =========================================================
-   SECTION TITLE
-========================================================= */
-
-.section-title{
-
-    padding:19px 14px 10px;
-
-    font-size:16px;
-
-    font-weight:900;
+.section{
+    margin-top:28px;
 }
 
-.section-title small{
-
-    float:right;
-
-    font-size:10px;
-
-    color:#6472a2;
-
-    font-weight:700;
-
-    margin-top:3px;
+.section-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:13px;
 }
 
+.section-head h2{
+    font-size:18px;
+}
 
-/* =========================================================
-   INFORMATION / WITHDRAWALS
-========================================================= */
+.section-head span{
+    color:#6fa0ff;
+    font-size:12px;
+}
 
-.withdrawals{
+/* =========================
+   QUICK ACTIONS
+========================= */
 
-    margin:0 12px;
+.actions{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
 
-    background:#fff;
+.action{
+    padding:18px 10px;
+    text-align:center;
+    border-radius:18px;
+    background:var(--card);
+    border:1px solid var(--border);
+    transition:.25s;
+    cursor:pointer;
+}
 
-    border-radius:20px;
+.action:hover{
+    transform:translateY(-4px);
+    border-color:rgba(79,140,255,.35);
+}
 
+.action-icon{
+    font-size:25px;
+}
+
+.action-title{
+    font-size:12px;
+    color:#cbd4e2;
+    margin-top:9px;
+}
+
+/* =========================
+   WITHDRAW FEED
+========================= */
+
+.withdraw-box{
+    border-radius:21px;
+    background:var(--card);
+    border:1px solid var(--border);
     overflow:hidden;
+}
 
-    box-shadow:
-        0 14px 35px
-        rgba(39,60,120,.11);
+.demo-header{
+    padding:14px 16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid var(--border);
+    background:rgba(255,193,7,.035);
+}
+
+.demo-title{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.demo-badge{
+    padding:4px 8px;
+    border-radius:7px;
+    background:rgba(255,193,7,.12);
+    color:#ffc107;
+    font-size:9px;
+    letter-spacing:.5px;
+}
+
+.live-dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#22c987;
+    box-shadow:0 0 10px #22c987;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{opacity:1}
+    50%{opacity:.35}
+}
+
+.withdraw-list{
+    padding:4px 15px;
 }
 
 .withdraw-item{
-
-    min-height:68px;
-
     display:flex;
-
+    justify-content:space-between;
     align-items:center;
-
-    padding:10px 12px;
-
-    border-bottom:
-        1px solid
-        #edf0f7;
-
-    transition:.2s;
-}
-
-.withdraw-item:active{
-
-    background:#f8faff;
+    padding:15px 2px;
+    border-bottom:1px solid rgba(255,255,255,.05);
+    animation:slideIn .4s ease;
 }
 
 .withdraw-item:last-child{
-
-    border-bottom:0;
+    border-bottom:none;
 }
 
-.check{
-
-    width:31px;
-    height:31px;
-
-    border-radius:50%;
-
-    background:
-        linear-gradient(
-            145deg,
-            #effcf8,
-            #dcf8f0
-        );
-
-    color:#14ae82;
-
+.user-info{
     display:flex;
+    align-items:center;
+    gap:10px;
+}
 
+.user-avatar{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    display:flex;
     align-items:center;
     justify-content:center;
-
-    margin-right:10px;
-
-    font-size:13px;
-
-    box-shadow:
-        0 5px 12px
-        rgba(20,174,130,.10);
+    background:rgba(79,140,255,.12);
+    font-size:15px;
 }
 
-.withdraw-info{
-
-    flex:1;
-
-    min-width:0;
+.user-name{
+    font-size:12px;
+    font-weight:700;
 }
 
-.withdraw-info b{
-
-    display:block;
-
+.withdraw-status{
+    color:#7f8ca0;
     font-size:10px;
-
-    white-space:nowrap;
-
-    overflow:hidden;
-
-    text-overflow:ellipsis;
-}
-
-.withdraw-info small{
-
-    display:block;
-
-    margin-top:5px;
-
-    color:#9ba3b8;
-
-    font-size:8px;
+    margin-top:3px;
 }
 
 .amount{
-
-    color:#ff9f21;
-
-    font-weight:900;
-
-    font-size:11px;
-}
-
-
-/* =========================================================
-   INFO GRID
-========================================================= */
-
-.info-grid{
-
-    padding:10px 12px 0;
-
-    display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:10px;
-}
-
-.info-box{
-
-    min-height:66px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #fff,
-            #f8faff
-        );
-
-    border-radius:18px;
-
-    box-shadow:
-        0 12px 30px
-        rgba(39,60,120,.10),
-
-        inset 0 1px
-        rgba(255,255,255,.9);
-
-    display:flex;
-
-    align-items:center;
-
-    padding:12px;
-
-    gap:10px;
-
-    font-size:11px;
-
+    text-align:right;
     font-weight:800;
+    font-size:13px;
+    color:#35d99a;
+}
 
-    cursor:pointer;
+.success{
+    color:#35d99a;
+    font-size:9px;
+    margin-top:3px;
+}
 
+@keyframes slideIn{
+    from{
+        opacity:0;
+        transform:translateY(-8px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   PARTNER STORES
+========================= */
+
+.stores{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:13px;
+}
+
+.store{
+    padding:18px;
+    border-radius:18px;
+    background:var(--card);
+    border:1px solid var(--border);
     transition:.25s;
 }
 
-.info-box:hover{
-
-    transform:
-        translateY(-3px);
+.store:hover{
+    transform:translateY(-3px);
 }
 
-.info-box:active{
-
-    transform:
-        scale(.97);
+.store-logo{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(255,255,255,.06);
+    font-weight:900;
 }
 
-.info-box:nth-child(3){
-
-    grid-column:1/3;
+.store-name{
+    margin-top:13px;
+    font-weight:700;
+    font-size:13px;
 }
 
-.info-icon{
+.store-desc{
+    color:var(--muted);
+    font-size:10px;
+    margin-top:5px;
+}
 
-    width:31px;
-    height:31px;
-
-    flex-shrink:0;
-
+.store-btn{
+    margin-top:14px;
+    width:100%;
+    padding:9px;
     border-radius:10px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #edf5ff,
-            #e4edff
-        );
-
-    color:#2772df;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    box-shadow:
-        inset 0 1px
-        rgba(255,255,255,.9);
+    border:1px solid var(--border);
+    background:rgba(79,140,255,.08);
+    color:#82aaff;
+    font-size:11px;
+    font-weight:bold;
 }
 
+/* =========================
+   NOTICE
+========================= */
 
-/* =========================================================
-   PARTNERS
-========================================================= */
-
-.partner-title{
-
-    padding-top:21px;
+.notice{
+    margin-top:20px;
+    padding:15px;
+    border-radius:16px;
+    background:rgba(79,140,255,.055);
+    border:1px solid rgba(79,140,255,.10);
+    color:#aebbd0;
+    font-size:11px;
+    line-height:1.6;
 }
 
-.partners{
-
-    padding:
-        0 12px
-        10px;
-
-    display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:14px;
-
-    perspective:1000px;
-}
-
-.partner-card{
-
-    height:86px;
-
-    border-radius:19px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    position:relative;
-
-    overflow:hidden;
-
-    box-shadow:
-
-        0 16px 30px
-        rgba(30,50,100,.16),
-
-        inset 0 1px
-        rgba(255,255,255,.4);
-
-    transform-style:preserve-3d;
-
-    animation:
-        partnerFloat
-        4s
-        ease-in-out
-        infinite;
-
-    cursor:pointer;
-
-    transition:
-        transform
-        .25s
-        ease;
-}
-
-.partner-card:nth-child(2){
-    animation-delay:-1s;
-}
-
-.partner-card:nth-child(3){
-    animation-delay:-2s;
-}
-
-.partner-card:nth-child(4){
-    animation-delay:-3s;
-}
-
-.partner-card:nth-child(5){
-    animation-delay:-1.5s;
-}
-
-.partner-card:nth-child(6){
-    animation-delay:-2.5s;
-}
-
-@keyframes partnerFloat{
-
-    0%,100%{
-
-        transform:
-            translateY(0)
-            rotateX(0deg)
-            rotateY(0deg);
-    }
-
-    50%{
-
-        transform:
-            translateY(-6px)
-            rotateX(2deg)
-            rotateY(-3deg);
-    }
-}
-
-.partner-card:before{
-
-    content:"";
-
-    position:absolute;
-
-    width:80px;
-    height:160px;
-
-    background:
-        rgba(255,255,255,.24);
-
-    transform:
-        rotate(30deg);
-
-    left:-110px;
-
-    transition:.7s;
-}
-
-.partner-card:hover:before{
-
-    left:160%;
-}
-
-.partner-logo{
-
-    position:relative;
-
-    z-index:2;
-
-    font-weight:1000;
-
-    font-size:25px;
-
-    letter-spacing:-1px;
-
-    transform:
-        translateZ(30px);
-
-    text-shadow:
-
-        2px 3px 0
-        rgba(0,0,0,.12),
-
-        0 8px 14px
-        rgba(0,0,0,.15);
-}
-
-.tiktok{
-
-    background:
-        linear-gradient(
-            145deg,
-            #fff,
-            #e8edf8
-        );
-}
-
-.tiktok .partner-logo{
-
-    color:#050505;
-}
-
-.myntra{
-
-    background:
-        linear-gradient(
-            145deg,
-            #ff9b19,
-            #f04475
-        );
-}
-
-.myntra .partner-logo{
-
-    color:#fff;
-
-    font-family:
-        Georgia,
-        serif;
-}
-
-.amazon{
-
-    background:
-        linear-gradient(
-            145deg,
-            #29c85b,
-            #00a947
-        );
-}
-
-.amazon .partner-logo{
-
-    color:#fff;
-
-    font-size:24px;
-}
-
-.flipkart{
-
-    background:
-        linear-gradient(
-            145deg,
-            #080808,
-            #202020
-        );
-}
-
-.flipkart .partner-logo{
-
-    color:#1688ff;
-}
-
-.snapdeal{
-
-    background:
-        linear-gradient(
-            145deg,
-            #fff,
-            #f5f5f5
-        );
-}
-
-.snapdeal .partner-logo{
-
-    color:#5d9dc7;
-}
-
-.etsy{
-
-    background:
-        linear-gradient(
-            145deg,
-            #ed713d,
-            #bd4e23
-        );
-}
-
-.etsy .partner-logo{
-
-    color:#fff;
-
-    font-family:
-        Georgia,
-        serif;
-
-    font-size:31px;
-}
-
-
-/* =========================================================
-   FLOATING PARTICLES
-========================================================= */
-
-.particle{
-
-    position:fixed;
-
-    width:5px;
-    height:5px;
-
-    border-radius:50%;
-
-    background:
-        rgba(92,114,255,.28);
-
-    pointer-events:none;
-
-    animation:
-        particle
-        7s
-        linear
-        infinite;
-
-    z-index:0;
-}
-
-.p1{
-    left:10%;
-    bottom:20%;
-}
-
-.p2{
-    left:80%;
-    bottom:40%;
-    animation-delay:2s;
-}
-
-.p3{
-    left:30%;
-    top:30%;
-    animation-delay:4s;
-}
-
-@keyframes particle{
-
-    0%{
-
-        transform:
-            translateY(0)
-            scale(1);
-
-        opacity:0;
-    }
-
-    20%{
-        opacity:1;
-    }
-
-    80%{
-        opacity:1;
-    }
-
-    100%{
-
-        transform:
-            translateY(-180px)
-            scale(1.8);
-
-        opacity:0;
-    }
-}
-
-
-/* =========================================================
-   BOTTOM NAVIGATION
-========================================================= */
+/* =========================
+   BOTTOM NAV
+========================= */
 
 .bottom-nav{
-
     position:fixed;
-
-    z-index:50;
-
     bottom:0;
+    left:0;
+    right:0;
+    height:70px;
+    display:flex;
+    justify-content:center;
+    background:rgba(7,11,20,.88);
+    backdrop-filter:blur(18px);
+    border-top:1px solid var(--border);
+    z-index:200;
+}
 
-    left:50%;
-
-    transform:
-        translateX(-50%);
-
+.nav-inner{
     width:100%;
-
-    max-width:480px;
-
-    height:77px;
-
-    background:
-        rgba(255,255,255,.94);
-
-    backdrop-filter:
-        blur(18px);
-
-    -webkit-backdrop-filter:
-        blur(18px);
-
-    border-top:
-        1px solid
-        rgba(130,145,190,.13);
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(5,1fr);
-
-    align-items:center;
-
-    box-shadow:
-        0 -12px 35px
-        rgba(30,45,100,.10);
+    max-width:600px;
+    display:flex;
+    justify-content:space-around;
 }
 
 .nav-item{
-
-    text-align:center;
-
-    color:#9ba2b5;
-
-    font-size:9px;
-
-    font-weight:800;
-
+    width:20%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:5px;
+    color:#778397;
+    font-size:10px;
     cursor:pointer;
-
-    transition:.25s;
 }
 
-.nav-item .nav-icon{
-
-    font-size:20px;
-
-    margin-bottom:4px;
-
-    transition:.25s;
+.nav-icon{
+    font-size:19px;
 }
 
 .nav-item.active{
-
-    color:#2382e9;
+    color:#78a5ff;
 }
 
-.nav-item.active .nav-icon{
+/* =========================
+   RESPONSIVE
+========================= */
 
-    transform:
-        translateY(-2px)
-        scale(1.08);
-}
+@media(max-width:700px){
 
-.obtain{
-
-    position:relative;
-}
-
-.obtain .nav-icon{
-
-    width:53px;
-    height:53px;
-
-    margin:
-        -28px auto
-        3px;
-
-    border-radius:50%;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    background:
-        linear-gradient(
-            145deg,
-            #1598ff,
-            #2363ed
-        );
-
-    color:white;
-
-    box-shadow:
-
-        0 12px 25px
-        rgba(39,113,240,.42),
-
-        0 0 0 7px
-        rgba(255,255,255,.96);
-
-    font-size:25px;
-
-    transform:
-        translateZ(20px);
-}
-
-.obtain:active .nav-icon{
-
-    transform:
-        scale(.90);
-}
-
-
-/* =========================================================
-   TOAST
-========================================================= */
-
-.toast{
-
-    position:fixed;
-
-    z-index:100;
-
-    left:50%;
-
-    bottom:92px;
-
-    transform:
-        translate(-50%,30px);
-
-    background:
-        linear-gradient(
-            145deg,
-            #172450,
-            #253572
-        );
-
-    color:white;
-
-    padding:
-        12px 18px;
-
-    border-radius:15px;
-
-    font-size:11px;
-
-    font-weight:800;
-
-    opacity:0;
-
-    pointer-events:none;
-
-    transition:.35s;
-
-    box-shadow:
-        0 15px 35px
-        rgba(0,0,0,.20);
-}
-
-.toast.show{
-
-    opacity:1;
-
-    transform:
-        translate(-50%,0);
-}
-
-
-/* =========================================================
-   DESKTOP
-========================================================= */
-
-@media(min-width:700px){
-
-    body{
-
-        padding:25px 0;
+    .container{
+        padding:22px 13px 95px;
     }
 
-    .app{
-
-        border-radius:32px;
-
-        box-shadow:
-            0 25px 80px
-            rgba(20,35,90,.15);
-
-        overflow:hidden;
-
-        background:
-            var(--bg);
+    .stats{
+        grid-template-columns:1fr;
     }
 
-    .bottom-nav{
-
-        position:absolute;
-
-        bottom:0;
+    .actions{
+        grid-template-columns:repeat(2,1fr);
     }
+
+    .stores{
+        grid-template-columns:1fr;
+    }
+
+    .balance{
+        font-size:32px;
+    }
+
+    .welcome h1{
+        font-size:23px;
+    }
+
+}
+
+@media(min-width:701px){
+
+    .balance-card{
+        padding:30px;
+    }
+
 }
 
 </style>
 </head>
 
-
 <body>
 
-
-<!-- BACKGROUND 3D ORBS -->
-
-<div class="background-orb orb-one"></div>
-
-<div class="background-orb orb-two"></div>
+<div class="bg-orb orb1"></div>
+<div class="bg-orb orb2"></div>
+<div class="bg-orb orb3"></div>
 
 
-<div class="app">
+<!-- HEADER -->
 
+<header class="header">
 
-<!-- =====================================================
-     TOP HEADER
-===================================================== -->
+    <div class="logo-area">
 
-<header class="topbar">
+        <div class="logo">
+            AH
+        </div>
 
-
-    <button
-        class="icon-btn"
-        onclick="showToast('Support')">
-
-        🎧
-
-    </button>
-
-
-    <div class="logo">
-
-        <div class="logo-glow"></div>
-
-        <div class="logo-shape"></div>
+        <div class="brand">
+            Affiliate<span>Hub</span>
+        </div>
 
     </div>
 
+    <div class="header-right">
 
-    <button
-        class="icon-btn"
-        onclick="showToast('Language')">
+        <div class="notification">
+            🔔
+        </div>
 
-        🌐
+        <div class="profile">
+            A
+        </div>
 
-    </button>
-
+    </div>
 
 </header>
 
 
-<!-- =====================================================
-     HERO
-===================================================== -->
-
-<section class="hero">
+<main class="container">
 
 
-    <div class="hero-content">
+<!-- WELCOME -->
 
+<section class="welcome">
 
-        <div class="hero-small">
+    <small>Welcome back</small>
 
-            AFFILIATE SHOPPING
-
-        </div>
-
-
-        <h1>
-
-            DISCOVER<br>
-            AMAZING DEALS
-
-        </h1>
-
-
-        <p>
-
-            Find trending products and
-            exciting offers in one place.
-
-        </p>
-
-
-        <button
-            class="hero-button"
-            onclick="showToast('Offers opened')">
-
-            EXPLORE OFFERS
-
-        </button>
-
-
-    </div>
-
-
-    <div class="hero-shape">
-
-
-        <div class="person three">
-
-            <div class="head"></div>
-
-        </div>
-
-
-        <div class="person one">
-
-            <div class="head"></div>
-
-        </div>
-
-
-        <div class="person two">
-
-            <div class="head"></div>
-
-        </div>
-
-
-    </div>
-
+    <h1>
+        Hello, <span>Affiliate Partner</span>
+    </h1>
 
 </section>
 
 
-<!-- =====================================================
-     QUICK ACTIONS
-===================================================== -->
-
-<section class="actions">
-
-
-    <div
-        class="action"
-        onclick="showToast('Recharge page')">
-
-        <div class="action-icon recharge">
-
-            ▣
-
-        </div>
-
-        <span>
-
-            Recharge
-
-        </span>
-
-    </div>
-
-
-    <div
-        class="action"
-        onclick="showToast('Withdraw page')">
-
-        <div class="action-icon withdraw">
-
-            ↑
-
-        </div>
-
-        <span>
-
-            Withdraw
-
-        </span>
-
-    </div>
-
-
-    <div
-        class="action"
-        onclick="showToast('Invite friends')">
-
-        <div class="action-icon invite">
-
-            ♟
-
-        </div>
-
-        <span>
-
-            Invite
-
-        </span>
-
-    </div>
-
-
-    <div
-        class="action"
-        onclick="showToast('Customer support')">
-
-        <div class="action-icon support">
-
-            ♧
-
-        </div>
-
-        <span>
-
-            Help Support
-
-        </span>
-
-    </div>
-
-
-</section>
-
-
-<!-- =====================================================
-     NOTICE
-===================================================== -->
-
-<div class="notice">
-
-
-    <div class="notice-icon">
-
-        🔊
-
-    </div>
-
-
-    <div class="notice-text">
-
-        Welcome to AffiliateHub — Discover products and amazing deals
-
-    </div>
-
-
-</div>
-
-
-<!-- =====================================================
-     BALANCE
-===================================================== -->
+<!-- BALANCE -->
 
 <section class="balance-card">
 
+    <div class="balance-top">
 
-    <div class="phone">
+        <div>
+            <div class="balance-label">
+                Available Affiliate Balance
+            </div>
 
-        📱 01316232424
+            <div class="balance">
+                ৳60.00
+            </div>
 
-    </div>
-
-
-    <div class="score">
-
-        🛡 Score 100
-
-    </div>
-
-
-    <div class="balance-title">
-
-        AVAILABLE BALANCE
-
-    </div>
-
-
-    <div class="balance">
-
-        ৳60.00
-
-    </div>
-
-
-    <div class="stats">
-
-
-        <div class="stat">
-
-            <span>
-
-                Today's earnings
-
-            </span>
-
-            <span>
-
-                ৳0.00
-
-            </span>
-
+            <div class="balance-sub">
+                Demo balance — testing mode
+            </div>
         </div>
 
-
-        <div class="stat">
-
-            <span>
-
-                Affiliate earnings
-
-            </span>
-
-            <span>
-
-                ৳0.00
-
-            </span>
-
-        </div>
-
-
-        <div class="stat">
-
-            <span>
-
-                Pending commission
-
-            </span>
-
-            <span>
-
-                ৳0.00
-
-            </span>
-
-        </div>
-
-
     </div>
 
+
+    <div class="balance-actions">
+
+        <button class="btn btn-primary"
+        onclick="showMessage('Withdraw system will be connected later.')">
+            Withdraw
+        </button>
+
+        <button class="btn btn-secondary"
+        onclick="showMessage('Explore marketplace')">
+            Explore
+        </button>
+
+    </div>
 
 </section>
 
 
-<!-- =====================================================
-     INFORMATION
-===================================================== -->
+<!-- STATS -->
 
-<div class="section-title">
+<section class="stats">
 
-    Information
+    <div class="stat">
 
-    <small>
+        <div class="stat-icon">💰</div>
 
-        View all
+        <div class="stat-title">
+            Total Earnings
+        </div>
 
-    </small>
+        <div class="stat-value">
+            ৳0.00
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-icon">🛒</div>
+
+        <div class="stat-title">
+            Affiliate Sales
+        </div>
+
+        <div class="stat-value">
+            0
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-icon">👥</div>
+
+        <div class="stat-title">
+            Referrals
+        </div>
+
+        <div class="stat-value">
+            0
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- QUICK ACTION -->
+
+<section class="section">
+
+    <div class="section-head">
+
+        <h2>Quick Actions</h2>
+
+        <span>Explore</span>
+
+    </div>
+
+
+    <div class="actions">
+
+        <div class="action"
+        onclick="showMessage('Products section coming soon')">
+
+            <div class="action-icon">🛍️</div>
+
+            <div class="action-title">
+                Products
+            </div>
+
+        </div>
+
+
+        <div class="action"
+        onclick="showMessage('Categories section coming soon')">
+
+            <div class="action-icon">📦</div>
+
+            <div class="action-title">
+                Categories
+            </div>
+
+        </div>
+
+
+        <div class="action"
+        onclick="showMessage('Invite system coming soon')">
+
+            <div class="action-icon">👥</div>
+
+            <div class="action-title">
+                Invite
+            </div>
+
+        </div>
+
+
+        <div class="action"
+        onclick="showMessage('Support system coming soon')">
+
+            <div class="action-icon">💬</div>
+
+            <div class="action-title">
+                Support
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WITHDRAWAL FEED -->
+
+<section class="section">
+
+    <div class="section-head">
+
+        <h2>Recent Withdrawals</h2>
+
+        <span>Live Demo</span>
+
+    </div>
+
+
+    <div class="withdraw-box">
+
+        <div class="demo-header">
+
+            <div class="demo-title">
+
+                <span class="live-dot"></span>
+
+                Live Testing Feed
+
+                <span class="demo-badge">
+                    DEMO
+                </span>
+
+            </div>
+
+            <div style="font-size:10px;color:#7f8ca0;">
+                Updates every 30s
+            </div>
+
+        </div>
+
+
+        <div class="withdraw-list" id="withdrawList">
+
+            <!-- JS will create items -->
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PARTNER STORES -->
+
+<section class="section">
+
+    <div class="section-head">
+
+        <h2>Partner Stores</h2>
+
+        <span>Marketplace</span>
+
+    </div>
+
+
+    <div class="stores">
+
+
+        <div class="store">
+
+            <div class="store-logo">
+                A
+            </div>
+
+            <div class="store-name">
+                Amazon
+            </div>
+
+            <div class="store-desc">
+                Global products & deals
+            </div>
+
+            <button class="store-btn"
+            onclick="showMessage('Affiliate product section')">
+                Explore
+            </button>
+
+        </div>
+
+
+        <div class="store">
+
+            <div class="store-logo">
+                S
+            </div>
+
+            <div class="store-name">
+                Shopping
+            </div>
+
+            <div class="store-desc">
+                Fashion & lifestyle
+            </div>
+
+            <button class="store-btn"
+            onclick="showMessage('Affiliate product section')">
+                Explore
+            </button>
+
+        </div>
+
+
+        <div class="store">
+
+            <div class="store-logo">
+                T
+            </div>
+
+            <div class="store-name">
+                Trending
+            </div>
+
+            <div class="store-desc">
+                Popular products
+            </div>
+
+            <button class="store-btn"
+            onclick="showMessage('Affiliate product section')">
+                Explore
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- NOTICE -->
+
+<div class="notice">
+
+    <strong>🧪 Testing Mode:</strong>
+    The withdrawal activity shown above is randomly generated demo data
+    for interface testing only. It is not real customer withdrawal
+    information. The real withdrawal system will be connected later
+    after payment methods are implemented.
 
 </div>
 
 
-<section class="withdrawals">
+</main>
 
 
-    <div class="withdraw-item">
-
-
-        <div class="check">
-
-            ✓
-
-        </div>
-
-
-        <div class="withdraw-info">
-
-            <b>
-
-                016******50 Withdrawal successful
-
-            </b>
-
-            <small>
-
-                2026-08-14
-
-            </small>
-
-        </div>
-
-
-        <div class="amount">
-
-            ৳230.00
-
-        </div>
-
-
-    </div>
-
-
-    <div class="withdraw-item">
-
-
-        <div class="check">
-
-            ✓
-
-        </div>
-
-
-        <div class="withdraw-info">
-
-            <b>
-
-                019******90 Withdrawal successful
-
-            </b>
-
-            <small>
-
-                2026-08-14
-
-            </small>
-
-        </div>
-
-
-        <div class="amount">
-
-            ৳230.00
-
-        </div>
-
-
-    </div>
-
-
-    <div class="withdraw-item">
-
-
-        <div class="check">
-
-            ✓
-
-        </div>
-
-
-        <div class="withdraw-info">
-
-            <b>
-
-                019******90 Withdrawal successful
-
-            </b>
-
-            <small>
-
-                2026-08-14
-
-            </small>
-
-        </div>
-
-
-        <div class="amount">
-
-            ৳230.00
-
-        </div>
-
-
-    </div>
-
-
-    <div class="withdraw-item">
-
-
-        <div class="check">
-
-            ✓
-
-        </div>
-
-
-        <div class="withdraw-info">
-
-            <b>
-
-                018******34 Withdrawal successful
-
-            </b>
-
-            <small>
-
-                2026-08-14
-
-            </small>
-
-        </div>
-
-
-        <div class="amount">
-
-            ৳230.00
-
-        </div>
-
-
-    </div>
-
-
-    <div class="withdraw-item">
-
-
-        <div class="check">
-
-            ✓
-
-        </div>
-
-
-        <div class="withdraw-info">
-
-            <b>
-
-                018******14 Withdrawal successful
-
-            </b>
-
-            <small>
-
-                2026-08-14
-
-            </small>
-
-        </div>
-
-
-        <div class="amount">
-
-            ৳330.00
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-<!-- =====================================================
-     INFO BUTTONS
-===================================================== -->
-
-<section class="info-grid">
-
-
-    <div
-        class="info-box"
-        onclick="showToast('About Us')">
-
-        <div class="info-icon">
-
-            ▰
-
-        </div>
-
-        <div>
-
-            About Us
-
-        </div>
-
-    </div>
-
-
-    <div
-        class="info-box"
-        onclick="showToast('Withdrawal information')">
-
-        <div class="info-icon">
-
-            ⬟
-
-        </div>
-
-        <div>
-
-            About withdrawal
-
-        </div>
-
-    </div>
-
-
-    <div
-        class="info-box"
-        onclick="showToast('Affiliate information')">
-
-        <div class="info-icon">
-
-            ▤
-
-        </div>
-
-        <div>
-
-            About affiliate income
-
-        </div>
-
-    </div>
-
-
-    <div
-        class="info-box"
-        onclick="showToast('Income information')">
-
-        <div class="info-icon">
-
-            ▣
-
-        </div>
-
-        <div>
-
-            About earnings
-
-        </div>
-
-    </div>
-
-
-</section>
-
-
-<!-- =====================================================
-     PARTNERS
-===================================================== -->
-
-<div class="section-title partner-title">
-
-    Partner Stores
-
-    <small>
-
-        Explore
-
-    </small>
-
-</div>
-
-
-<section class="partners">
-
-
-    <div
-        class="partner-card tiktok"
-        onclick="showToast('TikTok')">
-
-        <div class="partner-logo">
-
-            ♪ TikTok
-
-        </div>
-
-    </div>
-
-
-    <div
-        class="partner-card myntra"
-        onclick="showToast('Myntra')">
-
-        <div class="partner-logo">
-
-            Myntra
-
-        </div>
-
-    </div>
-
-
-    <div
-        class="partner-card amazon"
-        onclick="showToast('Amazon')">
-
-        <div class="partner-logo">
-
-            amazon
-
-        </div>
-
-    </div>
-
-
-    <div
-        class="partner-card flipkart"
-        onclick="showToast('Flipkart')">
-
-        <div class="partner-logo">
-
-            Flipkart
-
-        </div>
-
-    </div>
-
-
-    <div
-        class="partner-card snapdeal"
-        onclick="showToast('Snapdeal')">
-
-        <div class="partner-logo">
-
-            snapdeal
-
-        </div>
-
-    </div>
-
-
-    <div
-        class="partner-card etsy"
-        onclick="showToast('Etsy')">
-
-        <div class="partner-logo">
-
-            Etsy
-
-        </div>
-
-    </div>
-
-
-</section>
-
-
-<!-- =====================================================
-     BOTTOM NAV
-===================================================== -->
+<!-- BOTTOM NAV -->
 
 <nav class="bottom-nav">
 
+    <div class="nav-inner">
 
-    <div
-        class="nav-item active"
-        onclick="showToast('Home')">
+        <div class="nav-item active"
+        onclick="showMessage('Home')">
 
-        <div class="nav-icon">
-
-            ⌂
-
-        </div>
-
-        Home
-
-    </div>
-
-
-    <div
-        class="nav-item"
-        onclick="showToast('Recharge')">
-
-        <div class="nav-icon">
-
-            ▣
+            <div class="nav-icon">⌂</div>
+            Home
 
         </div>
 
-        Recharge
 
-    </div>
+        <div class="nav-item"
+        onclick="showMessage('Products')">
 
-
-    <div
-        class="nav-item obtain"
-        onclick="showToast('Explore')">
-
-        <div class="nav-icon">
-
-            ϟ
+            <div class="nav-icon">🛍️</div>
+            Products
 
         </div>
 
-        Explore
 
-    </div>
+        <div class="nav-item"
+        onclick="showMessage('Earnings')">
 
-
-    <div
-        class="nav-item"
-        onclick="showToast('Tasks')">
-
-        <div class="nav-icon">
-
-            ☷
+            <div class="nav-icon">💰</div>
+            Earnings
 
         </div>
 
-        Deals
 
-    </div>
+        <div class="nav-item"
+        onclick="showMessage('Invite')">
 
-
-    <div
-        class="nav-item"
-        onclick="showToast('Account')">
-
-        <div class="nav-icon">
-
-            ♙
+            <div class="nav-icon">👥</div>
+            Invite
 
         </div>
 
-        Account
+
+        <div class="nav-item"
+        onclick="showMessage('Account')">
+
+            <div class="nav-icon">⚙️</div>
+            Account
+
+        </div>
 
     </div>
-
 
 </nav>
 
 
-</div>
+<!-- TOAST -->
 
-
-<!-- =====================================================
-     FLOATING PARTICLES
-===================================================== -->
-
-<div class="particle p1"></div>
-
-<div class="particle p2"></div>
-
-<div class="particle p3"></div>
-
-
-<!-- =====================================================
-     TOAST
-===================================================== -->
-
-<div
-    class="toast"
-    id="toast">
-
-    Done
-
+<div id="toast"
+style="
+position:fixed;
+left:50%;
+bottom:85px;
+transform:translateX(-50%);
+background:#151d2c;
+border:1px solid rgba(255,255,255,.1);
+padding:12px 18px;
+border-radius:12px;
+font-size:12px;
+color:white;
+opacity:0;
+pointer-events:none;
+transition:.3s;
+z-index:500;
+">
 </div>
 
 
 <script>
 
+/* =====================================================
+   DEMO WITHDRAWAL SYSTEM
+   Testing only
+===================================================== */
 
-/* =========================================================
+const names = [
+    "Rahim",
+    "Karim",
+    "Sakib",
+    "Hasan",
+    "Nayeem",
+    "Arif",
+    "Tanvir",
+    "Imran",
+    "Rafi",
+    "Fahim",
+    "Siam",
+    "Jahid",
+    "Rakib",
+    "Shakil",
+    "Mizan"
+];
+
+
+/* Random amount:
+   ৳100 - ৳10,00,000
+*/
+
+function randomAmount(){
+
+    const min = 100;
+    const max = 1000000;
+
+    return Math.floor(
+        Math.random() * (max - min + 1)
+    ) + min;
+
+}
+
+
+function formatBDT(amount){
+
+    return "৳" + amount.toLocaleString("en-BD",{
+        maximumFractionDigits:0
+    });
+
+}
+
+
+function randomName(){
+
+    return names[
+        Math.floor(
+            Math.random() * names.length
+        )
+    ];
+
+}
+
+
+function createWithdrawal(){
+
+    const list =
+        document.getElementById("withdrawList");
+
+
+    const item =
+        document.createElement("div");
+
+    item.className =
+        "withdraw-item";
+
+
+    const amount =
+        randomAmount();
+
+
+    item.innerHTML = `
+
+        <div class="user-info">
+
+            <div class="user-avatar">
+                👤
+            </div>
+
+            <div>
+
+                <div class="user-name">
+                    ${randomName()}****
+                </div>
+
+                <div class="withdraw-status">
+                    Withdrawal request processed
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <div class="amount">
+                ${formatBDT(amount)}
+            </div>
+
+            <div class="success">
+                ✓ Successful
+            </div>
+
+        </div>
+
+    `;
+
+
+    list.prepend(item);
+
+
+    /* Keep only latest 5 */
+
+    while(list.children.length > 5){
+
+        list.removeChild(
+            list.lastElementChild
+        );
+
+    }
+
+}
+
+
+/* Initial demo records */
+
+for(let i=0;i<5;i++){
+
+    createWithdrawal();
+
+}
+
+
+/* Every 30 seconds */
+
+setInterval(function(){
+
+    createWithdrawal();
+
+},30000);
+
+
+/* =====================================================
    TOAST
-========================================================= */
+===================================================== */
 
-function showToast(message){
+function showMessage(message){
 
     const toast =
         document.getElementById("toast");
 
-    toast.textContent =
-        message;
+    toast.textContent = message;
 
-    toast.classList.add("show");
+    toast.style.opacity = "1";
 
-    clearTimeout(
-        window.toastTimer
-    );
+    setTimeout(function(){
 
-    window.toastTimer =
-        setTimeout(()=>{
+        toast.style.opacity = "0";
 
-            toast.classList.remove(
-                "show"
-            );
+    },2200);
 
-        },1800);
 }
 
 
-/* =========================================================
-   3D PARTNER TILT
-========================================================= */
+/* =====================================================
+   BOTTOM NAV ACTIVE
+===================================================== */
 
-document
-    .querySelectorAll(".partner-card")
-    .forEach(card => {
-
-
-        card.addEventListener(
-            "mousemove",
-            e => {
-
-                const rect =
-                    card.getBoundingClientRect();
-
-                const x =
-                    e.clientX -
-                    rect.left;
-
-                const y =
-                    e.clientY -
-                    rect.top;
-
-                const rotateY =
-                    ((x / rect.width) - .5)
-                    * 14;
-
-                const rotateX =
-                    ((y / rect.height) - .5)
-                    * -14;
-
-                card.style.animation =
-                    "none";
-
-                card.style.transform =
-                    `
-                    translateY(-5px)
-                    rotateX(${rotateX}deg)
-                    rotateY(${rotateY}deg)
-                    translateZ(12px)
-                    `;
-
-            }
-        );
+const navItems =
+    document.querySelectorAll(".nav-item");
 
 
-        card.addEventListener(
-            "mouseleave",
-            () => {
+navItems.forEach(function(item){
 
-                card.style.animation =
-                    "";
+    item.addEventListener("click",function(){
 
-                card.style.transform =
-                    "";
+        navItems.forEach(function(n){
 
-            }
-        );
+            n.classList.remove("active");
 
+        });
+
+        item.classList.add("active");
 
     });
 
-
-/* =========================================================
-   BALANCE CARD TOUCH TILT
-========================================================= */
-
-const balanceCard =
-    document.querySelector(
-        ".balance-card"
-    );
-
-
-document.addEventListener(
-    "touchmove",
-    e => {
-
-        if(!e.touches.length)
-            return;
-
-        const touch =
-            e.touches[0];
-
-        const centerX =
-            window.innerWidth / 2;
-
-        const diff =
-            touch.clientX -
-            centerX;
-
-        balanceCard.style.transform =
-            `
-            perspective(900px)
-            rotateY(${diff / 80}deg)
-            `;
-
-    },
-    {
-        passive:true
-    }
-);
-
-
-document.addEventListener(
-    "touchend",
-    () => {
-
-        balanceCard.style.transform =
-            `
-            perspective(900px)
-            rotateY(0deg)
-            `;
-
-    }
-);
-
-
-/* =========================================================
-   RANDOM FLOATING PARTICLES
-========================================================= */
-
-setInterval(()=>{
-
-    const particle =
-        document.createElement(
-            "div"
-        );
-
-    particle.className =
-        "particle";
-
-    particle.style.left =
-        Math.random()*100 +
-        "%";
-
-    particle.style.bottom =
-        Math.random()*20 +
-        "%";
-
-    document.body.appendChild(
-        particle
-    );
-
-    setTimeout(()=>{
-
-        particle.remove();
-
-    },7000);
-
-},1800);
-
-
-/* =========================================================
-   BOTTOM NAV ACTIVE STATE
-========================================================= */
-
-document
-    .querySelectorAll(".nav-item")
-    .forEach(item => {
-
-        item.addEventListener(
-            "click",
-            () => {
-
-                document
-                    .querySelectorAll(
-                        ".nav-item"
-                    )
-                    .forEach(nav => {
-
-                        nav.classList.remove(
-                            "active"
-                        );
-
-                    });
-
-                item.classList.add(
-                    "active"
-                );
-
-            }
-        );
-
-    });
+});
 
 </script>
-
 
 </body>
 </html>
