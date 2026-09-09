@@ -267,144 +267,62 @@ body{
 
 
 /* =========================================================
-   ORIGINAL ORANGE LOGO + 3D EFFECT
+   SAME LOGO AS LOGIN / REGISTER PAGE
 ========================================================= */
+
+.logo-wrap{
+
+    perspective:600px;
+
+    margin-bottom:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
 
 .logo{
 
     width:58px;
     height:58px;
 
-    display:flex;
+    margin:0 auto;
 
-    align-items:center;
-    justify-content:center;
-
-    position:relative;
-
-    perspective:700px;
-}
-
-.logo-glow{
-
-    position:absolute;
-
-    width:52px;
-    height:52px;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(70,103,255,.24),
-            transparent 68%
-        );
-
-    filter:blur(3px);
-
-    animation:
-        logoGlow
-        3s
-        ease-in-out
-        infinite;
-}
-
-.logo-shape{
-
-    width:34px;
-    height:45px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #ff6b48,
-            #ef2b20
-        );
-
-    clip-path:
-        polygon(
-            50% 0%,
-            88% 22%,
-            88% 72%,
-            50% 100%,
-            12% 78%,
-            12% 28%
-        );
-
-    transform:
-        rotateY(-20deg)
-        rotateX(10deg);
+    display:block;
 
     filter:
         drop-shadow(
-            7px 9px 6px
-            rgba(220,38,25,.30)
+            0 10px 20px
+            rgba(0,229,255,.35)
+        )
+        drop-shadow(
+            0 0 25px
+            rgba(162,89,255,.25)
         );
 
     animation:
-        logoFloat
-        3s
+        floatTilt
+        4s
         ease-in-out
         infinite;
 }
 
-.logo-shape:after{
-
-    content:"";
-
-    position:absolute;
-
-    width:12px;
-    height:20px;
-
-    background:#fff;
-
-    left:11px;
-    top:12px;
-
-    clip-path:
-        polygon(
-            50% 0,
-            100% 30%,
-            100% 70%,
-            50% 100%,
-            0 70%,
-            0 30%
-        );
-
-    opacity:.92;
-}
-
-@keyframes logoGlow{
+@keyframes floatTilt{
 
     0%,100%{
-        transform:scale(.9);
-        opacity:.6;
+        transform:
+            rotateY(-8deg)
+            rotateX(4deg)
+            translateY(0px);
     }
 
     50%{
-        transform:scale(1.2);
-        opacity:1;
-    }
-}
-
-@keyframes logoFloat{
-
-    0%,100%{
-
         transform:
-            translateY(0)
-            rotateY(-20deg)
-            rotateX(10deg);
-    }
-
-    50%{
-
-        transform:
-            translateY(-7px)
-            rotateY(18deg)
-            rotateX(-6deg);
+            rotateY(8deg)
+            rotateX(-4deg)
+            translateY(-10px);
     }
 }
 
@@ -2082,11 +2000,64 @@ body{
     </button>
 
 
-    <div class="logo">
+    <!-- EXACT SAME LOGO AS REGISTER / LOGIN -->
 
-        <div class="logo-glow"></div>
+    <div class="logo-wrap">
 
-        <div class="logo-shape"></div>
+        <svg class="logo"
+             viewBox="0 0 100 100"
+             xmlns="http://www.w3.org/2000/svg">
+
+            <defs>
+
+                <linearGradient
+                    id="logoGrad1"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%">
+
+                    <stop
+                        offset="0%"
+                        stop-color="#ff8a3d"/>
+
+                    <stop
+                        offset="100%"
+                        stop-color="#e8491d"/>
+
+                </linearGradient>
+
+
+                <linearGradient
+                    id="logoGrad2"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%">
+
+                    <stop
+                        offset="0%"
+                        stop-color="#ffb84d"/>
+
+                    <stop
+                        offset="100%"
+                        stop-color="#ff5a24"/>
+
+                </linearGradient>
+
+            </defs>
+
+
+            <path
+                d="M50 5 L50 45 L20 60 Z"
+                fill="url(#logoGrad1)"/>
+
+
+            <path
+                d="M20 60 L50 45 L80 60 L50 95 Z"
+                fill="url(#logoGrad2)"/>
+
+        </svg>
 
     </div>
 
