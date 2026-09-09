@@ -9,12 +9,34 @@
 
   body {
     font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: linear-gradient(180deg, #dbe7fb 0%, #d7e4fa 100%);
+    background: radial-gradient(circle at 50% 0%, #1b2650 0%, #0a0e27 55%, #05071a 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     padding-top: 90px;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  body::before, body::after {
+    content: '';
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+  }
+  body::before {
+    width: 280px; height: 280px;
+    background: #00e5ff;
+    opacity: 0.18;
+    top: -60px; left: -60px;
+  }
+  body::after {
+    width: 320px; height: 320px;
+    background: #a259ff;
+    opacity: 0.18;
+    bottom: -80px; right: -60px;
   }
 
   .login-container {
@@ -22,81 +44,207 @@
     max-width: 380px;
     padding: 0 24px;
     text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .logo-wrap {
+    perspective: 600px;
+    margin-bottom: 40px;
   }
 
   .logo {
     width: 90px;
     height: 90px;
-    margin: 0 auto 40px;
+    margin: 0 auto;
     display: block;
+    filter: drop-shadow(0 10px 20px rgba(0, 229, 255, 0.35))
+            drop-shadow(0 0 25px rgba(162, 89, 255, 0.25));
+    animation: floatTilt 4s ease-in-out infinite;
+  }
+
+  @keyframes floatTilt {
+    0%, 100% { transform: rotateY(-8deg) rotateX(4deg) translateY(0px); }
+    50% { transform: rotateY(8deg) rotateX(-4deg) translateY(-10px); }
   }
 
   .input-group {
     display: flex;
     align-items: center;
-    background: #191d3a;
-    border-radius: 10px;
+    background: linear-gradient(145deg, rgba(30, 38, 74, 0.75), rgba(15, 20, 45, 0.75));
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 229, 255, 0.18);
+    border-radius: 14px;
     padding: 18px 20px;
     margin-bottom: 18px;
     gap: 14px;
+    box-shadow:
+      0 8px 20px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  }
+
+  .input-group:focus-within {
+    border-color: rgba(0, 229, 255, 0.6);
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.4),
+      0 0 0 3px rgba(0, 229, 255, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
   }
 
   .input-group .icon {
-    color: #f5a623;
+    color: #00e5ff;
     font-size: 20px;
     flex-shrink: 0;
     width: 22px;
     text-align: center;
+    filter: drop-shadow(0 0 6px rgba(0, 229, 255, 0.6));
   }
 
   .input-group input {
     background: transparent;
     border: none;
     outline: none;
-    color: #ffffff;
+    color: #eaf0ff;
     font-size: 17px;
     width: 100%;
+    letter-spacing: 0.3px;
   }
 
   .input-group input::placeholder {
-    color: #9aa0b8;
+    color: #6b76a8;
   }
 
   .btn {
     display: block;
     width: 100%;
     border: none;
-    border-radius: 10px;
+    border-radius: 14px;
     padding: 18px;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 700;
+    letter-spacing: 0.4px;
     cursor: pointer;
     margin-bottom: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
   }
+
+  .btn:active { transform: translateY(1px) scale(0.99); }
 
   .btn-login {
-    background: #16a6a6;
-    color: #ffffff;
+    background: linear-gradient(135deg, #00e5ff 0%, #0077ff 100%);
+    color: #04101f;
+    box-shadow:
+      0 10px 25px rgba(0, 150, 255, 0.35),
+      0 0 20px rgba(0, 229, 255, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
   }
 
-  .btn-login:hover { background: #128f8f; }
+  .btn-login:hover {
+    filter: brightness(1.08);
+    box-shadow:
+      0 12px 30px rgba(0, 150, 255, 0.45),
+      0 0 28px rgba(0, 229, 255, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
 
   .btn-register {
-    background: #f4c430;
-    color: #191d3a;
+    background: linear-gradient(135deg, #2a3466 0%, #1a2250 100%);
+    color: #c9d4ff;
+    border: 1px solid rgba(162, 89, 255, 0.35);
+    box-shadow:
+      0 8px 20px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
   }
 
-  .btn-register:hover { background: #e0b420; }
+  .btn-register:hover {
+    border-color: rgba(162, 89, 255, 0.7);
+    box-shadow:
+      0 10px 24px rgba(0, 0, 0, 0.4),
+      0 0 18px rgba(162, 89, 255, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .captcha-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .captcha-box {
+    flex: 1;
+    background: linear-gradient(145deg, rgba(30, 38, 74, 0.85), rgba(15, 20, 45, 0.85));
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    border-radius: 14px;
+    padding: 16px 10px;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    user-select: none;
+    box-shadow:
+      0 8px 20px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    overflow: hidden;
+  }
+
+  .captcha-box span {
+    display: inline-block;
+  }
+
+  .captcha-refresh {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    border: 1px solid rgba(162, 89, 255, 0.35);
+    background: linear-gradient(135deg, #2a3466 0%, #1a2250 100%);
+    color: #c9d4ff;
+    font-size: 22px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .captcha-refresh:hover {
+    border-color: rgba(162, 89, 255, 0.7);
+    transform: rotate(90deg);
+  }
+
+  .error-msg {
+    color: #ff5c7a;
+    font-size: 14px;
+    margin-bottom: 14px;
+    margin-top: -8px;
+    display: none;
+    text-shadow: 0 0 10px rgba(255, 92, 122, 0.5);
+  }
 </style>
 </head>
 <body>
 
   <div class="login-container">
 
-    <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <path d="M50 5 L50 45 L20 60 Z" fill="#e8491d"/>
-      <path d="M20 60 L50 45 L80 60 L50 95 Z" fill="#ff5a24"/>
-    </svg>
+    <div class="logo-wrap">
+      <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="logoGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff8a3d"/>
+            <stop offset="100%" stop-color="#e8491d"/>
+          </linearGradient>
+          <linearGradient id="logoGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ffb84d"/>
+            <stop offset="100%" stop-color="#ff5a24"/>
+          </linearGradient>
+        </defs>
+        <path d="M50 5 L50 45 L20 60 Z" fill="url(#logoGrad1)"/>
+        <path d="M20 60 L50 45 L80 60 L50 95 Z" fill="url(#logoGrad2)"/>
+      </svg>
+    </div>
 
     <form action="#" method="post">
       <div class="input-group">
@@ -109,12 +257,71 @@
         <input type="password" name="password" placeholder="login password" required>
       </div>
 
+      <div class="captcha-row">
+        <div class="captcha-box" id="captchaBox"></div>
+        <button type="button" class="captcha-refresh" id="captchaRefresh" title="Refresh">&#8635;</button>
+      </div>
+
+      <div class="input-group">
+        <span class="icon">&#128273;</span>
+        <input type="text" name="captcha_input" id="captchaInput" placeholder="enter the code above" required>
+      </div>
+
+      <p class="error-msg" id="captchaErrorMsg">কোড মিলছে না, আবার চেষ্টা করুন</p>
+
       <button type="submit" class="btn btn-login">Log in</button>
     </form>
 
     <button type="button" class="btn btn-register" onclick="window.location.href='register.html'">Register</button>
 
   </div>
+
+  <script>
+    let currentCaptcha = '';
+
+    function generateCaptcha() {
+      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+      const colors = ['#00e5ff', '#a259ff', '#ff5c7a', '#ffd23f', '#4dff9e', '#ff9d4d'];
+      let code = '';
+      const box = document.getElementById('captchaBox');
+      box.innerHTML = '';
+
+      for (let i = 0; i < 5; i++) {
+        const char = chars.charAt(Math.floor(Math.random() * chars.length));
+        code += char;
+
+        const span = document.createElement('span');
+        span.textContent = char;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const rotation = Math.floor(Math.random() * 30) - 15;
+        const yOffset = Math.floor(Math.random() * 10) - 5;
+        span.style.color = color;
+        span.style.textShadow = `0 0 10px ${color}99`;
+        span.style.transform = `rotate(${rotation}deg) translateY(${yOffset}px)`;
+        box.appendChild(span);
+      }
+
+      currentCaptcha = code;
+      document.getElementById('captchaInput').value = '';
+    }
+
+    document.getElementById('captchaRefresh').addEventListener('click', generateCaptcha);
+
+    document.querySelector('form').addEventListener('submit', function(e) {
+      const userInput = document.getElementById('captchaInput').value.trim().toUpperCase();
+      const captchaErrorMsg = document.getElementById('captchaErrorMsg');
+
+      if (userInput !== currentCaptcha) {
+        e.preventDefault();
+        captchaErrorMsg.style.display = 'block';
+        generateCaptcha();
+        return;
+      }
+      captchaErrorMsg.style.display = 'none';
+    });
+
+    generateCaptcha();
+  </script>
 
 </body>
 </html>
