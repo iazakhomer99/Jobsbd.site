@@ -1,1 +1,2026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0,
+               maximum-scale=1.0, user-scalable=no">
+
+<title>TaskHub - Account</title>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+:root{
+    --bg:#eef3ff;
+    --white:#ffffff;
+    --navy:#101d50;
+    --navy2:#18265b;
+    --blue:#287cff;
+    --cyan:#21c8ff;
+    --purple:#7655ef;
+    --green:#16b887;
+    --orange:#ff9d24;
+    --text:#17213f;
+    --muted:#929ab0;
+    --line:#edf0f7;
+
+    --shadow:
+        0 12px 30px rgba(40,62,125,.12);
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 5% 5%,
+            rgba(60,110,255,.16),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 95% 18%,
+            rgba(147,82,255,.13),
+            transparent 30%
+        ),
+        #eef3ff;
+
+    color:var(--text);
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+}
+
+
+/* =====================================================
+   APP
+===================================================== */
+
+.app{
+    width:100%;
+    max-width:480px;
+    margin:auto;
+
+    min-height:100vh;
+
+    padding-bottom:105px;
+
+    position:relative;
+}
+
+
+/* =====================================================
+   TOP BAR
+===================================================== */
+
+.topbar{
+    height:78px;
+
+    padding:
+        10px 16px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+}
+
+.top-icon{
+    width:43px;
+    height:43px;
+
+    border:0;
+
+    border-radius:15px;
+
+    background:
+        rgba(255,255,255,.88);
+
+    box-shadow:
+        0 8px 22px
+        rgba(40,60,120,.10);
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:19px;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.top-icon:active{
+    transform:scale(.90);
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo-wrap{
+    width:52px;
+    height:52px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    perspective:700px;
+}
+
+.main-logo{
+    width:39px;
+    height:49px;
+
+    position:relative;
+
+    transform-style:preserve-3d;
+
+    animation:
+        logoFloat
+        3.8s
+        ease-in-out
+        infinite;
+
+    filter:
+        drop-shadow(
+            5px 9px 7px
+            rgba(221,50,25,.28)
+        );
+}
+
+.logo-top{
+    position:absolute;
+
+    width:27px;
+    height:29px;
+
+    left:6px;
+    top:0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ff8740,
+            #e83b19
+        );
+
+    clip-path:
+        polygon(
+            50% 0,
+            100% 27%,
+            100% 100%,
+            50% 73%,
+            0 100%,
+            0 27%
+        );
+
+    transform:
+        translateZ(10px);
+}
+
+.logo-bottom{
+    position:absolute;
+
+    width:39px;
+    height:28px;
+
+    left:0;
+    bottom:0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffb247,
+            #f05320
+        );
+
+    clip-path:
+        polygon(
+            50% 0,
+            100% 28%,
+            50% 100%,
+            0 28%
+        );
+
+    transform:
+        translateZ(4px);
+}
+
+@keyframes logoFloat{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            rotateY(-8deg)
+            rotateX(4deg);
+    }
+
+    50%{
+        transform:
+            translateY(-7px)
+            rotateY(9deg)
+            rotateX(-4deg);
+    }
+}
+
+
+/* =====================================================
+   ACCOUNT HERO
+===================================================== */
+
+.account-card{
+
+    margin:
+        5px 12px 15px;
+
+    min-height:225px;
+
+    border-radius:27px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    color:white;
+
+    padding:
+        21px 18px;
+
+    background:
+        radial-gradient(
+            circle at 85% 10%,
+            rgba(255,255,255,.22),
+            transparent 20%
+        ),
+
+        radial-gradient(
+            circle at 10% 100%,
+            rgba(32,201,255,.16),
+            transparent 28%
+        ),
+
+        linear-gradient(
+            145deg,
+            #17285f,
+            #344caa 50%,
+            #5e43c9
+        );
+
+    box-shadow:
+        0 22px 45px
+        rgba(52,66,157,.25),
+
+        inset 0 1px 0
+        rgba(255,255,255,.18);
+
+    transform-style:preserve-3d;
+}
+
+
+/* decorative circles */
+
+.account-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:210px;
+    height:210px;
+
+    right:-100px;
+    bottom:-115px;
+
+    border-radius:50%;
+
+    border:
+        35px solid
+        rgba(255,255,255,.055);
+}
+
+.account-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:75px;
+    height:75px;
+
+    right:34px;
+    top:55px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.055);
+
+    box-shadow:
+        0 0 35px
+        rgba(80,180,255,.20);
+}
+
+
+/* =====================================================
+   PROFILE
+===================================================== */
+
+.profile{
+
+    display:flex;
+
+    align-items:center;
+
+    position:relative;
+
+    z-index:3;
+}
+
+.avatar{
+
+    width:62px;
+    height:62px;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #dce8ff
+        );
+
+    color:#4564d7;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:28px;
+
+    box-shadow:
+        0 10px 22px
+        rgba(0,0,0,.16),
+
+        inset 0 1px 0
+        rgba(255,255,255,.9);
+
+    flex-shrink:0;
+}
+
+.profile-info{
+
+    margin-left:13px;
+
+    min-width:0;
+}
+
+.profile-name{
+
+    font-size:19px;
+
+    font-weight:900;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+}
+
+.profile-id{
+
+    margin-top:6px;
+
+    color:
+        rgba(255,255,255,.68);
+
+    font-size:9px;
+
+    letter-spacing:.5px;
+}
+
+.verified{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:4px;
+
+    margin-left:5px;
+
+    padding:
+        4px 7px;
+
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,.12);
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    font-size:7px;
+
+    font-weight:900;
+}
+
+
+/* =====================================================
+   ACCOUNT BALANCE
+===================================================== */
+
+.account-balance{
+
+    position:relative;
+
+    z-index:3;
+
+    margin-top:25px;
+}
+
+.account-balance small{
+
+    display:block;
+
+    color:
+        rgba(255,255,255,.60);
+
+    font-size:9px;
+
+    letter-spacing:1px;
+}
+
+.account-balance strong{
+
+    display:block;
+
+    margin-top:4px;
+
+    font-size:32px;
+
+    font-weight:900;
+
+    letter-spacing:.5px;
+
+    text-shadow:
+        0 6px 15px
+        rgba(0,0,0,.16);
+}
+
+
+/* =====================================================
+   MINI STATS
+===================================================== */
+
+.mini-stats{
+
+    position:absolute;
+
+    z-index:4;
+
+    left:16px;
+    right:16px;
+    bottom:14px;
+
+    padding:
+        11px;
+
+    border-radius:16px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    background:
+        rgba(255,255,255,.10);
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    backdrop-filter:
+        blur(12px);
+}
+
+.mini-stat{
+
+    text-align:center;
+
+    border-right:
+        1px solid
+        rgba(255,255,255,.08);
+}
+
+.mini-stat:last-child{
+    border-right:0;
+}
+
+.mini-stat b{
+
+    display:block;
+
+    color:white;
+
+    font-size:11px;
+
+    font-weight:900;
+}
+
+.mini-stat span{
+
+    display:block;
+
+    margin-top:4px;
+
+    color:
+        rgba(255,255,255,.52);
+
+    font-size:7px;
+}
+
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+
+.section-title{
+
+    padding:
+        18px 14px 9px;
+
+    font-size:15px;
+
+    font-weight:900;
+}
+
+.section-title small{
+
+    float:right;
+
+    color:#7d87a3;
+
+    font-size:8px;
+
+    margin-top:3px;
+}
+
+
+/* =====================================================
+   MENU CARD
+===================================================== */
+
+.menu{
+
+    margin:
+        0 12px;
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+}
+
+.menu-item{
+
+    min-height:61px;
+
+    padding:
+        9px 12px;
+
+    display:flex;
+
+    align-items:center;
+
+    border-bottom:
+        1px solid
+        var(--line);
+
+    cursor:pointer;
+
+    transition:.20s;
+}
+
+.menu-item:last-child{
+    border-bottom:0;
+}
+
+.menu-item:active{
+    background:#f7f9ff;
+
+    transform:
+        scale(.99);
+}
+
+.menu-icon{
+
+    width:38px;
+    height:38px;
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+
+    font-size:17px;
+
+    flex-shrink:0;
+
+    box-shadow:
+        0 7px 14px
+        rgba(0,0,0,.12);
+}
+
+.menu-info{
+
+    flex:1;
+
+    margin-left:11px;
+
+    min-width:0;
+}
+
+.menu-info b{
+
+    display:block;
+
+    font-size:10px;
+
+    font-weight:900;
+}
+
+.menu-info span{
+
+    display:block;
+
+    margin-top:4px;
+
+    color:#9aa2b7;
+
+    font-size:8px;
+}
+
+.menu-arrow{
+
+    color:#a1a9bd;
+
+    font-size:18px;
+
+    margin-left:7px;
+}
+
+
+/* ICON COLORS */
+
+.i-recharge{
+    background:
+        linear-gradient(
+            145deg,
+            #ffb641,
+            #f27812
+        );
+}
+
+.i-withdraw{
+    background:
+        linear-gradient(
+            145deg,
+            #2ed4a4,
+            #07986e
+        );
+}
+
+.i-history{
+    background:
+        linear-gradient(
+            145deg,
+            #397cff,
+            #235fdc
+        );
+}
+
+.i-invite{
+    background:
+        linear-gradient(
+            145deg,
+            #a07aff,
+            #6240df
+        );
+}
+
+.i-service{
+    background:
+        linear-gradient(
+            145deg,
+            #3bb9f3,
+            #2369dc
+        );
+}
+
+.i-settings{
+    background:
+        linear-gradient(
+            145deg,
+            #6577a8,
+            #39476d
+        );
+}
+
+.i-logout{
+    background:
+        linear-gradient(
+            145deg,
+            #ff7187,
+            #df3654
+        );
+}
+
+
+/* =====================================================
+   SECURITY CARD
+===================================================== */
+
+.security-card{
+
+    margin:
+        10px 12px 0;
+
+    padding:
+        13px;
+
+    border-radius:18px;
+
+    background:
+        rgba(255,255,255,.90);
+
+    box-shadow:
+        var(--shadow);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+}
+
+.security-icon{
+
+    width:34px;
+    height:34px;
+
+    border-radius:11px;
+
+    background:#edf9f5;
+
+    color:#11aa7e;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:15px;
+}
+
+.security-text{
+    flex:1;
+}
+
+.security-text b{
+
+    display:block;
+
+    font-size:10px;
+}
+
+.security-text span{
+
+    display:block;
+
+    margin-top:4px;
+
+    color:#929ab0;
+
+    font-size:8px;
+}
+
+.security-status{
+
+    padding:
+        6px 9px;
+
+    border-radius:20px;
+
+    background:#edf9f5;
+
+    color:#12a879;
+
+    font-size:8px;
+
+    font-weight:900;
+}
+
+
+/* =====================================================
+   BOTTOM NAV
+===================================================== */
+
+.bottom-nav{
+
+    position:fixed;
+
+    z-index:50;
+
+    bottom:0;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    width:100%;
+
+    max-width:480px;
+
+    height:77px;
+
+    background:
+        rgba(255,255,255,.95);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    border-top:
+        1px solid
+        rgba(130,145,190,.13);
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    align-items:center;
+
+    box-shadow:
+        0 -12px 35px
+        rgba(30,45,100,.10);
+}
+
+.nav-item{
+
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#9ba2b5;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.nav-icon{
+
+    font-size:20px;
+
+    margin-bottom:4px;
+
+    transition:.25s;
+}
+
+.nav-item.active{
+
+    color:#2382e9;
+}
+
+.nav-item.active .nav-icon{
+
+    transform:
+        translateY(-2px)
+        scale(1.08);
+}
+
+.obtain{
+    position:relative;
+}
+
+.obtain .nav-icon{
+
+    width:53px;
+    height:53px;
+
+    margin:
+        -28px auto 3px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1598ff,
+            #2363ed
+        );
+
+    color:white;
+
+    box-shadow:
+        0 12px 25px
+        rgba(39,113,240,.42),
+
+        0 0 0 7px
+        rgba(255,255,255,.96);
+
+    font-size:25px;
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast{
+
+    position:fixed;
+
+    z-index:100;
+
+    left:50%;
+
+    bottom:92px;
+
+    transform:
+        translate(-50%,30px);
+
+    background:
+        linear-gradient(
+            145deg,
+            #172450,
+            #253572
+        );
+
+    color:white;
+
+    padding:
+        12px 18px;
+
+    border-radius:15px;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.3s;
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.20);
+}
+
+.toast.show{
+
+    opacity:1;
+
+    transform:
+        translate(-50%,0);
+}
+
+
+/* =====================================================
+   PARTICLES
+===================================================== */
+
+.particle{
+
+    position:fixed;
+
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:
+        rgba(92,114,255,.25);
+
+    pointer-events:none;
+
+    animation:
+        particleMove
+        7s
+        linear
+        infinite;
+
+    z-index:0;
+}
+
+.p1{
+    left:10%;
+    bottom:20%;
+}
+
+.p2{
+    left:80%;
+    bottom:40%;
+    animation-delay:2s;
+}
+
+.p3{
+    left:30%;
+    top:30%;
+    animation-delay:4s;
+}
+
+@keyframes particleMove{
+
+    0%{
+        transform:
+            translateY(0)
+            scale(1);
+
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    80%{
+        opacity:1;
+    }
+
+    100%{
+        transform:
+            translateY(-180px)
+            scale(1.8);
+
+        opacity:0;
+    }
+}
+
+
+/* =====================================================
+   DESKTOP
+===================================================== */
+
+@media(min-width:700px){
+
+    body{
+        padding:
+            25px 0;
+    }
+
+    .app{
+
+        border-radius:32px;
+
+        overflow:hidden;
+
+        box-shadow:
+            0 25px 80px
+            rgba(20,35,90,.15);
+
+        background:
+            var(--bg);
+    }
+
+    .bottom-nav{
+
+        position:absolute;
+
+        bottom:0;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+    <!-- =================================================
+         TOP BAR
+    ================================================== -->
+
+    <header class="topbar">
+
+        <button
+            class="top-icon"
+            onclick="showToast('Help Support')">
+
+            🎧
+
+        </button>
+
+
+        <div class="logo-wrap">
+
+            <div class="main-logo">
+
+                <div class="logo-top"></div>
+
+                <div class="logo-bottom"></div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="top-icon"
+            onclick="showToast('Language')">
+
+            🌐
+
+        </button>
+
+    </header>
+
+
+
+    <!-- =================================================
+         ACCOUNT CARD
+    ================================================== -->
+
+    <section class="account-card">
+
+
+        <div class="profile">
+
+
+            <div class="avatar">
+                ♙
+            </div>
+
+
+            <div class="profile-info">
+
+                <div class="profile-name">
+
+                    <span id="userName">
+                        Demo User
+                    </span>
+
+                    <span class="verified">
+                        ✓ VERIFIED
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="profile-id"
+                    id="userDetails">
+
+                    User ID: Loading...
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="account-balance">
+
+            <small>
+                AVAILABLE BALANCE
+            </small>
+
+            <strong>
+                ৳0.00
+            </strong>
+
+        </div>
+
+
+        <div class="mini-stats">
+
+
+            <div class="mini-stat">
+
+                <b>
+                    ৳0.00
+                </b>
+
+                <span>
+                    TODAY
+                </span>
+
+            </div>
+
+
+            <div class="mini-stat">
+
+                <b>
+                    ৳0.00
+                </b>
+
+                <span>
+                    AFFILIATE
+                </span>
+
+            </div>
+
+
+            <div class="mini-stat">
+
+                <b>
+                    100
+                </b>
+
+                <span>
+                    SCORE
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         ACCOUNT MENU
+    ================================================== -->
+
+    <div class="section-title">
+
+        Account
+
+        <small>
+            Manage your account
+        </small>
+
+    </div>
+
+
+    <section class="menu">
+
+
+        <!-- Recharge -->
+
+        <div
+            class="menu-item"
+            onclick="goTo('recharge.html')">
+
+            <div class="menu-icon i-recharge">
+                ▣
+            </div>
+
+            <div class="menu-info">
+
+                <b>
+                    Recharge
+                </b>
+
+                <span>
+                    Add balance to your account
+                </span>
+
+            </div>
+
+            <div class="menu-arrow">
+                ›
+            </div>
+
+        </div>
+
+
+
+        <!-- Withdraw -->
+
+        <div
+            class="menu-item"
+            onclick="goTo('withdraw.html')">
+
+            <div class="menu-icon i-withdraw">
+                ↑
+            </div>
+
+            <div class="menu-info">
+
+                <b>
+                    Withdraw
+                </b>
+
+                <span>
+                    Withdraw your available balance
+                </span>
+
+            </div>
+
+            <div class="menu-arrow">
+                ›
+            </div>
+
+        </div>
+
+
+
+        <!-- History -->
+
+        <div
+            class="menu-item"
+            onclick="showToast('Transaction History')">
+
+            <div class="menu-icon i-history">
+                ☷
+            </div>
+
+            <div class="menu-info">
+
+                <b>
+                    Transaction History
+                </b>
+
+                <span>
+                    View your account transactions
+                </span>
+
+            </div>
+
+            <div class="menu-arrow">
+                ›
+            </div>
+
+        </div>
+
+
+
+        <!-- Invite -->
+
+        <div
+            class="menu-item"
+            onclick="goTo('invite.html')">
+
+            <div class="menu-icon i-invite">
+                ♟
+            </div>
+
+            <div class="menu-info">
+
+                <b>
+                    Invite Friends
+                </b>
+
+                <span>
+                    Share your referral invitation
+                </span>
+
+            </div>
+
+            <div class="menu-arrow">
+                ›
+            </div>
+
+        </div>
+
+
+
+        <!-- Service -->
+
+        <div
+            class="menu-item"
+            onclick="showToast('Service Center')">
+
+            <div class="menu-icon i-service">
+                ♧
+            </div>
+
+            <div class="menu-info">
+
+                <b>
+                    Service Center
+                </b>
+
+                <span>
+                    Get help and customer support
+                </span>
+
+            </div>
+
+            <div class="menu-arrow">
+                ›
+            </div>
+
+        </div>
+
+
+
+        <!-- Settings -->
+
+        <div
+            class="menu-item"
+            onclick="showToast('Settings')">
+
+            <div class="menu-icon i-settings">
+                ⚙
+            </div>
+
+            <div class="menu-info">
+
+                <b>
+                    Settings
+                </b>
+
+                <span>
+                    Manage account preferences
+                </span>
+
+            </div>
+
+            <div class="menu-arrow">
+                ›
+            </div>
+
+        </div>
+
+
+
+        <!-- Logout -->
+
+        <div
+            class="menu-item"
+            onclick="logoutDemo()">
+
+            <div class="menu-icon i-logout">
+                ⇥
+            </div>
+
+            <div class="menu-info">
+
+                <b>
+                    Log Out
+                </b>
+
+                <span>
+                    Sign out from this demo account
+                </span>
+
+            </div>
+
+            <div class="menu-arrow">
+                ›
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         SECURITY
+    ================================================== -->
+
+    <div class="security-card">
+
+
+        <div class="security-icon">
+            ✓
+        </div>
+
+
+        <div class="security-text">
+
+            <b>
+                Demo Account Security
+            </b>
+
+            <span>
+                This is a frontend educational demo.
+            </span>
+
+        </div>
+
+
+        <div class="security-status">
+            ACTIVE
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         BOTTOM NAVIGATION
+    ================================================== -->
+
+    <nav class="bottom-nav">
+
+
+        <div
+            class="nav-item"
+            onclick="goTo('home.html')">
+
+            <div class="nav-icon">
+                ⌂
+            </div>
+
+            Home
+
+        </div>
+
+
+        <div
+            class="nav-item"
+            onclick="goTo('recharge.html')">
+
+            <div class="nav-icon">
+                ▣
+            </div>
+
+            Recharge
+
+        </div>
+
+
+        <div
+            class="nav-item obtain"
+            onclick="showToast('Explore')">
+
+            <div class="nav-icon">
+                ϟ
+            </div>
+
+            Explore
+
+        </div>
+
+
+        <div
+            class="nav-item"
+            onclick="goTo('task.html')">
+
+            <div class="nav-icon">
+                ☷
+            </div>
+
+            Tasks
+
+        </div>
+
+
+        <div
+            class="nav-item active"
+            onclick="showToast('Account')">
+
+            <div class="nav-icon">
+                ♙
+            </div>
+
+            Account
+
+        </div>
+
+
+    </nav>
+
+
+</div>
+
+
+
+<!-- PARTICLES -->
+
+<div class="particle p1"></div>
+<div class="particle p2"></div>
+<div class="particle p3"></div>
+
+
+
+<!-- TOAST -->
+
+<div
+    class="toast"
+    id="toast">
+
+    Done
+
+</div>
+
+
+
+<script>
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+function goTo(page){
+
+    window.location.href = page;
+
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent =
+        message;
+
+    toast.classList.add("show");
+
+    clearTimeout(
+        window.toastTimer
+    );
+
+    window.toastTimer =
+        setTimeout(function(){
+
+            toast.classList.remove("show");
+
+        },1800);
+
+}
+
+
+/* =====================================================
+   GET PHONE FROM LOCAL STORAGE
+===================================================== */
+
+function getRegisteredPhone(){
+
+    const possibleKeys = [
+
+        "userPhone",
+        "phone",
+        "registeredPhone",
+        "registerPhone",
+        "mobile",
+        "user_mobile",
+        "user_phone"
+
+    ];
+
+
+    for(
+        let i = 0;
+        i < possibleKeys.length;
+        i++
+    ){
+
+        const value =
+            localStorage.getItem(
+                possibleKeys[i]
+            );
+
+
+        if(
+            value &&
+            value.trim() !== ""
+        ){
+
+            return value.trim();
+
+        }
+
+    }
+
+
+    return "01XXXXXXXXX";
+
+}
+
+
+/* =====================================================
+   GET USER ID
+===================================================== */
+
+function getUserId(){
+
+    const possibleKeys = [
+
+        "userId",
+        "userID",
+        "userid",
+        "user_id",
+        "accountId",
+        "accountID"
+
+    ];
+
+
+    for(
+        let i = 0;
+        i < possibleKeys.length;
+        i++
+    ){
+
+        const value =
+            localStorage.getItem(
+                possibleKeys[i]
+            );
+
+
+        if(
+            value &&
+            value.trim() !== ""
+        ){
+
+            return value.trim();
+
+        }
+
+    }
+
+
+    /*
+       Generate a demo ID only once.
+    */
+
+    let demoId =
+        localStorage.getItem(
+            "demoUserId"
+        );
+
+
+    if(!demoId){
+
+        demoId =
+            "AH" +
+            Math.floor(
+                100000 +
+                Math.random() * 900000
+            );
+
+        localStorage.setItem(
+            "demoUserId",
+            demoId
+        );
+
+    }
+
+
+    return demoId;
+
+}
+
+
+/* =====================================================
+   LOAD USER INFORMATION
+===================================================== */
+
+const phone =
+    getRegisteredPhone();
+
+const userId =
+    getUserId();
+
+
+document.getElementById(
+    "userDetails"
+).textContent =
+    "User ID: " +
+    userId +
+    " | " +
+    phone;
+
+
+/* =====================================================
+   SIMPLE DEMO USER NAME
+===================================================== */
+
+const savedName =
+    localStorage.getItem(
+        "fullName"
+    ) ||
+    localStorage.getItem(
+        "userName"
+    ) ||
+    localStorage.getItem(
+        "name"
+    );
+
+
+if(savedName){
+
+    document.getElementById(
+        "userName"
+    ).textContent =
+        savedName;
+
+}
+
+
+/* =====================================================
+   LOGOUT DEMO
+===================================================== */
+
+function logoutDemo(){
+
+    const confirmed =
+        confirm(
+            "Log out from this demo account?"
+        );
+
+
+    if(!confirmed){
+
+        return;
+
+    }
+
+
+    /*
+       Educational frontend demo:
+       We only remove demo login state.
+    */
+
+    localStorage.removeItem(
+        "loggedIn"
+    );
+
+    showToast(
+        "Logged out"
+    );
+
+
+    setTimeout(function(){
+
+        window.location.href =
+            "index.html";
+
+    },1000);
+
+}
+
+
+/* =====================================================
+   FLOATING PARTICLES
+===================================================== */
+
+setInterval(function(){
+
+    const particle =
+        document.createElement(
+            "div"
+        );
+
+    particle.className =
+        "particle";
+
+    particle.style.left =
+        Math.random() * 100 +
+        "%";
+
+    particle.style.bottom =
+        Math.random() * 20 +
+        "%";
+
+
+    document.body.appendChild(
+        particle
+    );
+
+
+    setTimeout(function(){
+
+        particle.remove();
+
+    },7000);
+
+},1800);
+
+
+/* =====================================================
+   ACCOUNT CARD TOUCH EFFECT
+===================================================== */
+
+const accountCard =
+    document.querySelector(
+        ".account-card"
+    );
+
+
+document.addEventListener(
+    "touchmove",
+    function(e){
+
+        if(
+            !e.touches ||
+            !e.touches.length
+        ){
+
+            return;
+
+        }
+
+
+        const touch =
+            e.touches[0];
+
+
+        const center =
+            window.innerWidth / 2;
+
+
+        const difference =
+            touch.clientX -
+            center;
+
+
+        accountCard.style.transform =
+            "perspective(900px) " +
+            "rotateY(" +
+            difference / 90 +
+            "deg)";
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+document.addEventListener(
+    "touchend",
+    function(){
+
+        accountCard.style.transform =
+            "perspective(900px) " +
+            "rotateY(0deg)";
+
+    }
+);
+
+</script>
+
+</body>
+</html>
