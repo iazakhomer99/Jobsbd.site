@@ -1,1 +1,120 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(180deg, #dbe7fb 0%, #d7e4fa 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 90px;
+  }
+
+  .login-container {
+    width: 100%;
+    max-width: 380px;
+    padding: 0 24px;
+    text-align: center;
+  }
+
+  .logo {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 40px;
+    display: block;
+  }
+
+  .input-group {
+    display: flex;
+    align-items: center;
+    background: #191d3a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 18px;
+    gap: 14px;
+  }
+
+  .input-group .icon {
+    color: #f5a623;
+    font-size: 20px;
+    flex-shrink: 0;
+    width: 22px;
+    text-align: center;
+  }
+
+  .input-group input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-size: 17px;
+    width: 100%;
+  }
+
+  .input-group input::placeholder {
+    color: #9aa0b8;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 18px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 16px;
+  }
+
+  .btn-login {
+    background: #16a6a6;
+    color: #ffffff;
+  }
+
+  .btn-login:hover { background: #128f8f; }
+
+  .btn-register {
+    background: #f4c430;
+    color: #191d3a;
+  }
+
+  .btn-register:hover { background: #e0b420; }
+</style>
+</head>
+<body>
+
+  <div class="login-container">
+
+    <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 5 L50 45 L20 60 Z" fill="#e8491d"/>
+      <path d="M20 60 L50 45 L80 60 L50 95 Z" fill="#ff5a24"/>
+    </svg>
+
+    <form action="#" method="post">
+      <div class="input-group">
+        <span class="icon">&#128222;</span>
+        <input type="tel" name="phone" placeholder="phone number" required>
+      </div>
+
+      <div class="input-group">
+        <span class="icon">&#128274;</span>
+        <input type="password" name="password" placeholder="login password" required>
+      </div>
+
+      <button type="submit" class="btn btn-login">Log in</button>
+    </form>
+
+    <button type="button" class="btn btn-register" onclick="window.location.href='register.html'">Register</button>
+
+  </div>
+
+</body>
+</html>
