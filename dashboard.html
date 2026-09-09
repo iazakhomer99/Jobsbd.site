@@ -9,11 +9,6 @@
 
 <style>
 
-/* =========================================================
-   AFFILIATEHUB PREMIUM 3D DASHBOARD
-   ORIGINAL STRUCTURE / ORIGINAL COLORS
-========================================================= */
-
 *{
     margin:0;
     padding:0;
@@ -43,1440 +38,686 @@
         0 25px 60px rgba(28,45,105,.22);
 }
 
-
-/* =========================================================
-   BODY
-========================================================= */
-
 body{
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    font-family:Arial, Helvetica, sans-serif;
     background:
-
-        radial-gradient(
-            circle at 5% 5%,
-            rgba(73,105,255,.18),
-            transparent 25%
-        ),
-
-        radial-gradient(
-            circle at 95% 15%,
-            rgba(163,92,255,.16),
-            transparent 28%
-        ),
-
-        radial-gradient(
-            circle at 50% 90%,
-            rgba(37,201,255,.08),
-            transparent 30%
-        ),
-
+        radial-gradient(circle at 5% 5%, rgba(73,105,255,.18), transparent 25%),
+        radial-gradient(circle at 95% 15%, rgba(163,92,255,.16), transparent 28%),
+        radial-gradient(circle at 50% 90%, rgba(37,201,255,.08), transparent 30%),
         var(--bg);
-
     color:var(--text);
-
     min-height:100vh;
-
     overflow-x:hidden;
 }
 
-
-/* =========================================================
-   3D BACKGROUND
-========================================================= */
-
 .background-orb{
-
     position:fixed;
-
     border-radius:50%;
-
     pointer-events:none;
-
     filter:blur(2px);
-
     z-index:-1;
-
-    animation:
-        orbFloat
-        8s
-        ease-in-out
-        infinite;
+    animation:orbFloat 8s ease-in-out infinite;
 }
 
 .orb-one{
-
     width:120px;
     height:120px;
-
     top:15%;
     left:-45px;
-
-    background:
-        radial-gradient(
-            circle at 30% 30%,
-            rgba(110,140,255,.35),
-            rgba(70,90,255,.03)
-        );
+    background:radial-gradient(circle at 30% 30%, rgba(110,140,255,.35), rgba(70,90,255,.03));
 }
 
 .orb-two{
-
     width:160px;
     height:160px;
-
     top:55%;
     right:-80px;
-
-    background:
-        radial-gradient(
-            circle at 40% 40%,
-            rgba(174,112,255,.25),
-            rgba(100,70,255,.02)
-        );
-
+    background:radial-gradient(circle at 40% 40%, rgba(174,112,255,.25), rgba(100,70,255,.02));
     animation-delay:-3s;
 }
 
 @keyframes orbFloat{
-
-    0%,100%{
-        transform:
-            translate3d(0,0,0)
-            scale(1);
-    }
-
-    50%{
-        transform:
-            translate3d(0,-25px,0)
-            scale(1.08);
-    }
+    0%,100%{transform:translate3d(0,0,0) scale(1);}
+    50%{transform:translate3d(0,-25px,0) scale(1.08);}
 }
 
-
-/* =========================================================
-   MAIN APP
-========================================================= */
-
 .app{
-
     width:100%;
-
     max-width:480px;
-
     margin:auto;
-
     min-height:100vh;
-
     padding-bottom:100px;
-
     position:relative;
 }
 
-
-/* =========================================================
-   TOP HEADER
-========================================================= */
-
 .topbar{
-
     height:82px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
     padding:12px 18px;
 }
 
-
 .icon-btn{
-
     width:44px;
     height:44px;
-
     border:0;
-
     border-radius:15px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.95),
-            rgba(239,244,255,.75)
-        );
-
-    box-shadow:
-        0 10px 25px rgba(39,63,130,.12),
-        inset 0 1px rgba(255,255,255,.9);
-
+    background:linear-gradient(145deg, rgba(255,255,255,.95), rgba(239,244,255,.75));
+    box-shadow:0 10px 25px rgba(39,63,130,.12), inset 0 1px rgba(255,255,255,.9);
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     font-size:19px;
-
     cursor:pointer;
-
     transition:.3s;
-
     position:relative;
-
     overflow:hidden;
 }
 
 .icon-btn:before{
-
     content:"";
-
     position:absolute;
-
     width:45px;
     height:100px;
-
-    background:
-        rgba(255,255,255,.5);
-
-    transform:
-        rotate(35deg)
-        translateX(-70px);
-
+    background:rgba(255,255,255,.5);
+    transform:rotate(35deg) translateX(-70px);
     transition:.5s;
 }
 
 .icon-btn:hover:before{
-
-    transform:
-        rotate(35deg)
-        translateX(70px);
+    transform:rotate(35deg) translateX(70px);
 }
 
 .icon-btn:active{
-
-    transform:
-        scale(.88)
-        translateY(2px);
-}
-
-
-/* =========================================================
-   SAME LOGO AS LOGIN / REGISTER PAGE
-========================================================= */
-
-.logo-wrap{
-
-    perspective:600px;
-
-    margin-bottom:0;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
+    transform:scale(.88) translateY(2px);
 }
 
 .logo{
-
     width:58px;
     height:58px;
-
-    margin:0 auto;
-
-    display:block;
-
-    filter:
-        drop-shadow(
-            0 10px 20px
-            rgba(0,229,255,.35)
-        )
-        drop-shadow(
-            0 0 25px
-            rgba(162,89,255,.25)
-        );
-
-    animation:
-        floatTilt
-        4s
-        ease-in-out
-        infinite;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    perspective:700px;
 }
 
-@keyframes floatTilt{
-
-    0%,100%{
-        transform:
-            rotateY(-8deg)
-            rotateX(4deg)
-            translateY(0px);
-    }
-
-    50%{
-        transform:
-            rotateY(8deg)
-            rotateX(-4deg)
-            translateY(-10px);
-    }
+.logo-glow{
+    position:absolute;
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(70,103,255,.24), transparent 68%);
+    filter:blur(3px);
+    animation:logoGlow 3s ease-in-out infinite;
 }
 
+.logo-shape{
+    width:34px;
+    height:45px;
+    background:linear-gradient(145deg,#ff6b48,#ef2b20);
+    clip-path:polygon(50% 0%,88% 22%,88% 72%,50% 100%,12% 78%,12% 28%);
+    transform:rotateY(-20deg) rotateX(10deg);
+    filter:drop-shadow(7px 9px 6px rgba(220,38,25,.30));
+    animation:logoFloat 3s ease-in-out infinite;
+}
 
-/* =========================================================
-   HERO
-========================================================= */
+.logo-shape:after{
+    content:"";
+    position:absolute;
+    width:12px;
+    height:20px;
+    background:#fff;
+    left:11px;
+    top:12px;
+    clip-path:polygon(50% 0,100% 30%,100% 70%,50% 100%,0 70%,0 30%);
+    opacity:.92;
+}
+
+@keyframes logoGlow{
+    0%,100%{transform:scale(.9);opacity:.6;}
+    50%{transform:scale(1.2);opacity:1;}
+}
+
+@keyframes logoFloat{
+    0%,100%{transform:translateY(0) rotateY(-20deg) rotateX(10deg);}
+    50%{transform:translateY(-7px) rotateY(18deg) rotateX(-6deg);}
+}
 
 .hero{
-
     margin:5px 12px 16px;
-
     min-height:185px;
-
     border-radius:27px;
-
     overflow:hidden;
-
     position:relative;
-
     background:
-
-        radial-gradient(
-            circle at 80% 18%,
-            rgba(255,255,255,.30),
-            transparent 18%
-        ),
-
-        radial-gradient(
-            circle at 20% 90%,
-            rgba(35,201,255,.15),
-            transparent 28%
-        ),
-
-        linear-gradient(
-            135deg,
-            #6850ef,
-            #8a50ed 38%,
-            #d05cae 72%,
-            #f27fae
-        );
-
-    box-shadow:
-
-        0 20px 45px
-        rgba(91,68,190,.25),
-
-        inset 0 1px
-        rgba(255,255,255,.35);
-
-    transform:
-        translateZ(0);
-
+        radial-gradient(circle at 80% 18%, rgba(255,255,255,.30), transparent 18%),
+        radial-gradient(circle at 20% 90%, rgba(35,201,255,.15), transparent 28%),
+        linear-gradient(135deg,#6850ef,#8a50ed 38%,#d05cae 72%,#f27fae);
+    box-shadow:0 20px 45px rgba(91,68,190,.25), inset 0 1px rgba(255,255,255,.35);
+    transform:translateZ(0);
     isolation:isolate;
 }
 
 .hero:before{
-
     content:"";
-
     position:absolute;
-
     width:190px;
     height:190px;
-
     border-radius:50%;
-
     right:-75px;
     top:-60px;
-
-    background:
-        rgba(255,255,255,.10);
-
-    box-shadow:
-        inset 0 0 30px
-        rgba(255,255,255,.08);
+    background:rgba(255,255,255,.10);
+    box-shadow:inset 0 0 30px rgba(255,255,255,.08);
 }
 
 .hero:after{
-
     content:"";
-
     position:absolute;
-
     width:180px;
     height:180px;
-
     border-radius:50%;
-
     left:-90px;
     bottom:-115px;
-
-    background:
-        rgba(255,255,255,.09);
+    background:rgba(255,255,255,.09);
 }
 
 .hero-content{
-
     position:relative;
-
     z-index:5;
-
     padding:26px 20px;
-
     width:70%;
 }
 
 .hero-small{
-
     color:#fff;
-
     font-size:10px;
-
     font-weight:900;
-
     letter-spacing:1.3px;
-
     text-transform:uppercase;
-
     opacity:.88;
 }
 
 .hero h1{
-
     color:#fff;
-
     font-size:28px;
-
     line-height:1.03;
-
     margin-top:7px;
-
-    text-shadow:
-        0 5px 15px
-        rgba(57,28,120,.18);
+    text-shadow:0 5px 15px rgba(57,28,120,.18);
 }
 
 .hero p{
-
-    color:
-        rgba(255,255,255,.92);
-
+    color:rgba(255,255,255,.92);
     font-size:11px;
-
     margin-top:10px;
-
     line-height:1.4;
 }
 
 .hero-button{
-
     margin-top:13px;
-
     border:0;
-
     border-radius:11px;
-
     padding:10px 14px;
-
     background:#fff;
-
     color:#754eea;
-
     font-weight:900;
-
     font-size:10px;
-
-    box-shadow:
-
-        0 10px 20px
-        rgba(0,0,0,.14),
-
-        inset 0 1px
-        rgba(255,255,255,.9);
-
+    box-shadow:0 10px 20px rgba(0,0,0,.14), inset 0 1px rgba(255,255,255,.9);
     cursor:pointer;
-
     transition:.25s;
 }
 
 .hero-button:active{
-
-    transform:
-        scale(.94)
-        translateY(2px);
+    transform:scale(.94) translateY(2px);
 }
 
-
-/* =========================================================
-   HERO 3D PEOPLE
-========================================================= */
-
 .hero-shape{
-
     position:absolute;
-
     right:7px;
-
     bottom:-3px;
-
     width:150px;
     height:155px;
-
-    transform:
-        perspective(700px)
-        rotateY(-12deg);
-
+    transform:perspective(700px) rotateY(-12deg);
     transform-style:preserve-3d;
 }
 
 .person{
-
     position:absolute;
-
     bottom:0;
-
-    border-radius:
-        60px
-        60px
-        15px
-        15px;
-
-    box-shadow:
-        10px 5px 25px
-        rgba(0,0,0,.13);
-
+    border-radius:60px 60px 15px 15px;
+    box-shadow:10px 5px 25px rgba(0,0,0,.13);
     transform-style:preserve-3d;
 }
 
 .person.one{
-
     width:57px;
     height:122px;
-
     right:65px;
-
-    background:
-        linear-gradient(
-            160deg,
-            #14b2c4,
-            #075b75
-        );
-
-    transform:
-        translateZ(20px);
+    background:linear-gradient(160deg,#14b2c4,#075b75);
+    transform:translateZ(20px);
 }
 
 .person.two{
-
     width:49px;
     height:107px;
-
     right:14px;
-
-    background:
-        linear-gradient(
-            160deg,
-            #f2a6bf,
-            #cc4c80
-        );
-
-    transform:
-        translateZ(8px);
+    background:linear-gradient(160deg,#f2a6bf,#cc4c80);
+    transform:translateZ(8px);
 }
 
 .person.three{
-
     width:45px;
     height:97px;
-
     right:100px;
-
-    background:
-        linear-gradient(
-            160deg,
-            #38c4ab,
-            #087e79
-        );
-
-    transform:
-        translateZ(30px);
+    background:linear-gradient(160deg,#38c4ab,#087e79);
+    transform:translateZ(30px);
 }
 
 .head{
-
     position:absolute;
-
     width:36px;
     height:36px;
-
     border-radius:50%;
-
-    background:
-        linear-gradient(
-            145deg,
-            #dca27d,
-            #b87556
-        );
-
+    background:linear-gradient(145deg,#dca27d,#b87556);
     top:-30px;
-
     left:10px;
-
-    box-shadow:
-        4px 5px 10px
-        rgba(0,0,0,.12);
+    box-shadow:4px 5px 10px rgba(0,0,0,.12);
 }
 
-
-/* =========================================================
-   QUICK ACTIONS
-========================================================= */
-
 .actions{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
+    grid-template-columns:repeat(4,1fr);
     gap:10px;
-
     padding:0 12px;
 }
 
 .action{
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.96),
-            rgba(246,249,255,.82)
-        );
-
+    background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(246,249,255,.82));
     border-radius:19px;
-
     padding:13px 4px 11px;
-
     text-align:center;
-
-    box-shadow:
-
-        0 12px 30px
-        rgba(39,60,120,.12),
-
-        inset 0 1px
-        rgba(255,255,255,.9);
-
+    box-shadow:0 12px 30px rgba(39,60,120,.12), inset 0 1px rgba(255,255,255,.9);
     cursor:pointer;
-
     transition:.25s;
-
-    transform:
-        translateZ(0);
+    transform:translateZ(0);
 }
 
 .action:hover{
-
-    transform:
-        translateY(-4px);
+    transform:translateY(-4px);
 }
 
 .action:active{
-
-    transform:
-        translateY(3px)
-        scale(.95);
+    transform:translateY(3px) scale(.95);
 }
 
 .action-icon{
-
     width:37px;
     height:37px;
-
     margin:auto;
-
     border-radius:12px;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     color:#fff;
-
     font-size:17px;
-
-    box-shadow:
-
-        0 8px 16px
-        rgba(0,0,0,.13),
-
-        inset 0 1px
-        rgba(255,255,255,.35);
+    box-shadow:0 8px 16px rgba(0,0,0,.13), inset 0 1px rgba(255,255,255,.35);
 }
 
 .recharge{
-
-    background:
-        linear-gradient(
-            145deg,
-            #ffb641,
-            #f27812
-        );
+    background:linear-gradient(145deg,#ffb641,#f27812);
 }
 
 .withdraw{
-
-    background:
-        linear-gradient(
-            145deg,
-            #2ed4a4,
-            #07986e
-        );
+    background:linear-gradient(145deg,#2ed4a4,#07986e);
 }
 
 .invite{
-
-    background:
-        linear-gradient(
-            145deg,
-            #a07aff,
-            #6240df
-        );
+    background:linear-gradient(145deg,#a07aff,#6240df);
 }
 
 .support{
-
-    background:
-        linear-gradient(
-            145deg,
-            #3bb9f3,
-            #2369dc
-        );
+    background:linear-gradient(145deg,#3bb9f3,#2369dc);
 }
 
 .action span{
-
     display:block;
-
     font-size:9px;
-
     font-weight:800;
-
     margin-top:7px;
 }
 
-
-/* =========================================================
-   NOTICE
-========================================================= */
-
 .notice{
-
     margin:18px 12px 14px;
-
     height:41px;
-
     border-radius:15px;
-
-    background:
-        rgba(255,255,255,.90);
-
-    box-shadow:
-        0 10px 30px
-        rgba(39,60,120,.10),
-
-        inset 0 1px
-        rgba(255,255,255,.9);
-
+    background:rgba(255,255,255,.90);
+    box-shadow:0 10px 30px rgba(39,60,120,.10), inset 0 1px rgba(255,255,255,.9);
     display:flex;
-
     align-items:center;
-
     overflow:hidden;
 }
 
 .notice-icon{
-
     width:42px;
-
     text-align:center;
-
     font-size:17px;
-
     flex-shrink:0;
 }
 
 .notice-text{
-
     white-space:nowrap;
-
     font-size:11px;
-
     font-weight:700;
-
-    animation:
-        scrollText
-        13s
-        linear
-        infinite;
+    animation:scrollText 13s linear infinite;
 }
 
 @keyframes scrollText{
-
-    from{
-        transform:translateX(100%);
-    }
-
-    to{
-        transform:translateX(-130%);
-    }
+    from{transform:translateX(100%);}
+    to{transform:translateX(-130%);}
 }
 
-
-/* =========================================================
-   BALANCE CARD
-========================================================= */
-
 .balance-card{
-
     margin:0 12px;
-
     min-height:225px;
-
     border-radius:27px;
-
     position:relative;
-
     overflow:hidden;
-
     padding:22px 18px;
-
     color:#fff;
-
     background:
-
-        radial-gradient(
-            circle at 85% 15%,
-            rgba(255,255,255,.16),
-            transparent 20%
-        ),
-
-        radial-gradient(
-            circle at 15% 90%,
-            rgba(65,130,255,.13),
-            transparent 25%
-        ),
-
-        linear-gradient(
-            145deg,
-            #111f50,
-            #263675 48%,
-            #131f4a
-        );
-
-    box-shadow:
-
-        0 25px 50px
-        rgba(24,39,92,.28),
-
-        inset 0 1px
-        rgba(255,255,255,.15);
-
+        radial-gradient(circle at 85% 15%, rgba(255,255,255,.16), transparent 20%),
+        radial-gradient(circle at 15% 90%, rgba(65,130,255,.13), transparent 25%),
+        linear-gradient(145deg,#111f50,#263675 48%,#131f4a);
+    box-shadow:0 25px 50px rgba(24,39,92,.28), inset 0 1px rgba(255,255,255,.15);
     transform-style:preserve-3d;
-
-    transition:
-        transform
-        .35s
-        ease;
+    transition:transform .35s ease;
 }
 
 .balance-card:before{
-
     content:"";
-
     position:absolute;
-
     width:210px;
     height:210px;
-
     border-radius:50%;
-
     right:-100px;
     bottom:-115px;
-
-    border:
-        35px solid
-        rgba(255,255,255,.035);
-
-    transform:
-        translateZ(10px);
+    border:35px solid rgba(255,255,255,.035);
+    transform:translateZ(10px);
 }
 
 .balance-card:after{
-
     content:"";
-
     position:absolute;
-
     width:80px;
     height:200px;
-
     left:-90px;
     top:-40px;
-
-    background:
-        rgba(255,255,255,.06);
-
-    transform:
-        rotate(25deg);
-
-    animation:
-        balanceShine
-        5s
-        ease-in-out
-        infinite;
+    background:rgba(255,255,255,.06);
+    transform:rotate(25deg);
+    animation:balanceShine 5s ease-in-out infinite;
 }
 
 @keyframes balanceShine{
-
-    0%,100%{
-        left:-100px;
-    }
-
-    50%{
-        left:450px;
-    }
+    0%,100%{left:-100px;}
+    50%{left:450px;}
 }
 
-
-/* =========================================================
-   USER INFORMATION
-========================================================= */
-
 .phone{
-
     font-size:11px;
-
     letter-spacing:1px;
-
     opacity:.85;
-
     white-space:nowrap;
-
     overflow:hidden;
-
     text-overflow:ellipsis;
-
     padding-right:5px;
 }
 
 .score{
-
     position:absolute;
-
     right:15px;
     top:17px;
-
     border-radius:20px;
-
     padding:7px 11px;
-
-    background:
-        rgba(255,255,255,.10);
-
-    border:
-        1px solid
-        rgba(255,255,255,.12);
-
+    background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.12);
     font-size:10px;
-
     font-weight:bold;
-
     backdrop-filter:blur(10px);
 }
 
 .balance-title{
-
     margin-top:28px;
-
     font-size:10px;
-
     letter-spacing:1px;
-
     opacity:.65;
 }
 
 .balance{
-
     font-size:34px;
-
     font-weight:900;
-
     margin-top:5px;
-
     letter-spacing:.5px;
-
-    text-shadow:
-        0 6px 15px
-        rgba(0,0,0,.18);
-
-    transform:
-        translateZ(18px);
+    text-shadow:0 6px 15px rgba(0,0,0,.18);
+    transform:translateZ(18px);
 }
 
 .stats{
-
     position:absolute;
-
     left:16px;
     right:16px;
-
     bottom:15px;
-
-    background:
-        rgba(255,255,255,.09);
-
+    background:rgba(255,255,255,.09);
     border-radius:17px;
-
     padding:11px 12px;
-
-    backdrop-filter:
-        blur(12px);
-
-    border:
-        1px solid
-        rgba(255,255,255,.07);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.07);
 }
 
 .stat{
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     font-size:10px;
-
     margin:7px 0;
 }
 
 .stat span:first-child{
-
     opacity:.65;
 }
 
 .stat span:last-child{
-
     font-weight:800;
 }
 
-
-/* =========================================================
-   SECTION TITLE
-========================================================= */
-
 .section-title{
-
     padding:19px 14px 10px;
-
     font-size:16px;
-
     font-weight:900;
 }
 
 .section-title small{
-
     display:none;
 }
 
-
-/* =========================================================
-   DEMO LIVE BADGE
-========================================================= */
-
 .demo-badge{
-
     display:inline-flex;
-
     align-items:center;
-
     gap:4px;
-
     margin-left:7px;
-
     padding:4px 7px;
-
     border-radius:20px;
-
-    background:
-        rgba(22,184,135,.10);
-
+    background:rgba(22,184,135,.10);
     color:#12a879;
-
     font-size:7px;
-
     font-weight:900;
-
     letter-spacing:.4px;
-
     vertical-align:middle;
 }
 
 .demo-dot{
-
     width:5px;
     height:5px;
-
     border-radius:50%;
-
     background:#16b887;
-
-    box-shadow:
-        0 0 7px
-        rgba(22,184,135,.65);
-
-    animation:
-        demoPulse
-        1.5s
-        ease-in-out
-        infinite;
+    box-shadow:0 0 7px rgba(22,184,135,.65);
+    animation:demoPulse 1.5s ease-in-out infinite;
 }
 
 @keyframes demoPulse{
-
-    0%,100%{
-        opacity:.5;
-    }
-
-    50%{
-        opacity:1;
-    }
+    0%,100%{opacity:.5;}
+    50%{opacity:1;}
 }
 
-
-/* =========================================================
-   INFORMATION / WITHDRAWALS
-========================================================= */
-
 .withdrawals{
-
     margin:0 12px;
-
     background:#fff;
-
     border-radius:20px;
-
     overflow:hidden;
-
-    box-shadow:
-        0 14px 35px
-        rgba(39,60,120,.11);
+    box-shadow:0 14px 35px rgba(39,60,120,.11);
 }
 
 .withdraw-item{
-
     min-height:68px;
-
     display:flex;
-
     align-items:center;
-
     padding:10px 12px;
-
-    border-bottom:
-        1px solid
-        #edf0f7;
-
+    border-bottom:1px solid #edf0f7;
     transition:.2s;
 }
 
 .withdraw-item:active{
-
     background:#f8faff;
 }
 
 .withdraw-item:last-child{
-
     border-bottom:0;
 }
 
 .check{
-
     width:31px;
     height:31px;
-
     border-radius:50%;
-
-    background:
-        linear-gradient(
-            145deg,
-            #effcf8,
-            #dcf8f0
-        );
-
+    background:linear-gradient(145deg,#effcf8,#dcf8f0);
     color:#14ae82;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     margin-right:10px;
-
     font-size:13px;
-
-    box-shadow:
-        0 5px 12px
-        rgba(20,174,130,.10);
-
+    box-shadow:0 5px 12px rgba(20,174,130,.10);
     flex-shrink:0;
 }
 
 .withdraw-info{
-
     flex:1;
-
     min-width:0;
 }
 
 .withdraw-info b{
-
     display:block;
-
     font-size:10px;
-
     white-space:nowrap;
-
     overflow:hidden;
-
     text-overflow:ellipsis;
 }
 
 .withdraw-info small{
-
     display:block;
-
     margin-top:5px;
-
     color:#9ba3b8;
-
     font-size:8px;
 }
 
 .amount{
-
     color:#ff9f21;
-
     font-weight:900;
-
     font-size:11px;
-
     white-space:nowrap;
-
     margin-left:7px;
 }
 
-
-/* =========================================================
-   NEW WITHDRAWAL SLIDE
-========================================================= */
-
 .withdraw-item.demo-new{
-
-    animation:
-        withdrawalIn
-        .45s
-        ease-out;
+    animation:withdrawalIn .45s ease-out;
 }
 
 @keyframes withdrawalIn{
-
-    0%{
-
-        opacity:0;
-
-        transform:
-            translateY(-18px);
-    }
-
-    100%{
-
-        opacity:1;
-
-        transform:
-            translateY(0);
-    }
+    0%{opacity:0;transform:translateY(-18px);}
+    100%{opacity:1;transform:translateY(0);}
 }
 
-
-/* =========================================================
-   INFO GRID
-========================================================= */
-
 .info-grid{
-
     padding:10px 12px 0;
-
     display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
+    grid-template-columns:1fr 1fr;
     gap:10px;
 }
 
 .info-box{
-
     min-height:66px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #fff,
-            #f8faff
-        );
-
+    background:linear-gradient(145deg,#fff,#f8faff);
     border-radius:18px;
-
-    box-shadow:
-        0 12px 30px
-        rgba(39,60,120,.10),
-
-        inset 0 1px
-        rgba(255,255,255,.9);
-
+    box-shadow:0 12px 30px rgba(39,60,120,.10), inset 0 1px rgba(255,255,255,.9);
     display:flex;
-
     align-items:center;
-
     padding:12px;
-
     gap:10px;
-
     font-size:11px;
-
     font-weight:800;
-
     cursor:pointer;
-
     transition:.25s;
 }
 
 .info-box:hover{
-
-    transform:
-        translateY(-3px);
+    transform:translateY(-3px);
 }
 
 .info-box:active{
-
-    transform:
-        scale(.97);
+    transform:scale(.97);
 }
 
 .info-box:nth-child(3){
-
     grid-column:1/3;
 }
 
 .info-icon{
-
     width:31px;
     height:31px;
-
     flex-shrink:0;
-
     border-radius:10px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #edf5ff,
-            #e4edff
-        );
-
+    background:linear-gradient(145deg,#edf5ff,#e4edff);
     color:#2772df;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
-    box-shadow:
-        inset 0 1px
-        rgba(255,255,255,.9);
+    box-shadow:inset 0 1px rgba(255,255,255,.9);
 }
 
-
-/* =========================================================
-   PARTNERS
-========================================================= */
-
 .partner-title{
-
     padding-top:21px;
 }
 
 .partners{
-
-    padding:
-        0 12px
-        10px;
-
+    padding:0 12px 10px;
     display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
+    grid-template-columns:1fr 1fr;
     gap:14px;
-
     perspective:1000px;
 }
 
 .partner-card{
-
     height:86px;
-
     border-radius:19px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     position:relative;
-
     overflow:hidden;
-
-    box-shadow:
-
-        0 16px 30px
-        rgba(30,50,100,.16),
-
-        inset 0 1px
-        rgba(255,255,255,.4);
-
+    box-shadow:0 16px 30px rgba(30,50,100,.16), inset 0 1px rgba(255,255,255,.4);
     transform-style:preserve-3d;
-
-    animation:
-        partnerFloat
-        4s
-        ease-in-out
-        infinite;
-
+    animation:partnerFloat 4s ease-in-out infinite;
     cursor:pointer;
-
-    transition:
-        transform
-        .25s
-        ease;
+    transition:transform .25s ease;
 }
 
 .partner-card:nth-child(2){
@@ -1500,200 +741,95 @@ body{
 }
 
 @keyframes partnerFloat{
-
-    0%,100%{
-
-        transform:
-            translateY(0)
-            rotateX(0deg)
-            rotateY(0deg);
-    }
-
-    50%{
-
-        transform:
-            translateY(-6px)
-            rotateX(2deg)
-            rotateY(-3deg);
-    }
+    0%,100%{transform:translateY(0) rotateX(0deg) rotateY(0deg);}
+    50%{transform:translateY(-6px) rotateX(2deg) rotateY(-3deg);}
 }
 
 .partner-card:before{
-
     content:"";
-
     position:absolute;
-
     width:80px;
     height:160px;
-
-    background:
-        rgba(255,255,255,.24);
-
-    transform:
-        rotate(30deg);
-
+    background:rgba(255,255,255,.24);
+    transform:rotate(30deg);
     left:-110px;
-
     transition:.7s;
 }
 
 .partner-card:hover:before{
-
     left:160%;
 }
 
 .partner-logo{
-
     position:relative;
-
     z-index:2;
-
     font-weight:1000;
-
     font-size:25px;
-
     letter-spacing:-1px;
-
-    transform:
-        translateZ(30px);
-
-    text-shadow:
-
-        2px 3px 0
-        rgba(0,0,0,.12),
-
-        0 8px 14px
-        rgba(0,0,0,.15);
+    transform:translateZ(30px);
+    text-shadow:2px 3px 0 rgba(0,0,0,.12), 0 8px 14px rgba(0,0,0,.15);
 }
 
 .tiktok{
-
-    background:
-        linear-gradient(
-            145deg,
-            #fff,
-            #e8edf8
-        );
+    background:linear-gradient(145deg,#fff,#e8edf8);
 }
 
 .tiktok .partner-logo{
-
     color:#050505;
 }
 
 .myntra{
-
-    background:
-        linear-gradient(
-            145deg,
-            #ff9b19,
-            #f04475
-        );
+    background:linear-gradient(145deg,#ff9b19,#f04475);
 }
 
 .myntra .partner-logo{
-
     color:#fff;
-
-    font-family:
-        Georgia,
-        serif;
+    font-family:Georgia,serif;
 }
 
 .amazon{
-
-    background:
-        linear-gradient(
-            145deg,
-            #29c85b,
-            #00a947
-        );
+    background:linear-gradient(145deg,#29c85b,#00a947);
 }
 
 .amazon .partner-logo{
-
     color:#fff;
-
     font-size:24px;
 }
 
 .flipkart{
-
-    background:
-        linear-gradient(
-            145deg,
-            #080808,
-            #202020
-        );
+    background:linear-gradient(145deg,#080808,#202020);
 }
 
 .flipkart .partner-logo{
-
     color:#1688ff;
 }
 
 .snapdeal{
-
-    background:
-        linear-gradient(
-            145deg,
-            #fff,
-            #f5f5f5
-        );
+    background:linear-gradient(145deg,#fff,#f5f5f5);
 }
 
 .snapdeal .partner-logo{
-
     color:#5d9dc7;
 }
 
 .etsy{
-
-    background:
-        linear-gradient(
-            145deg,
-            #ed713d,
-            #bd4e23
-        );
+    background:linear-gradient(145deg,#ed713d,#bd4e23);
 }
 
 .etsy .partner-logo{
-
     color:#fff;
-
-    font-family:
-        Georgia,
-        serif;
-
+    font-family:Georgia,serif;
     font-size:31px;
 }
 
-
-/* =========================================================
-   FLOATING PARTICLES
-========================================================= */
-
 .particle{
-
     position:fixed;
-
     width:5px;
     height:5px;
-
     border-radius:50%;
-
-    background:
-        rgba(92,114,255,.28);
-
+    background:rgba(92,114,255,.28);
     pointer-events:none;
-
-    animation:
-        particle
-        7s
-        linear
-        infinite;
-
+    animation:particle 7s linear infinite;
     z-index:0;
 }
 
@@ -1715,254 +851,114 @@ body{
 }
 
 @keyframes particle{
-
-    0%{
-
-        transform:
-            translateY(0)
-            scale(1);
-
-        opacity:0;
-    }
-
-    20%{
-        opacity:1;
-    }
-
-    80%{
-        opacity:1;
-    }
-
-    100%{
-
-        transform:
-            translateY(-180px)
-            scale(1.8);
-
-        opacity:0;
-    }
+    0%{transform:translateY(0) scale(1);opacity:0;}
+    20%{opacity:1;}
+    80%{opacity:1;}
+    100%{transform:translateY(-180px) scale(1.8);opacity:0;}
 }
 
-
-/* =========================================================
-   BOTTOM NAVIGATION
-========================================================= */
-
 .bottom-nav{
-
     position:fixed;
-
     z-index:50;
-
     bottom:0;
-
     left:50%;
-
-    transform:
-        translateX(-50%);
-
+    transform:translateX(-50%);
     width:100%;
-
     max-width:480px;
-
     height:77px;
-
-    background:
-        rgba(255,255,255,.94);
-
-    backdrop-filter:
-        blur(18px);
-
-    -webkit-backdrop-filter:
-        blur(18px);
-
-    border-top:
-        1px solid
-        rgba(130,145,190,.13);
-
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border-top:1px solid rgba(130,145,190,.13);
     display:grid;
-
-    grid-template-columns:
-        repeat(5,1fr);
-
+    grid-template-columns:repeat(5,1fr);
     align-items:center;
-
-    box-shadow:
-        0 -12px 35px
-        rgba(30,45,100,.10);
+    box-shadow:0 -12px 35px rgba(30,45,100,.10);
 }
 
 .nav-item{
-
     text-align:center;
-
     color:#9ba2b5;
-
     font-size:9px;
-
     font-weight:800;
-
     cursor:pointer;
-
     transition:.25s;
 }
 
 .nav-item .nav-icon{
-
     font-size:20px;
-
     margin-bottom:4px;
-
     transition:.25s;
 }
 
 .nav-item.active{
-
     color:#2382e9;
 }
 
 .nav-item.active .nav-icon{
-
-    transform:
-        translateY(-2px)
-        scale(1.08);
+    transform:translateY(-2px) scale(1.08);
 }
 
 .obtain{
-
     position:relative;
 }
 
 .obtain .nav-icon{
-
     width:53px;
     height:53px;
-
-    margin:
-        -28px auto
-        3px;
-
+    margin:-28px auto 3px;
     border-radius:50%;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
-    background:
-        linear-gradient(
-            145deg,
-            #1598ff,
-            #2363ed
-        );
-
+    background:linear-gradient(145deg,#1598ff,#2363ed);
     color:white;
-
-    box-shadow:
-
-        0 12px 25px
-        rgba(39,113,240,.42),
-
-        0 0 0 7px
-        rgba(255,255,255,.96);
-
+    box-shadow:0 12px 25px rgba(39,113,240,.42), 0 0 0 7px rgba(255,255,255,.96);
     font-size:25px;
-
-    transform:
-        translateZ(20px);
+    transform:translateZ(20px);
 }
 
 .obtain:active .nav-icon{
-
-    transform:
-        scale(.90);
+    transform:scale(.90);
 }
 
-
-/* =========================================================
-   TOAST
-========================================================= */
-
 .toast{
-
     position:fixed;
-
     z-index:100;
-
     left:50%;
-
     bottom:92px;
-
-    transform:
-        translate(-50%,30px);
-
-    background:
-        linear-gradient(
-            145deg,
-            #172450,
-            #253572
-        );
-
+    transform:translate(-50%,30px);
+    background:linear-gradient(145deg,#172450,#253572);
     color:white;
-
-    padding:
-        12px 18px;
-
+    padding:12px 18px;
     border-radius:15px;
-
     font-size:11px;
-
     font-weight:800;
-
     opacity:0;
-
     pointer-events:none;
-
     transition:.35s;
-
-    box-shadow:
-        0 15px 35px
-        rgba(0,0,0,.20);
+    box-shadow:0 15px 35px rgba(0,0,0,.20);
 }
 
 .toast.show{
-
     opacity:1;
-
-    transform:
-        translate(-50%,0);
+    transform:translate(-50%,0);
 }
 
-
-/* =========================================================
-   DESKTOP
-========================================================= */
-
 @media(min-width:700px){
-
     body{
-
         padding:25px 0;
     }
 
     .app{
-
         border-radius:32px;
-
-        box-shadow:
-            0 25px 80px
-            rgba(20,35,90,.15);
-
+        box-shadow:0 25px 80px rgba(20,35,90,.15);
         overflow:hidden;
-
-        background:
-            var(--bg);
+        background:var(--bg);
     }
 
     .bottom-nav{
-
         position:absolute;
-
         bottom:0;
     }
 }
@@ -1970,762 +966,273 @@ body{
 </style>
 </head>
 
-
 <body>
 
-
-<!-- BACKGROUND 3D ORBS -->
-
 <div class="background-orb orb-one"></div>
-
 <div class="background-orb orb-two"></div>
-
 
 <div class="app">
 
-
-<!-- =====================================================
-     TOP HEADER
-===================================================== -->
-
 <header class="topbar">
 
+    <button class="icon-btn" onclick="showToast('Support')">🎧</button>
 
-    <button
-        class="icon-btn"
-        onclick="showToast('Support')">
-
-        🎧
-
-    </button>
-
-
-    <!-- EXACT SAME LOGO AS REGISTER / LOGIN -->
-
-    <div class="logo-wrap">
-
-        <svg class="logo"
-             viewBox="0 0 100 100"
-             xmlns="http://www.w3.org/2000/svg">
-
-            <defs>
-
-                <linearGradient
-                    id="logoGrad1"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="100%">
-
-                    <stop
-                        offset="0%"
-                        stop-color="#ff8a3d"/>
-
-                    <stop
-                        offset="100%"
-                        stop-color="#e8491d"/>
-
-                </linearGradient>
-
-
-                <linearGradient
-                    id="logoGrad2"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="100%">
-
-                    <stop
-                        offset="0%"
-                        stop-color="#ffb84d"/>
-
-                    <stop
-                        offset="100%"
-                        stop-color="#ff5a24"/>
-
-                </linearGradient>
-
-            </defs>
-
-
-            <path
-                d="M50 5 L50 45 L20 60 Z"
-                fill="url(#logoGrad1)"/>
-
-
-            <path
-                d="M20 60 L50 45 L80 60 L50 95 Z"
-                fill="url(#logoGrad2)"/>
-
-        </svg>
-
+    <div class="logo">
+        <div class="logo-glow"></div>
+        <div class="logo-shape"></div>
     </div>
 
-
-    <button
-        class="icon-btn"
-        onclick="showToast('Language')">
-
-        🌐
-
-    </button>
-
+    <button class="icon-btn" onclick="showToast('Language')">🌐</button>
 
 </header>
 
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
 <section class="hero">
-
 
     <div class="hero-content">
 
-
-        <div class="hero-small">
-
-            AFFILIATE SHOPPING
-
-        </div>
-
+        <div class="hero-small">AFFILIATE SHOPPING</div>
 
         <h1>
-
             DISCOVER<br>
             AMAZING DEALS
-
         </h1>
 
-
         <p>
-
-            Find trending products and
-            exciting offers in one place.
-
+            Find trending products and exciting offers in one place.
         </p>
 
-
-        <button
-            class="hero-button"
-            onclick="showToast('Offers opened')">
-
+        <button class="hero-button" onclick="showToast('Offers opened')">
             EXPLORE OFFERS
-
         </button>
 
-
     </div>
-
 
     <div class="hero-shape">
 
-
         <div class="person three">
-
             <div class="head"></div>
-
         </div>
-
 
         <div class="person one">
-
             <div class="head"></div>
-
         </div>
-
 
         <div class="person two">
-
             <div class="head"></div>
-
         </div>
-
 
     </div>
 
-
 </section>
-
-
-<!-- =====================================================
-     QUICK ACTIONS
-===================================================== -->
 
 <section class="actions">
 
-
-    <div
-        class="action"
-        onclick="showToast('Recharge page')">
-
-        <div class="action-icon recharge">
-
-            ▣
-
-        </div>
-
-        <span>
-
-            Recharge
-
-        </span>
-
+    <div class="action" onclick="showToast('Recharge page')">
+        <div class="action-icon recharge">▣</div>
+        <span>Recharge</span>
     </div>
 
-
-    <div
-        class="action"
-        onclick="showToast('Withdraw page')">
-
-        <div class="action-icon withdraw">
-
-            ↑
-
-        </div>
-
-        <span>
-
-            Withdraw
-
-        </span>
-
+    <div class="action" onclick="showToast('Withdraw page')">
+        <div class="action-icon withdraw">↑</div>
+        <span>Withdraw</span>
     </div>
 
-
-    <div
-        class="action"
-        onclick="showToast('Invite friends')">
-
-        <div class="action-icon invite">
-
-            ♟
-
-        </div>
-
-        <span>
-
-            Invite
-
-        </span>
-
+    <div class="action" onclick="showToast('Invite friends')">
+        <div class="action-icon invite">♟</div>
+        <span>Invite</span>
     </div>
 
-
-    <div
-        class="action"
-        onclick="showToast('Customer support')">
-
-        <div class="action-icon support">
-
-            ♧
-
-        </div>
-
-        <span>
-
-            Help Support
-
-        </span>
-
+    <div class="action" onclick="showToast('Customer support')">
+        <div class="action-icon support">♧</div>
+        <span>Help Support</span>
     </div>
-
 
 </section>
-
-
-<!-- =====================================================
-     NOTICE
-===================================================== -->
 
 <div class="notice">
 
-
-    <div class="notice-icon">
-
-        🔊
-
-    </div>
-
+    <div class="notice-icon">🔊</div>
 
     <div class="notice-text">
-
         Welcome to AffiliateHub — Discover products and amazing deals
-
     </div>
-
 
 </div>
 
-
-<!-- =====================================================
-     BALANCE
-===================================================== -->
-
 <section class="balance-card">
 
-
-    <div
-        class="phone"
-        id="accountPhone">
-
+    <div class="phone" id="accountPhone">
         📱 User ID: Loading... | 01XXXXXXXXX
-
     </div>
-
 
     <div class="score">
-
         🛡 Score 100
-
     </div>
-
 
     <div class="balance-title">
-
         AVAILABLE BALANCE
-
     </div>
-
 
     <div class="balance">
-
         ৳0.00
-
     </div>
-
 
     <div class="stats">
 
-
         <div class="stat">
-
-            <span>
-
-                Today's earnings
-
-            </span>
-
-            <span>
-
-                ৳0.00
-
-            </span>
-
+            <span>Today's earnings</span>
+            <span>৳0.00</span>
         </div>
 
-
         <div class="stat">
-
-            <span>
-
-                Affiliate earnings
-
-            </span>
-
-            <span>
-
-                ৳0.00
-
-            </span>
-
+            <span>Affiliate earnings</span>
+            <span>৳0.00</span>
         </div>
 
-
         <div class="stat">
-
-            <span>
-
-                Pending commission
-
-            </span>
-
-            <span>
-
-                ৳0.00
-
-            </span>
-
+            <span>Pending commission</span>
+            <span>৳0.00</span>
         </div>
-
 
     </div>
 
-
 </section>
-
-
-<!-- =====================================================
-     INFORMATION
-===================================================== -->
 
 <div class="section-title">
 
     Information
 
     <span class="demo-badge">
-
         <span class="demo-dot"></span>
-
         DEMO LIVE
-
     </span>
 
 </div>
 
-
-<!-- =====================================================
-     LIVE DEMO WITHDRAWALS
-===================================================== -->
-
-<section
-    class="withdrawals"
-    id="withdrawals">
-
-</section>
-
-
-<!-- =====================================================
-     INFO BUTTONS
-===================================================== -->
+<section class="withdrawals" id="withdrawals"></section>
 
 <section class="info-grid">
 
-
-    <div
-        class="info-box"
-        onclick="showToast('About Us')">
-
-        <div class="info-icon">
-
-            ▰
-
-        </div>
-
-        <div>
-
-            About Us
-
-        </div>
-
+    <div class="info-box" onclick="showToast('About Us')">
+        <div class="info-icon">▰</div>
+        <div>About Us</div>
     </div>
 
-
-    <div
-        class="info-box"
-        onclick="showToast('Withdrawal information')">
-
-        <div class="info-icon">
-
-            ⬟
-
-        </div>
-
-        <div>
-
-            About withdrawal
-
-        </div>
-
+    <div class="info-box" onclick="showToast('Withdrawal information')">
+        <div class="info-icon">⬟</div>
+        <div>About withdrawal</div>
     </div>
 
-
-    <div
-        class="info-box"
-        onclick="showToast('Affiliate information')">
-
-        <div class="info-icon">
-
-            ▤
-
-        </div>
-
-        <div>
-
-            About affiliate income
-
-        </div>
-
+    <div class="info-box" onclick="showToast('Affiliate information')">
+        <div class="info-icon">▤</div>
+        <div>About affiliate income</div>
     </div>
 
-
-    <div
-        class="info-box"
-        onclick="showToast('Income information')">
-
-        <div class="info-icon">
-
-            ▣
-
-        </div>
-
-        <div>
-
-            About earnings
-
-        </div>
-
+    <div class="info-box" onclick="showToast('Income information')">
+        <div class="info-icon">▣</div>
+        <div>About earnings</div>
     </div>
-
 
 </section>
-
-
-<!-- =====================================================
-     PARTNERS
-===================================================== -->
 
 <div class="section-title partner-title">
 
     Partner Stores
 
-    <small>
-
-        Explore
-
-    </small>
+    <small>Explore</small>
 
 </div>
-
 
 <section class="partners">
 
-
-    <div
-        class="partner-card tiktok"
-        onclick="showToast('TikTok')">
-
-        <div class="partner-logo">
-
-            ♪ TikTok
-
-        </div>
-
+    <div class="partner-card tiktok" onclick="showToast('TikTok')">
+        <div class="partner-logo">♪ TikTok</div>
     </div>
 
-
-    <div
-        class="partner-card myntra"
-        onclick="showToast('Myntra')">
-
-        <div class="partner-logo">
-
-            Myntra
-
-        </div>
-
+    <div class="partner-card myntra" onclick="showToast('Myntra')">
+        <div class="partner-logo">Myntra</div>
     </div>
 
-
-    <div
-        class="partner-card amazon"
-        onclick="showToast('Amazon')">
-
-        <div class="partner-logo">
-
-            amazon
-
-        </div>
-
+    <div class="partner-card amazon" onclick="showToast('Amazon')">
+        <div class="partner-logo">amazon</div>
     </div>
 
-
-    <div
-        class="partner-card flipkart"
-        onclick="showToast('Flipkart')">
-
-        <div class="partner-logo">
-
-            Flipkart
-
-        </div>
-
+    <div class="partner-card flipkart" onclick="showToast('Flipkart')">
+        <div class="partner-logo">Flipkart</div>
     </div>
 
-
-    <div
-        class="partner-card snapdeal"
-        onclick="showToast('Snapdeal')">
-
-        <div class="partner-logo">
-
-            snapdeal
-
-        </div>
-
+    <div class="partner-card snapdeal" onclick="showToast('Snapdeal')">
+        <div class="partner-logo">snapdeal</div>
     </div>
 
-
-    <div
-        class="partner-card etsy"
-        onclick="showToast('Etsy')">
-
-        <div class="partner-logo">
-
-            Etsy
-
-        </div>
-
+    <div class="partner-card etsy" onclick="showToast('Etsy')">
+        <div class="partner-logo">Etsy</div>
     </div>
-
 
 </section>
 
-
-<!-- =====================================================
-     BOTTOM NAV
-===================================================== -->
-
 <nav class="bottom-nav">
 
-
-    <div
-        class="nav-item active"
-        onclick="showToast('Home')">
-
-        <div class="nav-icon">
-
-            ⌂
-
-        </div>
-
+    <div class="nav-item active" onclick="showToast('Home')">
+        <div class="nav-icon">⌂</div>
         Home
-
     </div>
 
-
-    <div
-        class="nav-item"
-        onclick="showToast('Recharge')">
-
-        <div class="nav-icon">
-
-            ▣
-
-        </div>
-
+    <div class="nav-item" onclick="showToast('Recharge')">
+        <div class="nav-icon">▣</div>
         Recharge
-
     </div>
 
-
-    <div
-        class="nav-item obtain"
-        onclick="showToast('Explore')">
-
-        <div class="nav-icon">
-
-            ϟ
-
-        </div>
-
+    <div class="nav-item obtain" onclick="showToast('Explore')">
+        <div class="nav-icon">ϟ</div>
         Explore
-
     </div>
 
-
-    <div
-        class="nav-item"
-        onclick="showToast('Tasks')">
-
-        <div class="nav-icon">
-
-            ☷
-
-        </div>
-
-        Deals
-
+    <div class="nav-item" onclick="showToast('Tasks')">
+        <div class="nav-icon">☷</div>
+        Tasks
     </div>
 
-
-    <div
-        class="nav-item"
-        onclick="showToast('Account')">
-
-        <div class="nav-icon">
-
-            ♙
-
-        </div>
-
+    <div class="nav-item" onclick="showToast('Account')">
+        <div class="nav-icon">♙</div>
         Account
-
     </div>
-
 
 </nav>
 
-
 </div>
-
-
-<!-- =====================================================
-     FLOATING PARTICLES
-===================================================== -->
 
 <div class="particle p1"></div>
-
 <div class="particle p2"></div>
-
 <div class="particle p3"></div>
 
-
-<!-- =====================================================
-     TOAST
-===================================================== -->
-
-<div
-    class="toast"
-    id="toast">
-
+<div class="toast" id="toast">
     Done
-
 </div>
-
 
 <script>
 
-
-/* =========================================================
-   TOAST
-========================================================= */
-
 function showToast(message){
 
-    const toast =
-        document.getElementById("toast");
+    const toast=document.getElementById("toast");
 
-    toast.textContent =
-        message;
+    toast.textContent=message;
 
     toast.classList.add("show");
 
-    clearTimeout(
-        window.toastTimer
-    );
+    clearTimeout(window.toastTimer);
 
-    window.toastTimer =
-        setTimeout(()=>{
+    window.toastTimer=setTimeout(()=>{
 
-            toast.classList.remove(
-                "show"
-            );
+        toast.classList.remove("show");
 
-        },1800);
+    },1800);
+
 }
-
-
-/* =========================================================
-   ACCOUNT PHONE / USER ID
-   READ REGISTRATION DATA
-========================================================= */
 
 function getRegisteredPhone(){
 
-    const possibleKeys = [
-
+    const possibleKeys=[
         "userPhone",
         "phone",
         "registeredPhone",
@@ -2733,169 +1240,83 @@ function getRegisteredPhone(){
         "mobile",
         "user_mobile",
         "user_phone"
-
     ];
 
+    for(let i=0;i<possibleKeys.length;i++){
 
-    for(
-        let i = 0;
-        i < possibleKeys.length;
-        i++
-    ){
+        const value=localStorage.getItem(possibleKeys[i]);
 
-        const value =
-            localStorage.getItem(
-                possibleKeys[i]
-            );
-
-
-        if(
-            value &&
-            value.trim() !== ""
-        ){
-
+        if(value && value.trim()!=="")
             return value.trim();
 
-        }
-
     }
-
 
     return "01XXXXXXXXX";
 
 }
 
-
 function getUserId(){
 
-    const possibleKeys = [
-
+    const possibleKeys=[
         "userId",
         "userID",
         "userid",
         "user_id",
         "accountId",
         "accountID"
-
     ];
 
+    for(let i=0;i<possibleKeys.length;i++){
 
-    for(
-        let i = 0;
-        i < possibleKeys.length;
-        i++
-    ){
+        const value=localStorage.getItem(possibleKeys[i]);
 
-        const value =
-            localStorage.getItem(
-                possibleKeys[i]
-            );
-
-
-        if(
-            value &&
-            value.trim() !== ""
-        ){
-
+        if(value && value.trim()!=="")
             return value.trim();
-
-        }
 
     }
 
-
-    /* Temporary testing ID */
-
-    return "AH" +
-        Math.floor(
-            100000 +
-            Math.random() * 900000
-        );
+    return "AH"+Math.floor(100000+Math.random()*900000);
 
 }
 
+const registeredPhone=getRegisteredPhone();
 
-const registeredPhone =
-    getRegisteredPhone();
+const registeredUserId=getUserId();
 
+document.getElementById("accountPhone").textContent=
+    "📱 User ID: "+registeredUserId+" | "+registeredPhone;
 
-const registeredUserId =
-    getUserId();
-
-
-document.getElementById(
-    "accountPhone"
-).textContent =
-    "📱 User ID: " +
-    registeredUserId +
-    " | " +
-    registeredPhone;
-
-
-/* =========================================================
-   LIVE DEMO WITHDRAWAL SYSTEM
-   TESTING ONLY
-========================================================= */
-
-const withdrawalBox =
-    document.getElementById(
-        "withdrawals"
-    );
-
-
-/* =========================================================
-   RANDOM WITHDRAWAL AMOUNT
-   MOSTLY ৳1,000 - ৳10,000
-========================================================= */
+const withdrawalBox=document.getElementById("withdrawals");
 
 function randomWithdrawalAmount(){
 
-    const chance =
-        Math.random();
+    const chance=Math.random();
 
-
-    /* 80% = ৳1,000 - ৳10,000 */
-
-    if(chance < 0.80){
+    if(chance<0.80){
 
         return Math.floor(
-            Math.random() *
-            (10000 - 1000 + 1)
-        ) + 1000;
+            Math.random()*(10000-1000+1)
+        )+1000;
 
     }
 
-
-    /* 15% = ৳10,001 - ৳50,000 */
-
-    if(chance < 0.95){
+    if(chance<0.95){
 
         return Math.floor(
-            Math.random() *
-            (50000 - 10001 + 1)
-        ) + 10001;
+            Math.random()*(50000-10001+1)
+        )+10001;
 
     }
-
-
-    /* 5% = ৳50,001 - ৳10,00,000 */
 
     return Math.floor(
-        Math.random() *
-        (1000000 - 50001 + 1)
-    ) + 50001;
+        Math.random()*(1000000-50001+1)
+    )+50001;
 
 }
 
-
-/* =========================================================
-   RANDOM DEMO PHONE
-========================================================= */
-
 function randomDemoPhone(){
 
-    const prefixes = [
-
+    const prefixes=[
         "013",
         "014",
         "015",
@@ -2903,229 +1324,110 @@ function randomDemoPhone(){
         "017",
         "018",
         "019"
-
     ];
 
+    const prefix=
+        prefixes[Math.floor(Math.random()*prefixes.length)];
 
-    const prefix =
-        prefixes[
-            Math.floor(
-                Math.random() *
-                prefixes.length
-            )
-        ];
-
-
-    const lastThree =
-        Math.floor(
-            Math.random() * 1000
-        )
+    const lastThree=
+        Math.floor(Math.random()*1000)
         .toString()
-        .padStart(
-            3,
-            "0"
-        );
+        .padStart(3,"0");
 
-
-    return (
-        prefix +
-        "******" +
-        lastThree
-    );
+    return prefix+"******"+lastThree;
 
 }
-
-
-/* =========================================================
-   DEMO DATE
-========================================================= */
 
 function demoDate(){
 
-    const now =
-        new Date();
+    const now=new Date();
 
+    const year=now.getFullYear();
 
-    const year =
-        now.getFullYear();
+    const month=
+        String(now.getMonth()+1).padStart(2,"0");
 
+    const day=
+        String(now.getDate()).padStart(2,"0");
 
-    const month =
-        String(
-            now.getMonth() + 1
-        ).padStart(
-            2,
-            "0"
-        );
-
-
-    const day =
-        String(
-            now.getDate()
-        ).padStart(
-            2,
-            "0"
-        );
-
-
-    return (
-        year +
-        "-" +
-        month +
-        "-" +
-        day
-    );
+    return year+"-"+month+"-"+day;
 
 }
 
+function createWithdrawal(amount=null){
 
-/* =========================================================
-   CREATE WITHDRAWAL
-========================================================= */
+    const item=document.createElement("div");
 
-function createWithdrawal(
-    amount = null
-){
+    item.className="withdraw-item demo-new";
 
-    const item =
-        document.createElement(
-            "div"
-        );
+    if(amount===null)
+        amount=randomWithdrawalAmount();
 
+    const phone=randomDemoPhone();
 
-    item.className =
-        "withdraw-item demo-new";
+    item.innerHTML=`
 
-
-    if(amount === null){
-
-        amount =
-            randomWithdrawalAmount();
-
-    }
-
-
-    const phone =
-        randomDemoPhone();
-
-
-    item.innerHTML = `
-
-        <div class="check">
-
-            ✓
-
-        </div>
-
+        <div class="check">✓</div>
 
         <div class="withdraw-info">
 
             <b>
-
                 ${phone} Demo withdrawal successful
-
             </b>
 
             <small>
-
                 ${demoDate()} • TESTING
-
             </small>
 
         </div>
 
-
         <div class="amount">
-
             ৳${amount.toLocaleString("en-BD")}.00
-
         </div>
 
     `;
-
 
     return item;
 
 }
 
-
-/* =========================================================
-   INITIAL 5 DIFFERENT AMOUNTS
-   EVERY PAGE REFRESH = NEW AMOUNTS
-========================================================= */
-
 function createInitialWithdrawals(){
 
-    withdrawalBox.innerHTML = "";
+    withdrawalBox.innerHTML="";
 
+    const usedAmounts=[];
 
-    const usedAmounts = [];
+    while(usedAmounts.length<5){
 
+        const amount=randomWithdrawalAmount();
 
-    while(
-        usedAmounts.length < 5
-    ){
+        if(!usedAmounts.includes(amount)){
 
-        const amount =
-            randomWithdrawalAmount();
-
-
-        if(
-            !usedAmounts.includes(
-                amount
-            )
-        ){
-
-            usedAmounts.push(
-                amount
-            );
+            usedAmounts.push(amount);
 
         }
 
     }
 
+    usedAmounts.forEach(amount=>{
 
-    usedAmounts.forEach(
-        amount => {
+        withdrawalBox.appendChild(
+            createWithdrawal(amount)
+        );
 
-            withdrawalBox.appendChild(
-                createWithdrawal(
-                    amount
-                )
-            );
-
-        }
-    );
+    });
 
 }
 
-
-/* =========================================================
-   EVERY 10 SECONDS
-   NEWEST TOP
-   OLDEST BOTTOM REMOVED
-========================================================= */
-
 function addLiveWithdrawal(){
 
-    const newAmount =
-        randomWithdrawalAmount();
+    const newAmount=randomWithdrawalAmount();
 
+    const newItem=createWithdrawal(newAmount);
 
-    const newItem =
-        createWithdrawal(
-            newAmount
-        );
+    withdrawalBox.prepend(newItem);
 
-
-    withdrawalBox.prepend(
-        newItem
-    );
-
-
-    while(
-        withdrawalBox.children.length > 5
-    ){
+    while(withdrawalBox.children.length>5){
 
         withdrawalBox.removeChild(
             withdrawalBox.lastElementChild
@@ -3135,167 +1437,85 @@ function addLiveWithdrawal(){
 
 }
 
-
-/* =========================================================
-   START
-========================================================= */
-
 createInitialWithdrawals();
 
+setInterval(addLiveWithdrawal,10000);
 
-/* =========================================================
-   CHANGE EVERY 10 SECONDS
-========================================================= */
+document.querySelectorAll(".partner-card").forEach(card=>{
 
-setInterval(
-    addLiveWithdrawal,
-    10000
-);
+    card.addEventListener("mousemove",e=>{
 
+        const rect=card.getBoundingClientRect();
 
-/* =========================================================
-   3D PARTNER TILT
-========================================================= */
+        const x=e.clientX-rect.left;
 
-document
-    .querySelectorAll(".partner-card")
-    .forEach(card => {
+        const y=e.clientY-rect.top;
 
+        const rotateY=
+            ((x/rect.width)-.5)*14;
 
-        card.addEventListener(
-            "mousemove",
-            e => {
+        const rotateX=
+            ((y/rect.height)-.5)*-14;
 
-                const rect =
-                    card.getBoundingClientRect();
+        card.style.animation="none";
 
-                const x =
-                    e.clientX -
-                    rect.left;
-
-                const y =
-                    e.clientY -
-                    rect.top;
-
-                const rotateY =
-                    ((x / rect.width) - .5)
-                    * 14;
-
-                const rotateX =
-                    ((y / rect.height) - .5)
-                    * -14;
-
-                card.style.animation =
-                    "none";
-
-                card.style.transform =
-                    `
-                    translateY(-5px)
-                    rotateX(${rotateX}deg)
-                    rotateY(${rotateY}deg)
-                    translateZ(12px)
-                    `;
-
-            }
-        );
-
-
-        card.addEventListener(
-            "mouseleave",
-            () => {
-
-                card.style.animation =
-                    "";
-
-                card.style.transform =
-                    "";
-
-            }
-        );
-
+        card.style.transform=
+            `translateY(-5px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(12px)`;
 
     });
 
+    card.addEventListener("mouseleave",()=>{
 
-/* =========================================================
-   BALANCE CARD TOUCH TILT
-========================================================= */
+        card.style.animation="";
 
-const balanceCard =
-    document.querySelector(
-        ".balance-card"
-    );
+        card.style.transform="";
 
+    });
 
-document.addEventListener(
-    "touchmove",
-    e => {
+});
 
-        if(!e.touches.length)
-            return;
+const balanceCard=
+    document.querySelector(".balance-card");
 
-        const touch =
-            e.touches[0];
+document.addEventListener("touchmove",e=>{
 
-        const centerX =
-            window.innerWidth / 2;
+    if(!e.touches.length)
+        return;
 
-        const diff =
-            touch.clientX -
-            centerX;
+    const touch=e.touches[0];
 
-        balanceCard.style.transform =
-            `
-            perspective(900px)
-            rotateY(${diff / 80}deg)
-            `;
+    const centerX=
+        window.innerWidth/2;
 
-    },
-    {
-        passive:true
-    }
-);
+    const diff=
+        touch.clientX-centerX;
 
+    balanceCard.style.transform=
+        `perspective(900px) rotateY(${diff/80}deg)`;
 
-document.addEventListener(
-    "touchend",
-    () => {
+},{passive:true});
 
-        balanceCard.style.transform =
-            `
-            perspective(900px)
-            rotateY(0deg)
-            `;
+document.addEventListener("touchend",()=>{
 
-    }
-);
+    balanceCard.style.transform=
+        `perspective(900px) rotateY(0deg)`;
 
-
-/* =========================================================
-   RANDOM FLOATING PARTICLES
-========================================================= */
+});
 
 setInterval(()=>{
 
-    const particle =
-        document.createElement(
-            "div"
-        );
+    const particle=
+        document.createElement("div");
 
-    particle.className =
-        "particle";
+    particle.className="particle";
 
-    particle.style.left =
-        Math.random()*100 +
-        "%";
+    particle.style.left=
+        Math.random()*100+"%";
 
-    particle.style.bottom =
-        Math.random()*20 +
-        "%";
+    particle.style.bottom=
+        Math.random()*20+"%";
 
-    document.body.appendChild(
-        particle
-    );
+    document.body.appendChild(particle);
 
     setTimeout(()=>{
 
@@ -3305,42 +1525,24 @@ setInterval(()=>{
 
 },1800);
 
+document.querySelectorAll(".nav-item").forEach(item=>{
 
-/* =========================================================
-   BOTTOM NAV ACTIVE STATE
-========================================================= */
+    item.addEventListener("click",()=>{
 
-document
-    .querySelectorAll(".nav-item")
-    .forEach(item => {
+        document.querySelectorAll(".nav-item")
+        .forEach(nav=>{
 
-        item.addEventListener(
-            "click",
-            () => {
+            nav.classList.remove("active");
 
-                document
-                    .querySelectorAll(
-                        ".nav-item"
-                    )
-                    .forEach(nav => {
+        });
 
-                        nav.classList.remove(
-                            "active"
-                        );
-
-                    });
-
-                item.classList.add(
-                    "active"
-                );
-
-            }
-        );
+        item.classList.add("active");
 
     });
 
-</script>
+});
 
+</script>
 
 </body>
 </html>
