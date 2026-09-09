@@ -1,1 +1,2397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+<title>TaskHub - Home</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+:root{
+    --bg:#eef3ff;
+    --white:#ffffff;
+    --navy:#101d50;
+    --navy2:#18265b;
+    --blue:#287cff;
+    --cyan:#21c8ff;
+    --purple:#7655ef;
+    --green:#16b887;
+    --orange:#ff9d24;
+    --text:#17213f;
+    --muted:#929ab0;
+    --line:#edf0f7;
+    --shadow:0 12px 30px rgba(40,62,125,.12);
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 5% 5%,
+            rgba(60,110,255,.16),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 95% 18%,
+            rgba(147,82,255,.13),
+            transparent 30%
+        ),
+        #eef3ff;
+
+    color:var(--text);
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* =====================================================
+   APP
+===================================================== */
+
+.app{
+    width:100%;
+    max-width:480px;
+    margin:auto;
+    min-height:100vh;
+    padding-bottom:95px;
+    position:relative;
+}
+
+/* =====================================================
+   TOP BAR
+===================================================== */
+
+.topbar{
+    height:78px;
+    padding:10px 16px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.top-icon{
+    width:43px;
+    height:43px;
+
+    border:none;
+    border-radius:15px;
+
+    background:rgba(255,255,255,.85);
+
+    box-shadow:
+        0 8px 22px rgba(40,60,120,.10);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:19px;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.top-icon:active{
+    transform:scale(.9);
+}
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo-box{
+    width:52px;
+    height:52px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    perspective:700px;
+}
+
+.main-logo{
+    width:39px;
+    height:49px;
+
+    position:relative;
+
+    transform-style:preserve-3d;
+
+    animation:
+        logoFloat
+        3.8s
+        ease-in-out
+        infinite;
+
+    filter:
+        drop-shadow(
+            5px 9px 7px
+            rgba(221,50,25,.28)
+        );
+}
+
+.logo-top{
+    position:absolute;
+
+    width:27px;
+    height:29px;
+
+    left:6px;
+    top:0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ff8740,
+            #e83b19
+        );
+
+    clip-path:
+        polygon(
+            50% 0,
+            100% 27%,
+            100% 100%,
+            50% 73%,
+            0 100%,
+            0 27%
+        );
+
+    transform:
+        translateZ(10px);
+}
+
+.logo-bottom{
+    position:absolute;
+
+    width:39px;
+    height:28px;
+
+    left:0;
+    bottom:0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffb247,
+            #f05320
+        );
+
+    clip-path:
+        polygon(
+            50% 0,
+            100% 28%,
+            50% 100%,
+            0 28%
+        );
+
+    transform:
+        translateZ(4px);
+}
+
+@keyframes logoFloat{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            rotateY(-8deg)
+            rotateX(4deg);
+    }
+
+    50%{
+        transform:
+            translateY(-7px)
+            rotateY(9deg)
+            rotateX(-4deg);
+    }
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    margin:5px 12px 16px;
+
+    height:184px;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(255,255,255,.30),
+            transparent 18%
+        ),
+        linear-gradient(
+            135deg,
+            #7454ed 0%,
+            #9d50e8 45%,
+            #ec82b8 100%
+        );
+
+    box-shadow:
+        0 18px 38px
+        rgba(91,69,190,.22),
+
+        inset 0 1px 0
+        rgba(255,255,255,.30);
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:190px;
+    height:190px;
+
+    right:-80px;
+    top:-65px;
+
+    border-radius:50%;
+
+    border:
+        30px solid
+        rgba(255,255,255,.07);
+}
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    left:-75px;
+    bottom:-95px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.08);
+}
+
+.hero-content{
+    position:relative;
+
+    z-index:4;
+
+    width:67%;
+
+    padding:
+        23px
+        18px;
+}
+
+.hero-small{
+    color:white;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    letter-spacing:1px;
+
+    opacity:.9;
+}
+
+.hero h1{
+    color:white;
+
+    font-size:25px;
+
+    line-height:1.05;
+
+    margin-top:6px;
+
+    text-shadow:
+        0 4px 12px
+        rgba(60,30,100,.16);
+}
+
+.hero p{
+    color:
+        rgba(255,255,255,.9);
+
+    font-size:10px;
+
+    margin-top:9px;
+
+    line-height:1.4;
+}
+
+.hero-button{
+    margin-top:12px;
+
+    border:0;
+
+    border-radius:10px;
+
+    padding:
+        9px 13px;
+
+    background:white;
+
+    color:#704de2;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    box-shadow:
+        0 8px 16px
+        rgba(0,0,0,.13);
+}
+
+/* =====================================================
+   DECORATIVE 3D PEOPLE
+===================================================== */
+
+.hero-people{
+    position:absolute;
+
+    right:5px;
+    bottom:0;
+
+    width:160px;
+    height:160px;
+
+    perspective:600px;
+}
+
+.person{
+    position:absolute;
+
+    bottom:0;
+
+    border-radius:
+        55px
+        55px
+        12px
+        12px;
+
+    box-shadow:
+        8px 0 18px
+        rgba(0,0,0,.14);
+
+    transform:
+        rotateY(-7deg);
+}
+
+.person-head{
+    position:absolute;
+
+    width:34px;
+    height:34px;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e2aa84,
+            #ad6c4e
+        );
+
+    top:-28px;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+}
+
+.person-1{
+    width:52px;
+    height:120px;
+
+    right:54px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #11a9bd,
+            #096477
+        );
+}
+
+.person-2{
+    width:45px;
+    height:104px;
+
+    right:5px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ed9ab7,
+            #c74d80
+        );
+
+    transform:
+        rotateY(9deg);
+}
+
+.person-3{
+    width:43px;
+    height:95px;
+
+    right:99px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #35b9a3,
+            #087d78
+        );
+}
+
+/* =====================================================
+   QUICK ACTIONS
+===================================================== */
+
+.actions{
+    padding:
+        0 12px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:9px;
+}
+
+.action{
+    min-height:78px;
+
+    border-radius:18px;
+
+    background:
+        rgba(255,255,255,.90);
+
+    box-shadow:var(--shadow);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.action:active{
+    transform:
+        scale(.95)
+        translateY(2px);
+}
+
+.action-icon{
+    width:35px;
+    height:35px;
+
+    border-radius:11px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+
+    font-size:17px;
+
+    box-shadow:
+        0 7px 14px
+        rgba(0,0,0,.13);
+}
+
+.action-name{
+    margin-top:7px;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    color:#303b5e;
+}
+
+.recharge{
+    background:
+        linear-gradient(
+            145deg,
+            #ffb13f,
+            #f17d18
+        );
+}
+
+.withdraw{
+    background:
+        linear-gradient(
+            145deg,
+            #2bcba0,
+            #07976e
+        );
+}
+
+.invite{
+    background:
+        linear-gradient(
+            145deg,
+            #9c76ff,
+            #6241df
+        );
+}
+
+.support{
+    background:
+        linear-gradient(
+            145deg,
+            #38b9ef,
+            #2368d7
+        );
+}
+
+/* =====================================================
+   ANNOUNCEMENT
+===================================================== */
+
+.notice{
+    margin:
+        17px 12px 14px;
+
+    height:41px;
+
+    border-radius:14px;
+
+    background:
+        rgba(255,255,255,.92);
+
+    box-shadow:var(--shadow);
+
+    display:flex;
+
+    align-items:center;
+
+    overflow:hidden;
+}
+
+.notice-icon{
+    width:40px;
+
+    flex-shrink:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:16px;
+}
+
+.notice-track{
+    overflow:hidden;
+
+    white-space:nowrap;
+
+    width:100%;
+}
+
+.notice-text{
+    display:inline-block;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    animation:
+        marquee
+        13s
+        linear
+        infinite;
+}
+
+@keyframes marquee{
+
+    from{
+        transform:
+            translateX(100%);
+    }
+
+    to{
+        transform:
+            translateX(-120%);
+    }
+}
+
+/* =====================================================
+   BALANCE CARD
+===================================================== */
+
+.balance-card{
+    margin:
+        0 12px;
+
+    min-height:220px;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    padding:
+        20px 17px;
+
+    color:white;
+
+    background:
+        radial-gradient(
+            circle at 86% 14%,
+            rgba(255,255,255,.14),
+            transparent 20%
+        ),
+        linear-gradient(
+            145deg,
+            #17265d,
+            #29377a 52%,
+            #172552
+        );
+
+    box-shadow:
+        0 20px 42px
+        rgba(25,41,97,.26),
+
+        inset 0 1px 0
+        rgba(255,255,255,.12);
+
+    transform-style:preserve-3d;
+
+    transition:
+        transform .25s ease;
+}
+
+.balance-card::before{
+    content:"";
+
+    position:absolute;
+
+    width:210px;
+    height:210px;
+
+    right:-95px;
+    bottom:-110px;
+
+    border-radius:50%;
+
+    border:
+        38px solid
+        rgba(255,255,255,.035);
+}
+
+.balance-card::after{
+    content:"";
+
+    position:absolute;
+
+    width:70px;
+    height:70px;
+
+    right:25px;
+    top:55px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.025);
+
+    box-shadow:
+        0 0 40px
+        rgba(65,140,255,.13);
+}
+
+.phone{
+    font-size:10px;
+
+    letter-spacing:1px;
+
+    opacity:.78;
+}
+
+.score{
+    position:absolute;
+
+    right:14px;
+    top:15px;
+
+    padding:
+        7px 10px;
+
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,.09);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    font-size:9px;
+
+    font-weight:800;
+
+    backdrop-filter:blur(10px);
+}
+
+.balance-title{
+    margin-top:27px;
+
+    font-size:9px;
+
+    letter-spacing:1px;
+
+    opacity:.62;
+}
+
+.balance{
+    margin-top:4px;
+
+    font-size:31px;
+
+    font-weight:900;
+
+    letter-spacing:.5px;
+}
+
+.stats{
+    position:absolute;
+
+    left:16px;
+    right:16px;
+    bottom:14px;
+
+    padding:
+        10px 11px;
+
+    border-radius:16px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    border:
+        1px solid
+        rgba(255,255,255,.05);
+
+    backdrop-filter:
+        blur(12px);
+}
+
+.stat{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    font-size:9px;
+
+    margin:
+        6px 0;
+}
+
+.stat-label{
+    color:
+        rgba(255,255,255,.58);
+}
+
+.stat-value{
+    color:white;
+
+    font-weight:800;
+}
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+
+.section-title{
+    padding:
+        18px 14px 9px;
+
+    font-size:15px;
+
+    font-weight:900;
+}
+
+.section-title small{
+    float:right;
+
+    font-size:9px;
+
+    color:#7480a3;
+
+    margin-top:3px;
+}
+
+/* =====================================================
+   WITHDRAWAL LIST
+===================================================== */
+
+.withdrawals{
+    margin:
+        0 12px;
+
+    background:white;
+
+    border-radius:19px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+}
+
+.withdraw-item{
+    min-height:67px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:
+        9px 11px;
+
+    border-bottom:
+        1px solid
+        var(--line);
+}
+
+.withdraw-item:last-child{
+    border-bottom:0;
+}
+
+.check{
+    width:29px;
+    height:29px;
+
+    flex-shrink:0;
+
+    border-radius:50%;
+
+    background:#edf9f5;
+
+    color:#11aa7e;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    margin-right:9px;
+
+    font-size:12px;
+
+    font-weight:900;
+}
+
+.withdraw-info{
+    flex:1;
+
+    min-width:0;
+}
+
+.withdraw-info b{
+    display:block;
+
+    font-size:9px;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+}
+
+.withdraw-info small{
+    display:block;
+
+    margin-top:5px;
+
+    color:#9aa2b7;
+
+    font-size:8px;
+}
+
+.amount{
+    color:#ff9d20;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    margin-left:5px;
+}
+
+/* =====================================================
+   INFORMATION
+===================================================== */
+
+.info-grid{
+    padding:
+        10px 12px 0;
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:9px;
+}
+
+.info-box{
+    min-height:63px;
+
+    background:white;
+
+    border-radius:17px;
+
+    box-shadow:var(--shadow);
+
+    padding:11px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.info-box:active{
+    transform:scale(.97);
+}
+
+.info-box-wide{
+    grid-column:
+        1 / 3;
+}
+
+.info-icon{
+    width:30px;
+    height:30px;
+
+    flex-shrink:0;
+
+    border-radius:10px;
+
+    background:#edf5ff;
+
+    color:#2673dc;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:13px;
+}
+
+.info-text{
+    font-size:9px;
+
+    font-weight:800;
+
+    line-height:1.25;
+}
+
+/* =====================================================
+   PARTNERS
+===================================================== */
+
+.partner-title{
+    padding-top:19px;
+}
+
+.partners{
+    padding:
+        0 12px 12px;
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:13px;
+
+    perspective:900px;
+}
+
+.partner{
+    height:82px;
+
+    border-radius:17px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    box-shadow:
+        0 14px 28px
+        rgba(32,53,110,.16),
+
+        inset 0 1px 0
+        rgba(255,255,255,.40);
+
+    transform-style:preserve-3d;
+
+    animation:
+        partnerFloat
+        4.5s
+        ease-in-out
+        infinite;
+
+    cursor:pointer;
+
+    transition:
+        transform .2s ease;
+}
+
+.partner:nth-child(2){
+    animation-delay:-.7s;
+}
+
+.partner:nth-child(3){
+    animation-delay:-1.4s;
+}
+
+.partner:nth-child(4){
+    animation-delay:-2.1s;
+}
+
+.partner:nth-child(5){
+    animation-delay:-2.8s;
+}
+
+.partner:nth-child(6){
+    animation-delay:-3.5s;
+}
+
+@keyframes partnerFloat{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            rotateX(0)
+            rotateY(0);
+    }
+
+    50%{
+        transform:
+            translateY(-6px)
+            rotateX(2deg)
+            rotateY(-3deg);
+    }
+}
+
+.partner::before{
+    content:"";
+
+    position:absolute;
+
+    width:75px;
+    height:150px;
+
+    left:-110px;
+
+    top:-35px;
+
+    background:
+        rgba(255,255,255,.25);
+
+    transform:
+        rotate(28deg);
+
+    transition:
+        .7s;
+}
+
+.partner:active::before{
+    left:160%;
+}
+
+.partner-logo{
+    position:relative;
+
+    z-index:2;
+
+    transform:
+        translateZ(25px);
+
+    font-weight:1000;
+
+    text-shadow:
+        2px 3px 0
+        rgba(0,0,0,.10),
+
+        0 7px 12px
+        rgba(0,0,0,.13);
+}
+
+/* =====================================================
+   PARTNER STYLES
+===================================================== */
+
+.tiktok{
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #e8edf8
+        );
+}
+
+.tiktok .partner-logo{
+    font-size:23px;
+    color:#111;
+}
+
+.myntra{
+    background:
+        linear-gradient(
+            145deg,
+            #ff991d,
+            #ef4775
+        );
+}
+
+.myntra .partner-logo{
+    color:white;
+
+    font-family:Georgia,serif;
+
+    font-size:23px;
+}
+
+.amazon{
+    background:
+        linear-gradient(
+            145deg,
+            #31ca60,
+            #00a846
+        );
+}
+
+.amazon .partner-logo{
+    color:white;
+
+    font-size:23px;
+}
+
+.flipkart{
+    background:
+        linear-gradient(
+            145deg,
+            #050505,
+            #242424
+        );
+}
+
+.flipkart .partner-logo{
+    color:#1787ff;
+
+    font-size:21px;
+}
+
+.snapdeal{
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f2f4f8
+        );
+}
+
+.snapdeal .partner-logo{
+    color:#599bc7;
+
+    font-size:22px;
+}
+
+.etsy{
+    background:
+        linear-gradient(
+            145deg,
+            #ed713f,
+            #b94d25
+        );
+}
+
+.etsy .partner-logo{
+    color:white;
+
+    font-family:Georgia,serif;
+
+    font-size:29px;
+}
+
+/* =====================================================
+   FLOATING PARTICLES
+===================================================== */
+
+.particle{
+    position:fixed;
+
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:
+        rgba(70,105,255,.25);
+
+    pointer-events:none;
+
+    animation:
+        particleMove
+        7s
+        linear
+        infinite;
+
+    z-index:0;
+}
+
+.p1{
+    left:10%;
+    bottom:15%;
+}
+
+.p2{
+    left:82%;
+    bottom:35%;
+
+    animation-delay:2s;
+}
+
+.p3{
+    left:30%;
+    top:30%;
+
+    animation-delay:4s;
+}
+
+@keyframes particleMove{
+
+    0%{
+        transform:
+            translateY(0)
+            scale(.8);
+
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    80%{
+        opacity:1;
+    }
+
+    100%{
+        transform:
+            translateY(-180px)
+            scale(1.8);
+
+        opacity:0;
+    }
+}
+
+/* =====================================================
+   BOTTOM NAV
+===================================================== */
+
+.bottom-nav{
+    position:fixed;
+
+    z-index:50;
+
+    bottom:0;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    width:100%;
+
+    max-width:480px;
+
+    height:76px;
+
+    background:
+        rgba(255,255,255,.95);
+
+    backdrop-filter:
+        blur(18px);
+
+    border-top:
+        1px solid
+        rgba(110,125,170,.12);
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    align-items:center;
+
+    box-shadow:
+        0 -10px 30px
+        rgba(30,45,100,.08);
+}
+
+.nav-item{
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#9ca3b6;
+
+    font-size:8px;
+
+    font-weight:800;
+
+    cursor:pointer;
+}
+
+.nav-icon{
+    font-size:19px;
+
+    margin-bottom:4px;
+}
+
+.nav-item.active{
+    color:#2582ea;
+}
+
+.obtain{
+    position:relative;
+}
+
+.obtain .nav-icon{
+    width:52px;
+    height:52px;
+
+    margin-top:-28px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #159cff,
+            #2362ec
+        );
+
+    color:white;
+
+    box-shadow:
+        0 10px 23px
+        rgba(35,105,239,.40),
+
+        0 0 0 7px
+        rgba(255,255,255,.95);
+
+    font-size:24px;
+}
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast{
+    position:fixed;
+
+    z-index:100;
+
+    left:50%;
+
+    bottom:90px;
+
+    transform:
+        translate(-50%,25px);
+
+    background:
+        #172450;
+
+    color:white;
+
+    padding:
+        11px 17px;
+
+    border-radius:14px;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.3s;
+
+    box-shadow:
+        0 12px 30px
+        rgba(0,0,0,.22);
+}
+
+.toast.show{
+    opacity:1;
+
+    transform:
+        translate(-50%,0);
+}
+
+/* =====================================================
+   DESKTOP
+===================================================== */
+
+@media(min-width:700px){
+
+    body{
+        padding:
+            25px 0;
+    }
+
+    .app{
+        border-radius:30px;
+
+        overflow:hidden;
+
+        box-shadow:
+            0 20px 70px
+            rgba(20,35,90,.13);
+    }
+
+    .bottom-nav{
+        position:absolute;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =================================================
+         TOP BAR
+    ================================================== -->
+
+    <header class="topbar">
+
+        <button
+            class="top-icon"
+            onclick="showToast('Help Support')">
+
+            🎧
+
+        </button>
+
+
+        <div class="logo-box">
+
+            <div class="main-logo">
+
+                <div class="logo-top"></div>
+
+                <div class="logo-bottom"></div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="top-icon"
+            onclick="showToast('Language')">
+
+            🌐
+
+        </button>
+
+    </header>
+
+
+    <!-- =================================================
+         HERO
+    ================================================== -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-small">
+                GRAND RAMADAN BAZAAR
+            </div>
+
+            <h1>
+                FASHION<br>
+                SHOW FORWARD
+            </h1>
+
+            <p>
+                Step into style and discover
+                amazing offers.
+            </p>
+
+            <button
+                class="hero-button"
+                onclick="showToast('Voucher opened')">
+
+                GET VOUCHER
+
+            </button>
+
+        </div>
+
+
+        <div class="hero-people">
+
+            <div class="person person-3">
+                <div class="person-head"></div>
+            </div>
+
+            <div class="person person-1">
+                <div class="person-head"></div>
+            </div>
+
+            <div class="person person-2">
+                <div class="person-head"></div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         QUICK ACTIONS
+    ================================================== -->
+
+    <section class="actions">
+
+        <div
+            class="action"
+            onclick="goTo('recharge.html')">
+
+            <div class="action-icon recharge">
+                ▣
+            </div>
+
+            <div class="action-name">
+                Recharge
+            </div>
+
+        </div>
+
+
+        <div
+            class="action"
+            onclick="goTo('withdraw.html')">
+
+            <div class="action-icon withdraw">
+                ↑
+            </div>
+
+            <div class="action-name">
+                Withdraw
+            </div>
+
+        </div>
+
+
+        <div
+            class="action"
+            onclick="goTo('invite.html')">
+
+            <div class="action-icon invite">
+                ♟
+            </div>
+
+            <div class="action-name">
+                Invite
+            </div>
+
+        </div>
+
+
+        <div
+            class="action"
+            onclick="showToast('Help Support')">
+
+            <div class="action-icon support">
+                ♧
+            </div>
+
+            <div class="action-name">
+                Support
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         ANNOUNCEMENT
+    ================================================== -->
+
+    <div class="notice">
+
+        <div class="notice-icon">
+            🔊
+        </div>
+
+        <div class="notice-track">
+
+            <div class="notice-text">
+                Welcome to online shopping in Bangladesh with TaskHub
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         BALANCE
+    ================================================== -->
+
+    <section
+        class="balance-card"
+        id="balanceCard">
+
+        <div class="phone">
+            📱 01316232424
+        </div>
+
+        <div class="score">
+            🛡 Score 100
+        </div>
+
+        <div class="balance-title">
+            AVAILABLE BALANCE
+        </div>
+
+        <div class="balance">
+            ৳60.00
+        </div>
+
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <span class="stat-label">
+                    Today's earnings
+                </span>
+
+                <span class="stat-value">
+                    ৳0.00
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <span class="stat-label">
+                    Financial revenue
+                </span>
+
+                <span class="stat-value">
+                    ৳0.00
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <span class="stat-label">
+                    Freeze amount
+                </span>
+
+                <span class="stat-value">
+                    ৳0.00
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         INFORMATION TITLE
+    ================================================== -->
+
+    <div class="section-title">
+
+        Information
+
+        <small>
+            View all
+        </small>
+
+    </div>
+
+
+    <!-- =================================================
+         WITHDRAWAL LIST
+    ================================================== -->
+
+    <section class="withdrawals">
+
+        <div class="withdraw-item">
+
+            <div class="check">
+                ✓
+            </div>
+
+            <div class="withdraw-info">
+
+                <b>
+                    016******50 Withdrawal successful
+                </b>
+
+                <small>
+                    2026-08-14
+                </small>
+
+            </div>
+
+            <div class="amount">
+                ৳230.00
+            </div>
+
+        </div>
+
+
+        <div class="withdraw-item">
+
+            <div class="check">
+                ✓
+            </div>
+
+            <div class="withdraw-info">
+
+                <b>
+                    019******90 Withdrawal successful
+                </b>
+
+                <small>
+                    2026-08-14
+                </small>
+
+            </div>
+
+            <div class="amount">
+                ৳230.00
+            </div>
+
+        </div>
+
+
+        <div class="withdraw-item">
+
+            <div class="check">
+                ✓
+            </div>
+
+            <div class="withdraw-info">
+
+                <b>
+                    019******90 Withdrawal successful
+                </b>
+
+                <small>
+                    2026-08-14
+                </small>
+
+            </div>
+
+            <div class="amount">
+                ৳230.00
+            </div>
+
+        </div>
+
+
+        <div class="withdraw-item">
+
+            <div class="check">
+                ✓
+            </div>
+
+            <div class="withdraw-info">
+
+                <b>
+                    018******34 Withdrawal successful
+                </b>
+
+                <small>
+                    2026-08-14
+                </small>
+
+            </div>
+
+            <div class="amount">
+                ৳230.00
+            </div>
+
+        </div>
+
+
+        <div class="withdraw-item">
+
+            <div class="check">
+                ✓
+            </div>
+
+            <div class="withdraw-info">
+
+                <b>
+                    018******14 Withdrawal successful
+                </b>
+
+                <small>
+                    2026-08-14
+                </small>
+
+            </div>
+
+            <div class="amount">
+                ৳330.00
+            </div>
+
+        </div>
+
+
+        <div class="withdraw-item">
+
+            <div class="check">
+                ✓
+            </div>
+
+            <div class="withdraw-info">
+
+                <b>
+                    018******45 Withdrawal successful
+                </b>
+
+                <small>
+                    2026-08-14
+                </small>
+
+            </div>
+
+            <div class="amount">
+                ৳230.00
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         INFORMATION BUTTONS
+    ================================================== -->
+
+    <section class="info-grid">
+
+        <div
+            class="info-box"
+            onclick="showToast('About Us')">
+
+            <div class="info-icon">
+                ▰
+            </div>
+
+            <div class="info-text">
+                About Us
+            </div>
+
+        </div>
+
+
+        <div
+            class="info-box"
+            onclick="showToast('Withdrawal information')">
+
+            <div class="info-icon">
+                ⬟
+            </div>
+
+            <div class="info-text">
+                About withdrawal
+            </div>
+
+        </div>
+
+
+        <div
+            class="info-box info-box-wide"
+            onclick="showToast('Investment information')">
+
+            <div class="info-icon">
+                ▤
+            </div>
+
+            <div class="info-text">
+                About investment income
+            </div>
+
+        </div>
+
+
+        <div
+            class="info-box info-box-wide"
+            onclick="showToast('Financial income information')">
+
+            <div class="info-icon">
+                ▣
+            </div>
+
+            <div class="info-text">
+                About financial income
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         PARTNERS
+    ================================================== -->
+
+    <div class="section-title partner-title">
+
+        Partner
+
+        <small>
+            Explore
+        </small>
+
+    </div>
+
+
+    <section class="partners">
+
+        <div
+            class="partner tiktok"
+            onclick="showToast('TikTok')">
+
+            <div class="partner-logo">
+                ♪ TikTok
+            </div>
+
+        </div>
+
+
+        <div
+            class="partner myntra"
+            onclick="showToast('Myntra')">
+
+            <div class="partner-logo">
+                Myntra
+            </div>
+
+        </div>
+
+
+        <div
+            class="partner amazon"
+            onclick="showToast('Amazon')">
+
+            <div class="partner-logo">
+                amazon
+            </div>
+
+        </div>
+
+
+        <div
+            class="partner flipkart"
+            onclick="showToast('Flipkart')">
+
+            <div class="partner-logo">
+                Flipkart
+            </div>
+
+        </div>
+
+
+        <div
+            class="partner snapdeal"
+            onclick="showToast('Snapdeal')">
+
+            <div class="partner-logo">
+                snapdeal
+            </div>
+
+        </div>
+
+
+        <div
+            class="partner etsy"
+            onclick="showToast('Etsy')">
+
+            <div class="partner-logo">
+                Etsy
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         BOTTOM NAVIGATION
+    ================================================== -->
+
+    <nav class="bottom-nav">
+
+        <div
+            class="nav-item active"
+            onclick="goTo('home.html')">
+
+            <div class="nav-icon">
+                ⌂
+            </div>
+
+            Home
+
+        </div>
+
+
+        <div
+            class="nav-item"
+            onclick="goTo('recharge.html')">
+
+            <div class="nav-icon">
+                ▣
+            </div>
+
+            Recharge
+
+        </div>
+
+
+        <div
+            class="nav-item obtain"
+            onclick="showToast('Obtain')">
+
+            <div class="nav-icon">
+                ϟ
+            </div>
+
+            Obtain
+
+        </div>
+
+
+        <div
+            class="nav-item"
+            onclick="goTo('task.html')">
+
+            <div class="nav-icon">
+                ☷
+            </div>
+
+            Task
+
+        </div>
+
+
+        <div
+            class="nav-item"
+            onclick="goTo('account.html')">
+
+            <div class="nav-icon">
+                ♙
+            </div>
+
+            Account
+
+        </div>
+
+    </nav>
+
+</div>
+
+
+<!-- FLOATING PARTICLES -->
+
+<div class="particle p1"></div>
+<div class="particle p2"></div>
+<div class="particle p3"></div>
+
+
+<!-- TOAST -->
+
+<div
+    class="toast"
+    id="toast">
+
+    Done
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   PAGE NAVIGATION
+===================================================== */
+
+function goTo(page){
+
+    window.location.href = page;
+
+}
+
+
+/* =====================================================
+   TOAST MESSAGE
+===================================================== */
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent =
+        message;
+
+    toast.classList.add("show");
+
+    clearTimeout(
+        window.toastTimer
+    );
+
+    window.toastTimer =
+        setTimeout(function(){
+
+            toast.classList.remove("show");
+
+        },1800);
+}
+
+
+/* =====================================================
+   PARTNER 3D TOUCH / MOUSE
+===================================================== */
+
+document
+.querySelectorAll(".partner")
+.forEach(function(card){
+
+    card.addEventListener(
+        "mousemove",
+        function(e){
+
+            const rect =
+                card.getBoundingClientRect();
+
+            const x =
+                e.clientX -
+                rect.left;
+
+            const y =
+                e.clientY -
+                rect.top;
+
+            const rotateY =
+                ((x / rect.width) - .5)
+                * 12;
+
+            const rotateX =
+                ((y / rect.height) - .5)
+                * -12;
+
+            card.style.transform =
+                "translateY(-6px) " +
+                "rotateX(" +
+                rotateX +
+                "deg) rotateY(" +
+                rotateY +
+                "deg)";
+
+        }
+    );
+
+
+    card.addEventListener(
+        "mouseleave",
+        function(){
+
+            card.style.transform =
+                "";
+
+        }
+    );
+
+});
+
+
+/* =====================================================
+   BALANCE CARD TOUCH 3D
+===================================================== */
+
+const balanceCard =
+    document.getElementById(
+        "balanceCard"
+    );
+
+document.addEventListener(
+    "touchmove",
+    function(e){
+
+        if(
+            !e.touches ||
+            !e.touches.length
+        ){
+            return;
+        }
+
+        const touch =
+            e.touches[0];
+
+        const center =
+            window.innerWidth / 2;
+
+        const difference =
+            touch.clientX -
+            center;
+
+        balanceCard.style.transform =
+            "perspective(900px) " +
+            "rotateY(" +
+            difference / 90 +
+            "deg)";
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+document.addEventListener(
+    "touchend",
+    function(){
+
+        balanceCard.style.transform =
+            "perspective(900px) rotateY(0deg)";
+
+    }
+);
+
+
+/* =====================================================
+   RANDOM FLOATING PARTICLES
+===================================================== */
+
+setInterval(
+    function(){
+
+        const particle =
+            document.createElement(
+                "div"
+            );
+
+        particle.className =
+            "particle";
+
+        particle.style.left =
+            Math.random() * 100 +
+            "%";
+
+        particle.style.bottom =
+            Math.random() * 20 +
+            "%";
+
+        document.body.appendChild(
+            particle
+        );
+
+        setTimeout(
+            function(){
+
+                particle.remove();
+
+            },
+            7000
+        );
+
+    },
+    1800
+);
+
+</script>
+
+</body>
+</html>
