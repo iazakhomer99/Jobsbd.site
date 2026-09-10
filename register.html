@@ -4,288 +4,389 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Register</title>
+
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: radial-gradient(circle at 50% 0%, #1b2650 0%, #0a0e27 55%, #05071a 100%);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 70px;
-    overflow-x: hidden;
-    position: relative;
-  }
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: radial-gradient(circle at 50% 0%, #1b2650 0%, #0a0e27 55%, #05071a 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 70px;
+  overflow-x: hidden;
+  position: relative;
+}
 
-  /* glowing floating orbs for depth */
-  body::before, body::after {
-    content: '';
-    position: fixed;
-    border-radius: 50%;
-    filter: blur(80px);
-    z-index: 0;
-  }
-  body::before {
-    width: 280px; height: 280px;
-    background: #00e5ff;
-    opacity: 0.18;
-    top: -60px; left: -60px;
-  }
-  body::after {
-    width: 320px; height: 320px;
-    background: #a259ff;
-    opacity: 0.18;
-    bottom: -80px; right: -60px;
-  }
+body::before, body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+}
 
-  .login-container {
-    width: 100%;
-    max-width: 380px;
-    padding: 0 24px;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-  }
+body::before {
+  width: 280px;
+  height: 280px;
+  background: #00e5ff;
+  opacity: 0.18;
+  top: -60px;
+  left: -60px;
+}
 
-  .logo-wrap {
-    perspective: 600px;
-    margin-bottom: 36px;
-  }
+body::after {
+  width: 320px;
+  height: 320px;
+  background: #a259ff;
+  opacity: 0.18;
+  bottom: -80px;
+  right: -60px;
+}
 
-  .logo {
-    width: 90px;
-    height: 90px;
-    margin: 0 auto;
-    display: block;
-    filter: drop-shadow(0 10px 20px rgba(0, 229, 255, 0.35))
-            drop-shadow(0 0 25px rgba(162, 89, 255, 0.25));
-    animation: floatTilt 4s ease-in-out infinite;
-  }
+.login-container {
+  width: 100%;
+  max-width: 380px;
+  padding: 0 24px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
 
-  @keyframes floatTilt {
-    0%, 100% { transform: rotateY(-8deg) rotateX(4deg) translateY(0px); }
-    50% { transform: rotateY(8deg) rotateX(-4deg) translateY(-10px); }
-  }
+.logo-wrap {
+  perspective: 600px;
+  margin-bottom: 36px;
+}
 
-  .input-group {
-    display: flex;
-    align-items: center;
-    background: linear-gradient(145deg, rgba(30, 38, 74, 0.75), rgba(15, 20, 45, 0.75));
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 229, 255, 0.18);
-    border-radius: 14px;
-    padding: 18px 20px;
-    margin-bottom: 18px;
-    gap: 14px;
-    box-shadow:
-      0 8px 20px rgba(0, 0, 0, 0.35),
-      inset 0 1px 0 rgba(255, 255, 255, 0.05);
-    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
-  }
+.logo {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto;
+  display: block;
+  filter: drop-shadow(0 10px 20px rgba(0, 229, 255, 0.35))
+          drop-shadow(0 0 25px rgba(162, 89, 255, 0.25));
+  animation: floatTilt 4s ease-in-out infinite;
+}
 
-  .input-group:focus-within {
-    border-color: rgba(0, 229, 255, 0.6);
-    box-shadow:
-      0 8px 24px rgba(0, 0, 0, 0.4),
-      0 0 0 3px rgba(0, 229, 255, 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    transform: translateY(-2px);
+@keyframes floatTilt {
+  0%, 100% {
+    transform: rotateY(-8deg) rotateX(4deg) translateY(0px);
   }
-
-  .input-group .icon {
-    color: #00e5ff;
-    font-size: 20px;
-    flex-shrink: 0;
-    width: 22px;
-    text-align: center;
-    filter: drop-shadow(0 0 6px rgba(0, 229, 255, 0.6));
+  50% {
+    transform: rotateY(8deg) rotateX(-4deg) translateY(-10px);
   }
+}
 
-  .input-group input {
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #eaf0ff;
-    font-size: 17px;
-    width: 100%;
-    letter-spacing: 0.3px;
-  }
+.input-group {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(145deg, rgba(30, 38, 74, 0.75), rgba(15, 20, 45, 0.75));
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 229, 255, 0.18);
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 18px;
+  gap: 14px;
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
 
-  .input-group input::placeholder {
-    color: #6b76a8;
-  }
+.input-group:focus-within {
+  border-color: rgba(0, 229, 255, 0.6);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.4),
+    0 0 0 3px rgba(0, 229, 255, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
 
-  .btn {
-    display: block;
-    width: 100%;
-    border: none;
-    border-radius: 14px;
-    padding: 18px;
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 0.4px;
-    cursor: pointer;
-    margin-bottom: 16px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-  }
+.input-group .icon {
+  color: #00e5ff;
+  font-size: 20px;
+  flex-shrink: 0;
+  width: 22px;
+  text-align: center;
+  filter: drop-shadow(0 0 6px rgba(0, 229, 255, 0.6));
+}
 
-  .btn:active { transform: translateY(1px) scale(0.99); }
+.input-group input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #eaf0ff;
+  font-size: 17px;
+  width: 100%;
+  letter-spacing: 0.3px;
+}
 
-  .btn-register {
-    background: linear-gradient(135deg, #00e5ff 0%, #0077ff 100%);
-    color: #04101f;
-    box-shadow:
-      0 10px 25px rgba(0, 150, 255, 0.35),
-      0 0 20px rgba(0, 229, 255, 0.25),
-      inset 0 1px 0 rgba(255, 255, 255, 0.4);
-  }
+.input-group input::placeholder {
+  color: #6b76a8;
+}
 
-  .btn-register:hover {
-    filter: brightness(1.08);
-    box-shadow:
-      0 12px 30px rgba(0, 150, 255, 0.45),
-      0 0 28px rgba(0, 229, 255, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  }
+.btn {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 14px;
+  padding: 18px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  margin-bottom: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
 
-  .btn-login {
-    background: linear-gradient(135deg, #2a3466 0%, #1a2250 100%);
-    color: #c9d4ff;
-    border: 1px solid rgba(162, 89, 255, 0.35);
-    box-shadow:
-      0 8px 20px rgba(0, 0, 0, 0.35),
-      inset 0 1px 0 rgba(255, 255, 255, 0.06);
-  }
+.btn:active {
+  transform: translateY(1px) scale(0.99);
+}
 
-  .btn-login:hover {
-    border-color: rgba(162, 89, 255, 0.7);
-    box-shadow:
-      0 10px 24px rgba(0, 0, 0, 0.4),
-      0 0 18px rgba(162, 89, 255, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  }
+.btn-register {
+  background: linear-gradient(135deg, #00e5ff 0%, #0077ff 100%);
+  color: #04101f;
+  box-shadow:
+    0 10px 25px rgba(0, 150, 255, 0.35),
+    0 0 20px rgba(0, 229, 255, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
 
-  .error-msg {
-    color: #ff5c7a;
-    font-size: 14px;
-    margin-bottom: 14px;
-    display: none;
-    text-shadow: 0 0 10px rgba(255, 92, 122, 0.5);
-  }
+.btn-register:hover {
+  filter: brightness(1.08);
+  box-shadow:
+    0 12px 30px rgba(0, 150, 255, 0.45),
+    0 0 28px rgba(0, 229, 255, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.btn-login {
+  background: linear-gradient(135deg, #2a3466 0%, #1a2250 100%);
+  color: #c9d4ff;
+  border: 1px solid rgba(162, 89, 255, 0.35);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.btn-login:hover {
+  border-color: rgba(162, 89, 255, 0.7);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.4),
+    0 0 18px rgba(162, 89, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.error-msg {
+  color: #ff5c7a;
+  font-size: 14px;
+  margin-bottom: 14px;
+  display: none;
+  text-shadow: 0 0 10px rgba(255, 92, 122, 0.5);
+}
 </style>
 </head>
+
 <body>
 
-  <div class="login-container">
+<div class="login-container">
 
-    <div class="logo-wrap">
-      <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="logoGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#ff8a3d"/>
-            <stop offset="100%" stop-color="#e8491d"/>
-          </linearGradient>
-          <linearGradient id="logoGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#ffb84d"/>
-            <stop offset="100%" stop-color="#ff5a24"/>
-          </linearGradient>
-        </defs>
-        <path d="M50 5 L50 45 L20 60 Z" fill="url(#logoGrad1)"/>
-        <path d="M20 60 L50 45 L80 60 L50 95 Z" fill="url(#logoGrad2)"/>
-      </svg>
-    </div>
+  <div class="logo-wrap">
+    <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
 
-    <p class="error-msg" id="matchErrorMsg">পাসওয়ার্ড দুটো মিলছে না</p>
-    <p class="error-msg" id="codeErrorMsg">ইনভাইটেশন কোড আবশ্যক</p>
+      <defs>
+        <linearGradient id="logoGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#ff8a3d"/>
+          <stop offset="100%" stop-color="#e8491d"/>
+        </linearGradient>
 
-    <form id="registerForm">
-      <div class="input-group">
-        <span class="icon">&#128100;</span>
-        <input type="text" name="full_name" id="fullName" placeholder="full name" required>
-      </div>
+        <linearGradient id="logoGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#ffb84d"/>
+          <stop offset="100%" stop-color="#ff5a24"/>
+        </linearGradient>
+      </defs>
 
-      <div class="input-group">
-        <span class="icon">&#128222;</span>
-        <input type="tel" name="phone" placeholder="phone number" required>
-      </div>
+      <path d="M50 5 L50 45 L20 60 Z" fill="url(#logoGrad1)"/>
+      <path d="M20 60 L50 45 L80 60 L50 95 Z" fill="url(#logoGrad2)"/>
 
-      <div class="input-group">
-        <span class="icon">&#128274;</span>
-        <input type="password" name="password" id="password" placeholder="password" required>
-      </div>
-
-      <div class="input-group">
-        <span class="icon">&#128274;</span>
-        <input type="password" name="confirm_password" id="confirmPassword" placeholder="confirm password" required>
-      </div>
-
-      <div class="input-group">
-        <span class="icon">&#127873;</span>
-        <input type="text" name="invitation_code" id="invitationCode" placeholder="invitation code" required>
-      </div>
-
-      <button type="submit" class="btn btn-register">Register</button>
-    </form>
-
-    <button type="button" class="btn btn-login" onclick="window.location.href='index.html'">Already have an account? Log in</button>
-
+    </svg>
   </div>
 
-  <script>
-    document.getElementById('registerForm').addEventListener('submit', function(e) {
-      e.preventDefault();
+  <p class="error-msg" id="matchErrorMsg">
+    পাসওয়ার্ড দুটো মিলছে না
+  </p>
 
-      const password = document.getElementById('password').value;
-      const confirmPassword = document.getElementById('confirmPassword').value;
-      const invitationCode = document.getElementById('invitationCode').value.trim();
+  <p class="error-msg" id="codeErrorMsg">
+    ইনভাইটেশন কোড আবশ্যক
+  </p>
 
-      const fullName = document.getElementById('fullName').value.trim();
-      const phone = document.querySelector('input[name="phone"]').value.trim();
+  <p class="error-msg" id="phoneErrorMsg">
+    এই User ID দিয়ে আগে থেকেই account আছে
+  </p>
 
-      const matchErrorMsg = document.getElementById('matchErrorMsg');
-      const codeErrorMsg = document.getElementById('codeErrorMsg');
+  <form id="registerForm">
 
-      if (password !== confirmPassword) {
-        matchErrorMsg.style.display = 'block';
-        codeErrorMsg.style.display = 'none';
-        return;
-      }
+    <div class="input-group">
+      <span class="icon">&#128100;</span>
+      <input
+        type="text"
+        name="full_name"
+        id="fullName"
+        placeholder="full name"
+        required
+      >
+    </div>
 
-      matchErrorMsg.style.display = 'none';
+    <div class="input-group">
+      <span class="icon">&#128222;</span>
+      <input
+        type="tel"
+        name="phone"
+        id="phone"
+        placeholder="phone number"
+        required
+      >
+    </div>
 
-      if (invitationCode === '') {
-        codeErrorMsg.style.display = 'block';
-        return;
-      }
+    <div class="input-group">
+      <span class="icon">&#128274;</span>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="password"
+        required
+      >
+    </div>
 
-      codeErrorMsg.style.display = 'none';
+    <div class="input-group">
+      <span class="icon">&#128274;</span>
+      <input
+        type="password"
+        name="confirm_password"
+        id="confirmPassword"
+        placeholder="confirm password"
+        required
+      >
+    </div>
 
-      localStorage.setItem('fullName', fullName);
-      localStorage.setItem('userName', fullName);
-      localStorage.setItem('userPhone', phone);
-      localStorage.setItem('phone', phone);
-      localStorage.setItem('userPassword', password);
-      localStorage.setItem('invitationCode', invitationCode);
+    <div class="input-group">
+      <span class="icon">&#127873;</span>
+      <input
+        type="text"
+        name="invitation_code"
+        id="invitationCode"
+        placeholder="invitation code"
+        required
+      >
+    </div>
 
-      let userId = localStorage.getItem('userId');
+    <button type="submit" class="btn btn-register">
+      Register
+    </button>
 
-      if (!userId) {
-        userId =
-          'AH' +
-          Math.floor(
-            100000 + Math.random() * 900000
-          );
+  </form>
 
-        localStorage.setItem('userId', userId);
-      }
+  <button
+    type="button"
+    class="btn btn-login"
+    onclick="window.location.href='index.html'">
+    Already have an account? Log in
+  </button>
 
-      localStorage.setItem('loggedIn', 'true');
+</div>
 
-      window.location.href = 'dashboard.html';
-    });
-  </script>
+<script>
+document.getElementById('registerForm').addEventListener('submit', function(e) {
+
+  e.preventDefault();
+
+  const fullName =
+    document.getElementById('fullName').value.trim();
+
+  const phone =
+    document.getElementById('phone').value.trim();
+
+  const password =
+    document.getElementById('password').value;
+
+  const confirmPassword =
+    document.getElementById('confirmPassword').value;
+
+  const invitationCode =
+    document.getElementById('invitationCode').value.trim();
+
+  const matchErrorMsg =
+    document.getElementById('matchErrorMsg');
+
+  const codeErrorMsg =
+    document.getElementById('codeErrorMsg');
+
+  const phoneErrorMsg =
+    document.getElementById('phoneErrorMsg');
+
+
+  matchErrorMsg.style.display = 'none';
+  codeErrorMsg.style.display = 'none';
+  phoneErrorMsg.style.display = 'none';
+
+
+  /* Password check */
+  if (password !== confirmPassword) {
+
+    matchErrorMsg.style.display = 'block';
+
+    return;
+  }
+
+
+  /* Invitation code check */
+  if (invitationCode === '') {
+
+    codeErrorMsg.style.display = 'block';
+
+    return;
+  }
+
+
+  /*
+    Same phone number দিয়ে
+    দ্বিতীয় account তৈরি হতে দেবে না।
+  */
+
+  const registeredPhone =
+    localStorage.getItem('registeredPhone');
+
+
+  if (registeredPhone && phone === registeredPhone) {
+
+    phoneErrorMsg.style.display = 'block';
+
+    return;
+  }
+
+
+  /*
+    New account save
+  */
+
+  localStorage.setItem('registeredPhone', phone);
+  localStorage.setItem('registeredPassword', password);
+  localStorage.setItem('userPhone', phone);
+  localStorage.setItem('userPassword', password);
+  localStorage.setItem('fullName', fullName);
+
+
+  /*
+    Registration successful
+  */
+
+  window.location.href = 'dashboard.html';
+
+});
+</script>
 
 </body>
 </html>
