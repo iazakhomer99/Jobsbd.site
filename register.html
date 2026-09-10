@@ -236,9 +236,14 @@
   <script>
     document.getElementById('registerForm').addEventListener('submit', function(e) {
       e.preventDefault();
+
       const password = document.getElementById('password').value;
       const confirmPassword = document.getElementById('confirmPassword').value;
       const invitationCode = document.getElementById('invitationCode').value.trim();
+
+      const fullName = document.getElementById('fullName').value.trim();
+      const phone = document.querySelector('input[name="phone"]').value.trim();
+
       const matchErrorMsg = document.getElementById('matchErrorMsg');
       const codeErrorMsg = document.getElementById('codeErrorMsg');
 
@@ -247,16 +252,38 @@
         codeErrorMsg.style.display = 'none';
         return;
       }
+
       matchErrorMsg.style.display = 'none';
 
       if (invitationCode === '') {
         codeErrorMsg.style.display = 'block';
         return;
       }
+
       codeErrorMsg.style.display = 'none';
 
-      // এখানে এখনো কোনো backend নেই, তাই শুধু একটা বার্তা দেখানো হচ্ছে
-      alert('ফর্ম সঠিকভাবে পূরণ হয়েছে। Backend সেটআপ করার পর এখানে ডেটা সেভ হবে।');
+      localStorage.setItem('fullName', fullName);
+      localStorage.setItem('userName', fullName);
+      localStorage.setItem('userPhone', phone);
+      localStorage.setItem('phone', phone);
+      localStorage.setItem('userPassword', password);
+      localStorage.setItem('invitationCode', invitationCode);
+
+      let userId = localStorage.getItem('userId');
+
+      if (!userId) {
+        userId =
+          'AH' +
+          Math.floor(
+            100000 + Math.random() * 900000
+          );
+
+        localStorage.setItem('userId', userId);
+      }
+
+      localStorage.setItem('loggedIn', 'true');
+
+      window.location.href = 'dashboard.html';
     });
   </script>
 
